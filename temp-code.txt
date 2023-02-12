@@ -1,0 +1,5 @@
+  const filteredGuitars = useMemo(() => {
+    return guitar.filter(gtr => 
+      gtr.bodyMaterial.toLowerCase().includes(query.toLowerCase())
+    )
+  }, [guitar, query])
