@@ -1,0 +1,43 @@
+.header {
+	background-color: #af1a2f;
+	padding: 0;
+	margin: 0;
+	font-family: 'Kumbh Sans', sans-serif;
+}
+.nav {
+	padding: 0;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0 7rem;
+	font-size: 1.1rem;
+	font-weight: 600;
+}
+
+.rightLinks {
+	display: flex;
+	gap: 8rem;
+	padding: 0;
+}
+
+.productLinks {
+	margin: 0;
+	padding: 0;
+	display: flex;
+	gap: 3rem;
+}
+.navbarLink {
+	height: 100%;
+	padding: 1rem 0;
+	margin: 0;
+	display: flex;
+	align-items: stretch;
+}
+.navbarLink:hover {
+	filter: brightness(120%);
+	/* background-color: black; */
+}
+.socialsLinks {
+	display: flex;
+	gap: 1.5rem;
+}

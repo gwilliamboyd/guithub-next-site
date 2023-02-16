@@ -1,7 +1,7 @@
-import Link from 'next/link'
-import { client, urlFor } from '@/lib/client'
+import { client } from '@/lib/client'
 import { useMemo, useState } from 'react'
-import GuitarContainer from '@/components/GuitarContainer'
+import Navbar from '@/components/Navbar'
+// import GuitarContainer from '@/components/GuitarContainer'
 import { GuitarCard } from '@/components/GuitarCard'
 import Pagination from '@/components/Pagination'
 
@@ -51,9 +51,7 @@ export default function IndexPage({ guitars }) {
 
 	return (
 		<>
-			<header className='header'>
-				<h1>GuitHub</h1>
-			</header>
+			<Navbar />
 			<main className='main-container'>
 				<h1>Guitars:</h1>
 				<br />
