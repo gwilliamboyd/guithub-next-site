@@ -3,7 +3,8 @@
 
 :root {
 	--body-background-color: #222222;
-	--main-font-color: #ececec;
+	--main-font-color: #f1f1f1;
+	--main-red-color: #af1a2f;
 }
 
 * {
