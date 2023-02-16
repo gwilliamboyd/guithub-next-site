@@ -1,93 +1,91 @@
-import { client } from "@/lib/client";
-import { urlFor } from "@/lib/client";
+import Link from 'next/link'
+import { client, urlFor } from '@/lib/client'
 import { useMemo, useState } from 'react'
+import GuitarContainer from '@/components/GuitarContainer'
+import { GuitarCard } from '@/components/GuitarCard'
+import Pagination from '@/components/Pagination'
 
-export default function IndexPage({ guitar }) {
+export default function IndexPage({ guitars }) {
+	// const guitPerPage = 4
 
-  const [query, setQuery] = useState('')
-  // console.log(Object.keys(guitar[0]))
+	// State declaration
+	const [query, setQuery] = useState('')
+	// Pagination
+	const [currentPage, setCurrentPage] = useState(1)
+	const [guitPerPage] = useState(4)
+	// const [firstIndex, setFirstIndex] = useState(0)
+	// const [lastIndex, setLastIndex] = useState(firstIndex + guitPerPage)
 
-  const guitarValues = useMemo(() => {
-    // guitarKeys = Object.keys(guitar)
-    return Object.values(guitar)
-    
-  }, [guitar])
+	// Search bar
+	const filteredGuitars = useMemo(() => {
+		return guitars.filter(guitar =>
+			Object.values(guitar)
+				.map(String)
+				.some(v => v.toLowerCase().includes(query.toLowerCase()))
+		)
+	}, [guitars, query])
+	// Set guitars per page
+	// let firstIndex = 0
+	// let lastIndex
 
-/*   const filteredGuitars = guitar.filter(gtr => {
-    return Object.values(gtr).filter(value => {
-      return value.toString().includes(query.toLowerCase())
-    })
-  }) */
+	/*	const nextPage = () => {
+		setFirstIndex(lastIndex)
+		setLastIndex(lastIndex + guitPerPage)
+		console.log(`First Index: ${firstIndex} Last Index: ${lastIndex}`)
+		return firstIndex, lastIndex
+	}
+ 	const currentGuitars = useMemo(() => {
+		if (firstIndex > 8) {
+			console.log('end of list')
+			return
+		} else {
+			return filteredGuitars.slice(firstIndex, lastIndex)
+		}
+	}, [filteredGuitars, firstIndex, lastIndex])
+ */
 
-  const filteredGuitars = useMemo(() => {
-    return guitar.filter(gtr => Object
-      .values(gtr)
-      .map(String)
-      .some(v => v.toLowerCase().includes(query.toLowerCase())))
-  }, [guitar, query])
+	const lastIndex = currentPage * guitPerPage
+	const firstIndex = lastIndex - guitPerPage
+	const currentGuitars = filteredGuitars.slice(firstIndex, lastIndex)
+	const paginate = pageNumber => setCurrentPage(pageNumber)
 
-  return (
-    <>
-      <header>
-        <h1>Sanity + Next.js</h1>
-      </header>
-      <main>
-        <h2>Guitars:</h2>
-        <br />
-        <div className="guitars-container">
-          {guitar.length > 0 && (
-            <ul>
-              {filteredGuitars.map((gtr) => (
-                <li key={gtr._id}>
-                  <em>{gtr?.name}</em>
-                  <br />
-                  <img 
-                    src={urlFor(gtr.image).url()}
-                    width={200}
-                    height={'auto'}
-                  />
-                </li>
-              ))}
-            </ul>
-          )}
-        </div>
-        <input type="text"
-        value={query} 
-        onChange={e => setQuery(e.target.value)}
-        />
-        {
-          guitar.length > 0 && (
-            <ul>
-              {guitar.filter}
-            </ul>
-          )
-        }
-        {!guitar.length > 0 && <p>No guitar to show</p>}
-        {/* {guitar.length > 0 && (
-          <div>
-            <pre>{JSON.stringify(guitar, null, 2)}</pre>
-          </div>
-        )} */}
-        {!guitar.length > 0 && (
-          <div>
-            <div>¯\_(ツ)_/¯</div>
-            <p>
-              Your data will show up here when you've configured everything
-              correctly
-            </p>
-          </div>
-        )}
-      </main>
-    </>
-  );
+	return (
+		<>
+			<header className='header'>
+				<h1>GuitHub</h1>
+			</header>
+			<main className='main-container'>
+				<h1>Guitars:</h1>
+				<br />
+				{guitars.length > 0 && (
+					<div className='guitars-container'>
+						{currentGuitars.map(guitar => (
+							<GuitarCard guitar={guitar} />
+						))}
+					</div>
+				)}
+				<input
+					type='text'
+					value={query}
+					onChange={e => setQuery(e.target.value)}
+				/>
+				<Pagination
+					guitPerPage={guitPerPage}
+					totalGuitars={filteredGuitars.length}
+					paginate={paginate}
+				/>{' '}
+			</main>
+		</>
+	)
 }
 
 export async function getStaticProps() {
-  const guitar = await client.fetch(`*[_type == "guitar"]`)
+	const guitars = await client.fetch(`*[_type == "guitar"]`)
+	// const guitars = await res.json()
 
-  return {
-    props: {
-      guitar
-    }
-  };
+	return {
+		props: {
+			guitars,
+		},
+	}
 }
