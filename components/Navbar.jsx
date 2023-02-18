@@ -2,6 +2,10 @@ import Image from 'next/image'
 import NavbarLink from './NavbarLink'
 import navbarStyles from '../styles/Navbar.module.css'
 import guithubLogo from '../public/images/guithub-logo-white.png'
+import SocialIcon from './SocialIcon'
+import instagramIcon from '@/public/images/instagram-icon-white.svg'
+import youtubeIcon from '@/public/images/youtube-icon-white.svg'
+import reverbIcon from '@/public/images/reverb-icon-white.svg'
 const Navbar = () => {
 	return (
 		<header className={navbarStyles.header}>
@@ -33,9 +37,9 @@ const Navbar = () => {
 						/>
 					</ul>
 					<ul className={navbarStyles.socialsLinks}>
-						<li>FB</li>
-						<li>Rv</li>
-						<li>YT</li>
+						<SocialIcon iconUrl={instagramIcon} />
+						<SocialIcon iconUrl={youtubeIcon} />
+						<SocialIcon iconUrl={reverbIcon} />
 					</ul>
 				</div>
 			</nav>
