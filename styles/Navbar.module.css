@@ -1,9 +1,8 @@
 .header {
 	background-color: var(--main-red-color);
-	color: var(--main-font-color);
+	color: var(--light-font-color);
 	padding: 0;
 	margin: 0;
-	font-family: 'Kumbh Sans', sans-serif;
 }
 .nav {
 	padding: 0;
@@ -14,19 +13,19 @@
 	font-size: 1.1rem;
 	font-weight: 600;
 }
-
+.storeLogo:hover {
+	filter: brightness(0%);
+}
 .rightLinks {
 	display: flex;
 	align-items: stretch;
-	gap: 6rem;
+	gap: 3rem;
 	padding: 0;
 }
-
 .productLinks {
 	margin: 0;
 	padding: 0;
 	display: flex;
-	/* gap: 2rem; */
 }
 .navbarLink {
 	height: 100%;
@@ -44,4 +43,12 @@
 .socialsLinks {
 	display: flex;
 	gap: 1.4rem;
+}
+.cartIcon {
+	display: flex;
+	align-items: center;
+	filter: invert();
+}
+.cartIcon > * {
+	fill: white;
 }

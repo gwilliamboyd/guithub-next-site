@@ -1,10 +1,10 @@
 import Link from 'next/link'
-const NavbarLink = ({ navbarStyles, name }) => {
+const NavbarLink = ({ navbarStyles, name, destination }) => {
 	return (
 		<li>
 			<Link
 				legacyBehavior
-				href='#'>
+				href={`${destination}`}>
 				<a className={navbarStyles.navbarLink}>{name}</a>
 			</Link>
 		</li>

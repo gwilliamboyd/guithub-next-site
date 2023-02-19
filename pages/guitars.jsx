@@ -1,11 +1,10 @@
 import { client } from '@/lib/client'
 import { useMemo, useState } from 'react'
-import Navbar from '@/components/Navbar'
 // import GuitarContainer from '@/components/GuitarContainer'
 import { GuitarCard } from '@/components/GuitarCard'
 import Pagination from '@/components/Pagination'
 
-export default function IndexPage({ guitars }) {
+export default function Guitars({ guitars }) {
 	// const guitPerPage = 4
 
 	// State declaration
@@ -51,10 +50,14 @@ export default function IndexPage({ guitars }) {
 
 	return (
 		<>
-			<Navbar />
 			<main className='main-container'>
 				<h1>Guitars:</h1>
 				<br />
+				<input
+					type='text'
+					value={query}
+					onChange={e => setQuery(e.target.value)}
+				/>
 				{guitars.length > 0 && (
 					<div className='guitars-container'>
 						{currentGuitars.map(guitar => (
@@ -62,11 +65,6 @@ export default function IndexPage({ guitars }) {
 						))}
 					</div>
 				)}
-				<input
-					type='text'
-					value={query}
-					onChange={e => setQuery(e.target.value)}
-				/>
 				<Pagination
 					guitPerPage={guitPerPage}
 					totalGuitars={filteredGuitars.length}
