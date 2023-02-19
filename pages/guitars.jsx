@@ -1,8 +1,9 @@
 import { client } from '@/lib/client'
 import { useMemo, useState } from 'react'
-// import GuitarContainer from '@/components/GuitarContainer'
-import { GuitarCard } from '@/components/GuitarCard'
-import Pagination from '@/components/Pagination'
+import Image from 'next/image'
+import HeroCarousel from '@/components/HeroCarousel'
+import GuitarContainer from '@/components/GuitarContainer'
+import categoryStyles from '@/styles/Category.module.css'
 
 export default function Guitars({ guitars }) {
 	// const guitPerPage = 4
@@ -50,26 +51,22 @@ export default function Guitars({ guitars }) {
 
 	return (
 		<>
-			<main className='main-container'>
-				<h1>Guitars:</h1>
-				<br />
-				<input
-					type='text'
-					value={query}
-					onChange={e => setQuery(e.target.value)}
-				/>
-				{guitars.length > 0 && (
-					<div className='guitars-container'>
-						{currentGuitars.map(guitar => (
-							<GuitarCard guitar={guitar} />
-						))}
-					</div>
-				)}
-				<Pagination
+			<main className={categoryStyles.mainContainer}>
+				<h1 className={categoryStyles.categoryHeading}>Electric Guitars</h1>
+				<HeroCarousel categoryStyles={categoryStyles} />
+				<GuitarContainer
+					guitars={guitars}
+					categoryStyles={categoryStyles}
+					query={query}
+					setQuery={setQuery}
+					currentPage={currentPage}
+					setCurrentPage={setCurrentPage}
 					guitPerPage={guitPerPage}
-					totalGuitars={filteredGuitars.length}
+					lastIndex={lastIndex}
+					firstIndex={firstIndex}
+					currentGuitars={currentGuitars}
 					paginate={paginate}
-				/>{' '}
+				/>
 			</main>
 		</>
 	)

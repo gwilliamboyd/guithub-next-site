@@ -1,29 +1,87 @@
-const GuitarContainer = guitars => {
-	console.log(guitars)
+import { client } from '@/lib/client'
+import { useMemo, useState } from 'react'
+// import GuitarContainer from '@/components/GuitarContainer'
+import { GuitarCard } from '@/components/GuitarCard'
+import Pagination from '@/components/Pagination'
+
+export default function GuitarContainer({
+	guitars,
+	categoryStyles,
+	query,
+	setQuery,
+	guitPerPage,
+	currentGuitars,
+	paginate,
+}) {
+	// const [firstIndex, setFirstIndex] = useState(0)
+	// const [lastIndex, setLastIndex] = useState(firstIndex + guitPerPage)
+
+	// Search bar
+	const filteredGuitars = useMemo(() => {
+		return guitars.filter(guitar =>
+			Object.values(guitar)
+				.map(String)
+				.some(v => v.toLowerCase().includes(query.toLowerCase()))
+		)
+	}, [guitars, query])
+	// FLIP BETWEEN PAGES ONE AT A TIME
+	/* 
+	// Set guitars per page
+	let firstIndex = 0
+	let lastIndex
+
+		const nextPage = () => {
+		setFirstIndex(lastIndex)
+		setLastIndex(lastIndex + guitPerPage)
+		console.log(`First Index: ${firstIndex} Last Index: ${lastIndex}`)
+		return firstIndex, lastIndex
+	}
+ 	const currentGuitars = useMemo(() => {
+		if (firstIndex > 8) {
+			console.log('end of list')
+			return
+		} else {
+			return filteredGuitars.slice(firstIndex, lastIndex)
+		}
+	}, [filteredGuitars, firstIndex, lastIndex])
+ */
+
 	return (
-		<ul>
-			{guitars.map(gtr => (
-				<li key={gtr._id}>
-					<em>{gtr?.name}</em>
-					<br />
-					<img
-						src={urlFor(gtr.image).url()}
-						width={200}
-						height={'auto'}
-					/>
-				</li>
-			))}
-		</ul>
+		<>
+			<input
+				className={categoryStyles.searchBar}
+				type='text'
+				value={query}
+				onChange={e => setQuery(e.target.value)}
+			/>
+			<main className={categoryStyles.guitarsContainer}>
+				{guitars.length > 0 && (
+					<div className={categoryStyles.guitarsContainer}>
+						{currentGuitars.map(guitar => (
+							<GuitarCard
+								guitar={guitar}
+								categoryStyles={categoryStyles}
+							/>
+						))}
+					</div>
+				)}
+			</main>
+			<Pagination
+				guitPerPage={guitPerPage}
+				totalGuitars={filteredGuitars.length}
+				paginate={paginate}
+			/>{' '}
+		</>
 	)
 }
 
-/* export async function getStaticProps() {
-	const guitar = await client.fetch(`*[_type == "guitar"]`)
+export async function getStaticProps() {
+	const guitars = await client.fetch(`*[_type == "guitar"]`)
+	// const guitars = await res.json()
 
 	return {
 		props: {
-			guitar,
+			guitars,
 		},
 	}
-} */
-export default GuitarContainer
+}

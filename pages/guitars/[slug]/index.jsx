@@ -4,7 +4,7 @@ const Guitar = ({ guitar }) => {
 	return (
 		<>
 			<div>
-				<h1>Guitar: {guitar.name}</h1>
+				<h1>{guitar.name}</h1>
 				<img
 					src={urlFor(guitar.image).url()}
 					width={300}

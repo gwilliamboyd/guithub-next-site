@@ -2,24 +2,26 @@ import { urlFor } from '@/lib/client'
 import Image from 'next/image'
 import Link from 'next/link'
 
-export const GuitarCard = ({ guitar }) => {
+export const GuitarCard = ({ guitar, categoryStyles }) => {
 	return (
-		<Link
-			href={{ pathname: '/guitars/[slug]' }}
-			as={`/guitars/${guitar.slug.current}`}
-			legacyBehavior>
-			<a>
-				<div
-					className='guitar-card'
-					key={guitar.slug.current}>
-					<b>{guitar.name}</b>
-					<img
-						src={urlFor(guitar.image).url()}
-						width={250}
-						height={'auto'}
-					/>
-				</div>
-			</a>
-		</Link>
+		<div className={categoryStyles.guitarCard}>
+			<Link
+				href={{ pathname: '/guitars/[slug]' }}
+				as={`/guitars/${guitar.slug.current}`}
+				legacyBehavior>
+				<a>
+					<div
+						className={categoryStyles.guitarCard}
+						key={guitar.slug.current}>
+						<img
+							src={urlFor(guitar.image).url()}
+							width={250}
+							height={'auto'}
+						/>
+						<b>{guitar.name}</b>
+					</div>
+				</a>
+			</Link>
+		</div>
 	)
 }
