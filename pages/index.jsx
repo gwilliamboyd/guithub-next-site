@@ -5,7 +5,6 @@ import Link from 'next/link'
 export const StateContext = createContext()
 
 export default function IndexPage({ guitars, amps }) {
-	// const [stateContext, setStateContext] = useState(guitars)
 	const [gtrs, setGtrs] = useState(guitars)
 	const [amplifiers, setAmplifiers] = useState(amps)
 	useEffect(() => {
@@ -13,7 +12,6 @@ export default function IndexPage({ guitars, amps }) {
 		console.log(amplifiers)
 	})
 
-	// console.log(guitars)
 	return (
 		<StateContext.Provider value={gtrs}>
 			<>
@@ -32,7 +30,7 @@ export default function IndexPage({ guitars, amps }) {
 	)
 }
 
-export const getStaticProps = async () => {
+export const getServerSideProps = async () => {
 	const guitarQuery = '*[_type == "guitar"]'
 	const guitars = await client.fetch(guitarQuery)
 

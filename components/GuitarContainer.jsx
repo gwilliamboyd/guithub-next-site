@@ -1,6 +1,5 @@
 import { client } from '@/lib/client'
 import { useMemo, useState } from 'react'
-// import GuitarContainer from '@/components/GuitarContainer'
 import { GuitarCard } from '@/components/GuitarCard'
 import Pagination from '@/components/Pagination'
 

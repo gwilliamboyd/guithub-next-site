@@ -30,7 +30,6 @@ export const getStaticProps = async ({ params: { slug } }) => {
 
 	const guitar = await client.fetch(query)
 	const guitars = await client.fetch(guitarsQuery)
-	// const guitars = await res.json()
 	console.log(guitar)
 
 	return {
@@ -40,18 +39,6 @@ export const getStaticProps = async ({ params: { slug } }) => {
 		},
 	}
 }
-/* export async function getStaticProps(context) {
-	const guitars = await client.fetch(`*[_type == "guitar"]`)
-	// const guitars = await res.json()
-	console.log(guitars)
-
-	return {
-		props: {
-			guitars,
-		},
-	}
-} */
-
 export const getStaticPaths = async () => {
 	const query = `*[_type == "guitar"] {
 			slug {
@@ -65,30 +52,10 @@ export const getStaticPaths = async () => {
 		},
 	}))
 
-	// const guitars = await res.json()
-	// console.log(guitars)
 	return {
 		paths,
 		fallback: false,
 	}
 }
-/* export const getStaticPaths = async () => {
-	const guitars = await fetch(
-		`https://ggll893a.api.sanity.io/v2023-02-14[_type == "guitar"]`
-	)
-	// const guitars = await res.json()
-	// console.log(guitars)
-	for (const [key, value] of Object.entries(guitars)) {
-		console.log(`${key}: ${value}`)
-	}
-	const slugs = guitars.map(gtr => gtr.slug)
-	// console.log(slugs)
-	const paths = slugs.map(slug => ({ params: { slug: slug.toString() } }))
-
-	return {
-		paths,
-		fallback: false,
-	}
-} */
 
 export default Guitar
