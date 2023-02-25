@@ -1,14 +1,11 @@
-import { useContext, useState } from 'react'
-import Layout from '@/components/Layout'
+import { client } from '@/lib/client'
 import '@/styles/styles.css'
 import { StateContext } from '@/context/StateContext'
 
-export default function App({ Component, pageProps }) {
+export default function App({ Component, pageProps, guitars, amps }) {
 	return (
 		<StateContext>
-			<Layout>
-				<Component {...pageProps} />
-			</Layout>
+			<Component {...pageProps} />
 		</StateContext>
 	)
 }

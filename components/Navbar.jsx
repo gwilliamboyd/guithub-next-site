@@ -13,9 +13,8 @@ import youtubeIcon from '@/public/images/youtube-icon-white.svg'
 import reverbIcon from '@/public/images/reverb-icon-white.svg'
 import shoppingCartIcon from '@/public/images/shopping-cart.svg'
 import SearchBar from './SearchBar'
-import { set } from 'mongoose'
 
-const Navbar = ({ query, setQuery, guitars }) => {
+const Navbar = ({ guitars }) => {
 	return (
 		<header className={navbarStyles.header}>
 			<nav className={navbarStyles.nav}>
@@ -35,8 +34,6 @@ const Navbar = ({ query, setQuery, guitars }) => {
 				</div>
 				<SearchBar
 					navbarStyles={navbarStyles}
-					query={query}
-					setQuery={setQuery}
 					guitars={guitars}
 				/>
 				<div className={navbarStyles.rightLinks}>

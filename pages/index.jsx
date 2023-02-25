@@ -1,8 +1,7 @@
 import { client } from '@/lib/client'
-import { createContext, useContext, useEffect, useMemo, useState } from 'react'
+import { useEffect, useState } from 'react'
 import Link from 'next/link'
-
-export const StateContext = createContext()
+import Navbar from '@/components/Navbar'
 
 export default function IndexPage({ guitars, amps }) {
 	const [gtrs, setGtrs] = useState(guitars)
@@ -13,20 +12,19 @@ export default function IndexPage({ guitars, amps }) {
 	})
 
 	return (
-		<StateContext.Provider value={gtrs}>
-			<>
-				<Link
-					legacyBehavior
-					href='/guitars'>
-					<a>Guitars</a>
-				</Link>
-				<Link
-					legacyBehavior
-					href='/searchResults'>
-					<a>Search results</a>
-				</Link>
-			</>
-		</StateContext.Provider>
+		<>
+			<Navbar guitars={guitars} />
+			<Link
+				legacyBehavior
+				href='/guitars'>
+				<a>Guitars</a>
+			</Link>
+			<Link
+				legacyBehavior
+				href='/searchResults'>
+				<a>Search results</a>
+			</Link>
+		</>
 	)
 }
 

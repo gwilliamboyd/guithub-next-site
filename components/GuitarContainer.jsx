@@ -1,4 +1,3 @@
-import { client } from '@/lib/client'
 import { useMemo, useState } from 'react'
 import { GuitarCard } from '@/components/GuitarCard'
 import Pagination from '@/components/Pagination'
@@ -12,6 +11,7 @@ export default function GuitarContainer({
 	currentGuitars,
 	paginate,
 }) {
+	console.log(guitars)
 	// const [firstIndex, setFirstIndex] = useState(0)
 	// const [lastIndex, setLastIndex] = useState(firstIndex + guitPerPage)
 
@@ -73,15 +73,4 @@ export default function GuitarContainer({
 			/>{' '}
 		</>
 	)
-}
-
-export async function getStaticProps() {
-	const guitars = await client.fetch(`*[_type == "guitar"]`)
-	// const guitars = await res.json()
-
-	return {
-		props: {
-			guitars,
-		},
-	}
 }

@@ -1,12 +1,14 @@
 import { client } from '@/lib/client'
 import { useMemo, useState } from 'react'
 import Image from 'next/image'
+import Navbar from '@/components/Navbar'
 import HeroCarousel from '@/components/HeroCarousel'
 import GuitarContainer from '@/components/GuitarContainer'
 import categoryStyles from '@/styles/Category.module.css'
 import { useStateContext } from '@/context/StateContext'
 
 export default function Guitars({ guitars }) {
+	console.log(guitars)
 	const { incQty, decQty } = useStateContext()
 
 	// State declaration
@@ -28,10 +30,11 @@ export default function Guitars({ guitars }) {
 	const firstIndex = lastIndex - guitPerPage
 	const currentGuitars = filteredGuitars.slice(firstIndex, lastIndex)
 	const paginate = pageNumber => setCurrentPage(pageNumber)
-	console.log(guitars)
+	// console.log(guitars)
 
 	return (
 		<>
+			<Navbar guitars={guitars} />
 			<main className={categoryStyles.mainContainer}>
 				<h1
 					className={categoryStyles.categoryHeading}
