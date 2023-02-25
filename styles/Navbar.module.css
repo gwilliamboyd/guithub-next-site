@@ -37,7 +37,7 @@
 }
 .navbarLink:hover {
 	filter: brightness(120%);
-	background-color: var(--main-font-color);
+	background-color: var(--light-font-color);
 	color: var(--main-red-color);
 }
 .socialsLinks {

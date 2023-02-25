@@ -10,9 +10,7 @@ export const GuitarCard = ({ guitar, categoryStyles }) => {
 				as={`/guitars/${guitar.slug.current}`}
 				legacyBehavior>
 				<a>
-					<div
-						className={categoryStyles.guitarCard}
-						key={guitar.slug.current}>
+					<div className={categoryStyles.guitarCard}>
 						<img
 							src={urlFor(guitar.image).url()}
 							width={250}

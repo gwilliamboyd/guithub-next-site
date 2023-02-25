@@ -8,6 +8,7 @@ const HeroCarousel = ({ categoryStyles }) => {
 				src={prsHero}
 				width={830}
 				height={429}
+				alt='PRS Guitar Sale!'
 			/>
 		</div>
 	)

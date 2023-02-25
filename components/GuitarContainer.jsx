@@ -59,6 +59,7 @@ export default function GuitarContainer({
 					<div className={categoryStyles.guitarsContainer}>
 						{currentGuitars.map(guitar => (
 							<GuitarCard
+								key={guitar._id}
 								guitar={guitar}
 								categoryStyles={categoryStyles}
 							/>

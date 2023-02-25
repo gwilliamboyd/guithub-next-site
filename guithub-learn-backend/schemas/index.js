@@ -1,2 +1,3 @@
-import guitar from "./guitar"
-export const schemaTypes = [guitar]
+import guitar from './guitar'
+import amp from './amp'
+export const schemaTypes = [guitar, amp]

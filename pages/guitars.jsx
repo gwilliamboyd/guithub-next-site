@@ -4,8 +4,10 @@ import Image from 'next/image'
 import HeroCarousel from '@/components/HeroCarousel'
 import GuitarContainer from '@/components/GuitarContainer'
 import categoryStyles from '@/styles/Category.module.css'
+import { useStateContext } from '@/context/StateContext'
 
 export default function Guitars({ guitars }) {
+	const { incQty, decQty } = useStateContext()
 	// const guitPerPage = 4
 
 	// State declaration
@@ -48,11 +50,16 @@ export default function Guitars({ guitars }) {
 	const firstIndex = lastIndex - guitPerPage
 	const currentGuitars = filteredGuitars.slice(firstIndex, lastIndex)
 	const paginate = pageNumber => setCurrentPage(pageNumber)
+	console.log(guitars)
 
 	return (
 		<>
 			<main className={categoryStyles.mainContainer}>
-				<h1 className={categoryStyles.categoryHeading}>Electric Guitars</h1>
+				<h1
+					className={categoryStyles.categoryHeading}
+					onClick={incQty}>
+					Electric Guitars
+				</h1>
 				<HeroCarousel categoryStyles={categoryStyles} />
 				<GuitarContainer
 					guitars={guitars}

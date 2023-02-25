@@ -1,11 +1,22 @@
-import { useMemo } from 'react'
-const SearchBar = ({ navbarStyles, query, setQuery }) => {
+import { useMemo, createContext, useState } from 'react'
+
+export const SearchContext = createContext()
+
+const SearchBar = ({ navbarStyles }) => {
+	const [query, setQuery] = useState('')
 	return (
 		<div className={navbarStyles.searchBar}>
 			<input
 				type='text'
 				value={query}
-				onChange={e => setQuery(e.target.value)}
+				// onSubmit={e => {
+				// 	e.preventDefault()
+				// 	setQuery(e.target.value)
+				// }}
+				onChange={e => {
+					setQuery(e.target.value)
+					console.log(query)
+				}}
 			/>
 		</div>
 	)
