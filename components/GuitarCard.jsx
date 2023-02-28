@@ -15,6 +15,7 @@ export const GuitarCard = ({ guitar, categoryStyles }) => {
 							src={urlFor(guitar.image).url()}
 							width={250}
 							height={350}
+							alt={guitar.name}
 						/>
 						<b>{guitar.name}</b>
 					</div>

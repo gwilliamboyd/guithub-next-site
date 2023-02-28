@@ -92,13 +92,12 @@ export const StateContext = ({ children }) => {
 	}
 
 	// Take in query from search bar
-	const handleSearch = () => {
-		const searchResults = products.filter(product =>
+	const handleSearch = query => {
+		return products.filter(product =>
 			Object.values(product)
 				.map(String)
 				.some(v => v.toLowerCase().includes(query.toLowerCase()))
 		)
-		console.log(searchResults)
 	}
 
 	return (
