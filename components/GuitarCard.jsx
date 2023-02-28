@@ -18,6 +18,7 @@ export const GuitarCard = ({ guitar, categoryStyles }) => {
 							alt={guitar.name}
 						/>
 						<b>{guitar.name}</b>
+						<b className={categoryStyles.guitarPrice}>${guitar.price}</b>
 					</div>
 				</a>
 			</Link>

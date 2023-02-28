@@ -36,8 +36,18 @@
 .guitarCard {
 	display: flex;
 	flex-direction: column;
-	justify-content: flex-start;
+	justify-content: space-between;
 	align-items: center;
 	gap: 1rem;
 	max-width: 250px;
+	/* min-height: 350px;
+	max-height: 500px; */
+	height: 480px;
+}
+.guitarPrice {
+	font-weight: 900;
+	font-size: 2rem;
+	color: var(--main-red-color);
+	display: flex;
+	align-self: flex-start;
 }
