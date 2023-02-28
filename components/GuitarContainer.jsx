@@ -47,12 +47,6 @@ export default function GuitarContainer({
 
 	return (
 		<>
-			<input
-				className={categoryStyles.searchBar}
-				type='text'
-				value={query}
-				onChange={e => setQuery(e.target.value)}
-			/>
 			<main className={categoryStyles.guitarsContainer}>
 				{guitars.length > 0 && (
 					<div className={categoryStyles.guitarsContainer}>

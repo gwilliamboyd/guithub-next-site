@@ -13,7 +13,6 @@ export default function IndexPage({ guitars, amps }) {
 
 	return (
 		<>
-			<Navbar guitars={guitars} />
 			<Link
 				legacyBehavior
 				href='/guitars'>
@@ -28,7 +27,7 @@ export default function IndexPage({ guitars, amps }) {
 	)
 }
 
-export const getServerSideProps = async () => {
+export const getStaticProps = async () => {
 	const guitarQuery = '*[_type == "guitar"]'
 	const guitars = await client.fetch(guitarQuery)
 

@@ -34,7 +34,6 @@ export default function Guitars({ guitars }) {
 
 	return (
 		<>
-			<Navbar guitars={guitars} />
 			<main className={categoryStyles.mainContainer}>
 				<h1
 					className={categoryStyles.categoryHeading}

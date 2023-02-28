@@ -11,10 +11,10 @@ export const GuitarCard = ({ guitar, categoryStyles }) => {
 				legacyBehavior>
 				<a>
 					<div className={categoryStyles.guitarCard}>
-						<img
+						<Image
 							src={urlFor(guitar.image).url()}
 							width={250}
-							height={'auto'}
+							height={350}
 						/>
 						<b>{guitar.name}</b>
 					</div>

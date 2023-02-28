@@ -92,7 +92,7 @@ export const StateContext = ({ children }) => {
 	}
 
 	// Take in query from search bar
-	const handleSearch = (query, products) => {
+	const handleSearch = () => {
 		const searchResults = products.filter(product =>
 			Object.values(product)
 				.map(String)
@@ -126,7 +126,7 @@ export const StateContext = ({ children }) => {
 // Import this variable in components to access all contexts
 export const useStateContext = () => useContext(Context)
 
-export const getServerSideProps = async () => {
+/* export const getServerSideProps = async () => {
 	const guitarQuery = '*[_type == "guitar"]'
 	const guitars = await client.fetch(guitarQuery)
 
@@ -136,4 +136,4 @@ export const getServerSideProps = async () => {
 	return {
 		props: { guitars, amps },
 	}
-}
+} */

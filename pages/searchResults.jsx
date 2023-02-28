@@ -1,36 +1,35 @@
 import { useState, useMemo } from 'react'
+import { useRouter, Router } from 'next/router'
 import { client } from '@/lib/client'
+import Navbar from '@/components/Navbar'
+import { GuitarCard } from '@/components/GuitarCard'
 import searchStyles from '../styles/Search.module.css'
+import categoryStyles from '../styles/Category.module.css'
+import { useStateContext } from '@/context/StateContext'
+// import Router from 'next/router'
 
-const searchResults = ({ guitars, amps, query }) => {
-	console.log(guitars)
-	console.log(amps)
-
-	// const guitPerPage = 4
-
-	// State declaration
-	const [results, setResults] = useState(query)
-	// Pagination
-	const [currentPage, setCurrentPage] = useState(1)
-	const [guitPerPage] = useState(4)
-	// const [firstIndex, setFirstIndex] = useState(0)
-	// const [lastIndex, setLastIndex] = useState(firstIndex + guitPerPage)
-
-	// Search bar
-	const filteredItems = useMemo(() => {
-		return results.filter(result =>
-			Object.values(result)
+const searchResults = ({ guitars, amps }) => {
+	const router = useRouter()
+	console.log(router.query)
+	// console.log(query)
+	// const { handleSearch } = useStateContext()
+	const query = router.query
+	// const queryResults = handleSearch
+	/* 	const filteredGuitars = useMemo(() => {
+		return guitars.filter(guitar =>
+			Object.values(guitar)
 				.map(String)
 				.some(v => v.toLowerCase().includes(query.toLowerCase()))
 		)
-	}, [results, query])
-
+	}, [guitars, query]) */
 	return (
 		<>
 			<div className={searchStyles.searchMaster}>Search results:</div>
-			{filteredItems.map(item => (
-				<div className={searchStyles.searchItem}></div>
-			))}
+			<div className={searchStyles.resultsContainer}>
+				{guitars.map(guitar => (
+					<div key={guitar._id}>{guitar.name}</div>
+				))}
+			</div>
 		</>
 	)
 }

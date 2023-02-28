@@ -1,11 +1,13 @@
-import { client } from '@/lib/client'
 import '@/styles/styles.css'
 import { StateContext } from '@/context/StateContext'
+import Layout from '@/components/Layout'
 
-export default function App({ Component, pageProps, guitars, amps }) {
+export default function App({ Component, pageProps }) {
 	return (
 		<StateContext>
-			<Component {...pageProps} />
+			<Layout>
+				<Component {...pageProps} />
+			</Layout>
 		</StateContext>
 	)
 }
