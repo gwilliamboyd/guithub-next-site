@@ -1,14 +1,31 @@
 import { client, urlFor } from '@/lib/client'
+import Image from 'next/image'
+import productStyles from '../../../styles/Cart.module.css'
+import { useContext } from 'react'
+import { useStateContext } from '@/context/StateContext'
 
 const Guitar = ({ guitar }) => {
+	const {
+		cartOpen,
+		cartItems,
+		totalPrice,
+		totalQuantities,
+		setCartItems,
+		setTotalPrice,
+		setTotalQuantities,
+		onAdd,
+		onRemove,
+		toggleCartItemQuantity,
+	} = useStateContext()
 	return (
-		<>
-			<div>
+		<div className={productStyles.productMaster}>
+			<div className={productStyles.productBody}>
 				<h1>{guitar.name}</h1>
-				<img
+				<Image
 					src={urlFor(guitar.image).url()}
 					width={300}
-					height={'auto'}
+					height={450}
+					alt={guitar.name}
 				/>
 				<br />
 				<h2>Product Description</h2>
@@ -20,7 +37,7 @@ const Guitar = ({ guitar }) => {
 				{/* Need to find property to display for block text */}
 				{/* <p>{guitar.productDescription.block}</p> */}
 			</div>
-		</>
+		</div>
 	)
 }
 

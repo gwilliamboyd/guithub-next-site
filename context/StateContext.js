@@ -3,6 +3,7 @@ import { createContext, useContext, useState, useEffect } from 'react'
 const Context = createContext()
 
 export const StateContext = ({ children }) => {
+	const [cartOpen, setCartOpen] = useState(false)
 	const [cartItems, setCartItems] = useState([])
 	const [totalPrice, setTotalPrice] = useState(0)
 	const [totalQuantities, setTotalQuantities] = useState(0)
@@ -75,13 +76,13 @@ export const StateContext = ({ children }) => {
 		}
 	}
 
-	// Increase quantity of items added to the cart
+	// Increase quantity of items to add to the cart
 	const incQty = () => {
 		console.log('increase qty')
 		setQty(prevQty => prevQty + 1)
 	}
 
-	// Decrease quantity of items added to the cart
+	// Decrease quantity of items to add to the cart
 	const decQty = () => {
 		setQty(prevQty => {
 			if (prevQty - 1 < 1) return 1
@@ -103,6 +104,7 @@ export const StateContext = ({ children }) => {
 	return (
 		<Context.Provider
 			value={{
+				cartOpen,
 				cartItems,
 				totalPrice,
 				totalQuantities,
@@ -124,15 +126,3 @@ export const StateContext = ({ children }) => {
 
 // Import this variable in components to access all contexts
 export const useStateContext = () => useContext(Context)
-
-/* export const getServerSideProps = async () => {
-	const guitarQuery = '*[_type == "guitar"]'
-	const guitars = await client.fetch(guitarQuery)
-
-	const ampQuery = '*[_type == "amp"]'
-	const amps = await client.fetch(ampQuery)
-
-	return {
-		props: { guitars, amps },
-	}
-} */
