@@ -1,7 +1,7 @@
 import { client, urlFor } from '@/lib/client'
 import Image from 'next/image'
-import productStyles from '../../../styles/Cart.module.css'
-import { useContext } from 'react'
+import productStyles from '../../../styles/Product.module.css'
+import { useContext, useEffect } from 'react'
 import { useStateContext } from '@/context/StateContext'
 
 const Guitar = ({ guitar }) => {
@@ -17,19 +17,30 @@ const Guitar = ({ guitar }) => {
 		onRemove,
 		toggleCartItemQuantity,
 	} = useStateContext()
+
+	const handleClick = e => {
+		console.log('add to cart')
+		onAdd(guitar, 1)
+	}
+	/* 	useEffect(() => {
+		console.log(cartItems)
+	}, []) */
 	return (
 		<div className={productStyles.productMaster}>
 			<div className={productStyles.productBody}>
-				<h1>{guitar.name}</h1>
+				<p className={productStyles.productHeading}>{guitar.name}</p>
 				<Image
 					src={urlFor(guitar.image).url()}
 					width={300}
 					height={450}
 					alt={guitar.name}
 				/>
-				<br />
+				<button
+					className={productStyles.addToCart}
+					onClick={handleClick}>
+					Add To Cart
+				</button>
 				<h2>Product Description</h2>
-				<br />
 				<p>
 					<b>Body Material: </b>
 					{guitar.bodyMaterial}

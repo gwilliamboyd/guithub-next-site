@@ -5,3 +5,34 @@
 	justify-content: center;
 	align-items: flex-start;
 }
+.productHeading {
+	width: 100%;
+	font-size: 2rem;
+	font-weight: 900;
+	padding: 1rem 0;
+	margin: 0;
+	text-align: center;
+}
+.productBody {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-start;
+	gap: 2rem;
+}
+.addToCart {
+	border: 0;
+	border-radius: 4px;
+	background-color: var(--main-red-color);
+	color: var(--light-font-color);
+	font-family: inherit;
+	font-weight: 600;
+	font-size: 1.1rem;
+	padding: 0.75rem 1.8rem;
+}
+.addToCart:hover {
+	outline: 3px solid var(--main-red-color);
+	background-color: var(--light-font-color);
+	color: var(--main-red-color);
+}
