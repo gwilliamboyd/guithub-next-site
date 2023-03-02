@@ -15,6 +15,21 @@ export const StateContext = ({ children }) => {
 	let foundProduct
 	let index
 
+	/* 	const updateLocalStorage = cartItems => {
+		localStorage.setItem('cart', JSON.stringify(cartItems))
+		const cartLocalStorage = JSON.stringify(cartItems)
+		return cartLocalStorage
+	} */
+
+	function persistCartFromLocal() {
+		const cartFromLocalStorage = JSON.parse(
+			localStorage.getItem('cart') || '[]'
+		)
+		setCartItems(cartFromLocalStorage)
+	}
+	useEffect(() => {
+		localStorage.setItem('cart', JSON.stringify(cartItems))
+	}, [cartItems])
 	// Add item to cart
 	const onAdd = (product, quantity) => {
 		const checkCartProduct = cartItems.find(item => item._id === product._id)
@@ -30,10 +45,17 @@ export const StateContext = ({ children }) => {
 					}
 			})
 			setCartItems(updatedCartItems)
+			localStorage.setItem('cart', JSON.stringify(cartItems))
+			// const cartFromLocalStorage = JSON.parse(
+			// 	localStorage.getItem('cart') || '[]'
+			// )
+			// setCartItems(cartFromLocalStorage)
+			persistCartFromLocal()
 		} else {
 			product.quantity = quantity
 			setCartItems([...cartItems, { ...product }])
 		}
+		// updateLocalStorage(cartItems)
 	}
 
 	// Remove item from cart
@@ -107,6 +129,7 @@ export const StateContext = ({ children }) => {
 				cartOpen,
 				cartItems,
 				totalPrice,
+				persistCartFromLocal,
 				totalQuantities,
 				qty,
 				incQty,

@@ -4,11 +4,14 @@ import { useContext, useEffect } from 'react'
 import { urlFor } from '@/lib/client'
 import { useStateContext } from '@/context/StateContext'
 
+// const cartFromLocalStorage = JSON.parse(localStorage.getItem('cart') || '[]')
+
 const Cart = () => {
 	const {
 		cartOpen,
 		cartItems,
 		totalPrice,
+		persistCartFromLocal,
 		totalQuantities,
 		setCartItems,
 		setTotalPrice,
@@ -18,10 +21,11 @@ const Cart = () => {
 		toggleCartItemQuantity,
 	} = useStateContext()
 
-	// Console log Cart Items
+	// setCartItems(cartFromLocalStorage)
+
 	useEffect(() => {
-		console.log(cartItems)
-	})
+		persistCartFromLocal()
+	}, [])
 
 	return (
 		<>
@@ -34,15 +38,27 @@ const Cart = () => {
 								key={item.key}
 								className={cartStyles.cartEntry}>
 								<Image
-									src={urlFor(item.image).url()}
+									src={urlFor(item?.image).url()}
 									width={67}
 									height={100}
 									alt={`${item.name}`}
 									className={cartStyles.cartEntryImage}
 								/>
-								<div className={cartStyles.cartEntryName}>{item.name}</div>
+								<div className={cartStyles.cartEntryName}>
+									{item.name}
+									<br />
+									<span className={cartStyles.cartEntryPrice}>
+										{`$${item.price}`}
+									</span>
+								</div>
 							</div>
 						))}
+					</div>
+					<div className={cartStyles.cartTotalPrice}>
+						Total:{' '}
+						<span className={cartStyles.cartTotalPriceNumber}>
+							{`$${totalPrice}`}
+						</span>
 					</div>
 					<button
 						className={cartStyles.checkoutButton}
