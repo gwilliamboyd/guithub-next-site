@@ -5,8 +5,6 @@ import { useContext, useEffect } from 'react'
 import { urlFor } from '@/lib/client'
 import { useStateContext } from '@/context/StateContext'
 
-// const cartFromLocalStorage = JSON.parse(localStorage.getItem('cart') || '[]')
-
 const Cart = () => {
 	const {
 		cartOpen,
@@ -22,14 +20,26 @@ const Cart = () => {
 		toggleCartItemQuantity,
 	} = useStateContext()
 
+	// Set total cart price from Local Storage cart items
+	const totalCartPriceLocal = cartFromLocalStorage => {
+		const localCartPriceArray = cartFromLocalStorage.map(x => x.price)
+		const localCartTotal = localCartPriceArray.reduce((a, b) => {
+			return a + b
+		}, 0)
+		console.log(localCartTotal)
+		return localCartTotal
+	}
+
+	// Get Local Storage cart items on each page load
 	useEffect(() => {
 		const cartFromLocalStorage = JSON.parse(
 			localStorage.getItem('cart') || '[]'
 		)
-		console.log(cartFromLocalStorage)
 		setCartItems(cartFromLocalStorage)
+		setTotalPrice(totalCartPriceLocal(cartFromLocalStorage))
 	}, [])
 
+	// Put each item added to cart in Local Storage cart array
 	useEffect(() => {
 		localStorage.setItem('cart', JSON.stringify(cartItems))
 	}, [cartItems])
