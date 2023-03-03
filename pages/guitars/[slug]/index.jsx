@@ -22,9 +22,10 @@ const Guitar = ({ guitar }) => {
 		console.log('add to cart')
 		onAdd(guitar, 1)
 	}
-	/* 	useEffect(() => {
-		console.log(cartItems)
-	}, []) */
+	useEffect(() => {
+		console.log(guitar)
+		console.log(guitar.productDescription[0].children[0].text)
+	}, [])
 	return (
 		<div className={productStyles.productMaster}>
 			<div className={productStyles.productBody}>
@@ -41,12 +42,15 @@ const Guitar = ({ guitar }) => {
 					Add To Cart
 				</button>
 				<h2>Product Description</h2>
+				<p className={productStyles.prodDesc}>
+					{guitar.productDescription[0].children[0].text}
+				</p>
+				{/* <p>{Object.values(guitar.productDescription)}</p> */}
 				<p>
 					<b>Body Material: </b>
 					{guitar.bodyMaterial}
 				</p>
 				{/* Need to find property to display for block text */}
-				{/* <p>{guitar.productDescription.block}</p> */}
 			</div>
 		</div>
 	)
