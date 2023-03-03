@@ -8,18 +8,11 @@ export const StateContext = ({ children }) => {
 	const [totalPrice, setTotalPrice] = useState(0)
 	const [totalQuantities, setTotalQuantities] = useState(0)
 	const [qty, setQty] = useState(1)
-	// const [query, setQuery] = useState('')
 	const [results, setResults] = useState([])
 	const [products, setProducts] = useState([])
 
 	let foundProduct
 	let index
-
-	/* 	const updateLocalStorage = cartItems => {
-		localStorage.setItem('cart', JSON.stringify(cartItems))
-		const cartLocalStorage = JSON.stringify(cartItems)
-		return cartLocalStorage
-	} */
 
 	function persistCartFromLocal() {
 		const cartFromLocalStorage = JSON.parse(
@@ -27,9 +20,14 @@ export const StateContext = ({ children }) => {
 		)
 		setCartItems(cartFromLocalStorage)
 	}
-	useEffect(() => {
-		localStorage.setItem('cart', JSON.stringify(cartItems))
-	}, [cartItems])
+
+	//Remove item from Local Storage
+	/* 	function removeFromLocalStorage(index) {
+		const cartFromLocalStorage = JSON.parse(
+			localStorage.getItem('cart') || '[]'
+		)
+		cartFromLocalStorage.splice(0, index)
+	} */
 	// Add item to cart
 	const onAdd = (product, quantity) => {
 		const checkCartProduct = cartItems.find(item => item._id === product._id)
@@ -45,17 +43,11 @@ export const StateContext = ({ children }) => {
 					}
 			})
 			setCartItems(updatedCartItems)
-			localStorage.setItem('cart', JSON.stringify(cartItems))
-			// const cartFromLocalStorage = JSON.parse(
-			// 	localStorage.getItem('cart') || '[]'
-			// )
-			// setCartItems(cartFromLocalStorage)
-			persistCartFromLocal()
+			// localStorage.setItem('cart', JSON.stringify(cartItems))
 		} else {
 			product.quantity = quantity
 			setCartItems([...cartItems, { ...product }])
 		}
-		// updateLocalStorage(cartItems)
 	}
 
 	// Remove item from cart
@@ -71,6 +63,9 @@ export const StateContext = ({ children }) => {
 			prevTotalQuantities => prevTotalQuantities - foundProduct.quantity
 		)
 		setCartItems(newCartItems)
+		removeFromLocalStorage(product)
+		// localStorage.removeItem('cart'[0])
+		// persistCartFromLocal()
 	}
 
 	// Change quantity of items already in cart

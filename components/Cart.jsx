@@ -1,3 +1,4 @@
+'use client'
 import cartStyles from '../styles/Cart.module.css'
 import Image from 'next/image'
 import { useContext, useEffect } from 'react'
@@ -21,11 +22,22 @@ const Cart = () => {
 		toggleCartItemQuantity,
 	} = useStateContext()
 
-	// setCartItems(cartFromLocalStorage)
+	useEffect(() => {
+		const cartFromLocalStorage = JSON.parse(
+			localStorage.getItem('cart') || '[]'
+		)
+		console.log(cartFromLocalStorage)
+		setCartItems(cartFromLocalStorage)
+	}, [])
 
 	useEffect(() => {
-		persistCartFromLocal()
-	}, [])
+		localStorage.setItem('cart', JSON.stringify(cartItems))
+	}, [cartItems])
+
+	/* 	function handleRemoveClick() {
+		console.log('on remove')
+		onRemove(item)
+	} */
 
 	return (
 		<>
@@ -50,6 +62,7 @@ const Cart = () => {
 									<span className={cartStyles.cartEntryPrice}>
 										{`$${item.price}`}
 									</span>
+									<button onClick={() => onRemove(item)}>X</button>
 								</div>
 							</div>
 						))}
