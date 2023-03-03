@@ -63,7 +63,7 @@ export const StateContext = ({ children }) => {
 			prevTotalQuantities => prevTotalQuantities - foundProduct.quantity
 		)
 		setCartItems(newCartItems)
-		removeFromLocalStorage(product)
+		// removeFromLocalStorage(product)
 		// localStorage.removeItem('cart'[0])
 		// persistCartFromLocal()
 	}
