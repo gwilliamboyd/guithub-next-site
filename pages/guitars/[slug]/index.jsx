@@ -18,14 +18,6 @@ const Guitar = ({ guitar }) => {
 		toggleCartItemQuantity,
 	} = useStateContext()
 
-	const handleClick = e => {
-		console.log('add to cart')
-		onAdd(guitar, 1)
-	}
-	useEffect(() => {
-		console.log(guitar)
-		console.log(guitar.productDescription[0].children[0].text)
-	}, [])
 	return (
 		<div className={productStyles.productMaster}>
 			<div className={productStyles.productBody}>
@@ -38,7 +30,7 @@ const Guitar = ({ guitar }) => {
 				/>
 				<button
 					className={productStyles.addToCart}
-					onClick={handleClick}>
+					onClick={() => onAdd(guitar, 1)}>
 					Add To Cart
 				</button>
 				<h2>Product Description</h2>

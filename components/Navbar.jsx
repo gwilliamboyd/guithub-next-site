@@ -6,6 +6,7 @@ import NavbarLink from './NavbarLink'
 import SocialIcon from './SocialIcon'
 // Stylesheet
 import navbarStyles from '../styles/Navbar.module.css'
+import cartStyles from '../styles/Cart.module.css'
 // Images & icons
 import guithubLogo from '../public/images/guithub-logo-white.png'
 import instagramIcon from '@/public/images/instagram-icon-white.svg'
@@ -13,8 +14,11 @@ import youtubeIcon from '@/public/images/youtube-icon-white.svg'
 import reverbIcon from '@/public/images/reverb-icon-white.svg'
 import shoppingCartIcon from '@/public/images/shopping-cart.svg'
 import SearchBar from './SearchBar'
+import Cart from './Cart'
+import { useStateContext } from '@/context/StateContext'
 
 const Navbar = ({ guitars }) => {
+	const { cartOpen, setCartOpen } = useStateContext()
 	return (
 		<header className={navbarStyles.header}>
 			<nav className={navbarStyles.nav}>
@@ -67,7 +71,9 @@ const Navbar = ({ guitars }) => {
 					<Link
 						legacyBehavior
 						href='#'>
-						<a className={navbarStyles.cartIcon}>
+						<a
+							className={navbarStyles.cartIcon}
+							onClick={() => setCartOpen(!cartOpen)}>
 							<Image
 								src={shoppingCartIcon}
 								width={35}
@@ -76,6 +82,7 @@ const Navbar = ({ guitars }) => {
 							/>
 						</a>
 					</Link>
+					{cartOpen && <Cart cartStyles={cartStyles} />}
 				</div>
 			</nav>
 		</header>

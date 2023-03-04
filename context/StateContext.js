@@ -122,6 +122,7 @@ export const StateContext = ({ children }) => {
 		<Context.Provider
 			value={{
 				cartOpen,
+				setCartOpen,
 				cartItems,
 				totalPrice,
 				persistCartFromLocal,

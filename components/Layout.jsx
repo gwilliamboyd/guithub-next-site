@@ -5,7 +5,7 @@ const Layout = ({ children }) => {
 	return (
 		<>
 			<Navbar />
-			<Cart />
+			{/* <Cart /> */}
 			<div className={styles.container}>
 				<main className={styles.main}>{children}</main>
 			</div>
