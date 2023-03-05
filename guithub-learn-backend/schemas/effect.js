@@ -9,6 +9,11 @@ export default {
       type: 'string',
     },
     {
+      name: 'brand',
+      title: 'Brand',
+      type: 'string',
+    },
+    {
       name: 'image',
       title: 'Image',
       type: 'image',
@@ -48,11 +53,6 @@ export default {
       title: 'Power Requirements',
       type: 'number',
       description: 'Number refers to volts of AC adapter, or no. of 9V batteries required',
-    },
-    {
-      name: 'trueBypass',
-      title: 'True Bypass?',
-      type: 'boolean',
     },
     {
       name: 'artistModel',
