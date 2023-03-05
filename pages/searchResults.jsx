@@ -39,13 +39,20 @@ const searchResults = ({ products }) => {
 export default searchResults
 
 export const getServerSideProps = async () => {
+	// Guitars
 	const guitarQuery = '*[_type == "guitar"]'
 	const guitars = await client.fetch(guitarQuery)
 
+	// Amps
 	const ampQuery = '*[_type == "amp"]'
 	const amps = await client.fetch(ampQuery)
-	// Combine guitars and amps into one search pool
-	const products = [...guitars, ...amps]
+
+	// Effects
+	const effectQuery = '*[_type == "effect"]'
+	const effects = await client.fetch(effectQuery)
+
+	// Combine all products into one search pool
+	const products = [...guitars, ...amps, ...effects]
 
 	return {
 		props: { products },

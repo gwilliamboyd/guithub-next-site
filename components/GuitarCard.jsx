@@ -35,10 +35,15 @@ export const GuitarCard = ({ product, categoryStyles }) => {
 					<div className={categoryStyles.guitarCard}>
 						<Image
 							src={urlFor(product.image).url()}
-							width={250}
-							height={350}
+							width={0}
+							height={0}
 							sizes='100vw'
-							style={{ width: '250px', height: 'auto' }}
+							style={{
+								maxWidth: '250px',
+								width: 'auto',
+								maxHeight: '350px',
+								height: 'auto',
+							}}
 							alt={product.name}
 						/>
 						<b>{product.name}</b>

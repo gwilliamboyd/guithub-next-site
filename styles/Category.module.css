@@ -40,8 +40,6 @@
 	align-items: center;
 	gap: 1rem;
 	max-width: 250px;
-	/* min-height: 350px;
-	max-height: 500px; */
 	height: 480px;
 }
 .guitarPrice {
