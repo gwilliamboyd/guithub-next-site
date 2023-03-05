@@ -1,5 +1,6 @@
 import { client, urlFor } from '@/lib/client'
 import Image from 'next/image'
+import RatingIcon from '@/components/RatingIcon'
 import productStyles from '../../../styles/Product.module.css'
 import { useContext, useEffect } from 'react'
 import { useStateContext } from '@/context/StateContext'
@@ -39,19 +40,56 @@ const Effect = ({ effect }) => {
 					</div>
 					<div className={productStyles.bodyRowTwo}>
 						<span className={productStyles.ourRating}>Rating:</span>
+						<span className={productStyles.rating}>
+							{`${effect.rating}/5`} {/* Icons to show star rating out of 5 */}
+							<RatingIcon />
+							<RatingIcon />
+							<RatingIcon />
+							<RatingIcon />
+							<RatingIcon />
+						</span>
 					</div>
-					<div className={productStyles.bodyRowThree}></div>
-					<div className={productStyles.bodyRowFour}></div>
-					<button
-						className={productStyles.addToCart}
-						onClick={() => onAdd(effect, 1)}>
-						Add To Cart
-					</button>
-
-					<p>
-						<b>Body Material: </b>
-						{effect.bodyMaterial}
-					</p>
+					<div className={productStyles.bodyRowThree}>
+						<div className={productStyles.addButton}>
+							<button
+								className={productStyles.addToCart}
+								onClick={() => onAdd(effect, 1)}>
+								Add To Cart
+							</button>
+						</div>
+						<div className={productStyles.shippingInfo}>
+							<div className={productStyles.shippingCost}>
+								Shipping:{' '}
+								<span className={productStyles.shippingPrice}>$229.99</span>
+							</div>
+							<div className={productStyles.usaCanada}>
+								1-2 Weeks (USA and Canada)
+							</div>
+							<div className={productStyles.international}>
+								3-4 Weeks (International)
+							</div>
+						</div>
+					</div>
+					<div className={productStyles.bodyRowFour}>
+						<span className={productStyles.quickSpecs}>Quick Specs:</span>
+						<div className={productStyles.quickSpecsList}>
+							<div>
+								<span className={productStyles.emphasizedSpec}>Chorus</span>{' '}
+								Effect
+							</div>
+							<div>
+								<span className={productStyles.emphasizedSpec}>
+									{effect.isAnalog ? 'Analog' : 'Digital'}
+								</span>{' '}
+								Circuitry
+							</div>
+							<div>
+								{' '}
+								<span className={productStyles.emphasizedSpec}>9V </span>Power
+								Required
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 			<h2>Product Description</h2>
