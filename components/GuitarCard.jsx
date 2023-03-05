@@ -28,8 +28,8 @@ export const GuitarCard = ({ product, categoryStyles }) => {
 	return (
 		<div className={categoryStyles.guitarCard}>
 			<Link
-				href={{ pathname: '/guitars/[slug]' }}
-				as={`/guitars/${product.slug.current}`}
+				href={{ pathname: `/${product._type}s/[slug]` }}
+				as={`/${product._type}s/${product.slug.current}`}
 				legacyBehavior>
 				<a>
 					<div className={categoryStyles.guitarCard}>
