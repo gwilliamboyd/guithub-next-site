@@ -3,13 +3,14 @@ import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import Navbar from '@/components/Navbar'
 
-export default function IndexPage({ guitars, amps }) {
+export default function IndexPage({ products, guitars, amps }) {
 	const [gtrs, setGtrs] = useState(guitars)
 	const [amplifiers, setAmplifiers] = useState(amps)
-	useEffect(() => {
+	/* 	useEffect(() => {
 		console.log(gtrs)
 		console.log(amplifiers)
-	})
+		console.log(products)
+	}) */
 
 	return (
 		<>

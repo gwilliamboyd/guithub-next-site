@@ -3,12 +3,11 @@ import { useMemo, useState } from 'react'
 import Image from 'next/image'
 import Navbar from '@/components/Navbar'
 import HeroCarousel from '@/components/HeroCarousel'
-import GuitarContainer from '@/components/GuitarContainer'
+import ProductContainer from '@/components/ProductContainer'
 import categoryStyles from '@/styles/Category.module.css'
 import { useStateContext } from '@/context/StateContext'
 
 export default function Guitars({ guitars }) {
-	console.log(guitars)
 	const { incQty, decQty } = useStateContext()
 
 	// State declaration
@@ -18,17 +17,17 @@ export default function Guitars({ guitars }) {
 	const [guitPerPage] = useState(4)
 
 	// Search bar
-	const filteredGuitars = useMemo(() => {
+	/* const filteredGuitars = useMemo(() => {
 		return guitars.filter(guitar =>
 			Object.values(guitar)
 				.map(String)
 				.some(v => v.toLowerCase().includes(query.toLowerCase()))
 		)
-	}, [guitars, query])
+	}, [guitars, query]) */
 
 	const lastIndex = currentPage * guitPerPage
 	const firstIndex = lastIndex - guitPerPage
-	const currentGuitars = filteredGuitars.slice(firstIndex, lastIndex)
+	const currentGuitars = guitars.slice(firstIndex, lastIndex)
 	const paginate = pageNumber => setCurrentPage(pageNumber)
 	// console.log(guitars)
 
@@ -41,8 +40,8 @@ export default function Guitars({ guitars }) {
 					Electric Guitars
 				</h1>
 				<HeroCarousel categoryStyles={categoryStyles} />
-				<GuitarContainer
-					guitars={guitars}
+				<ProductContainer
+					products={guitars}
 					categoryStyles={categoryStyles}
 					query={query}
 					setQuery={setQuery}
@@ -51,7 +50,7 @@ export default function Guitars({ guitars }) {
 					guitPerPage={guitPerPage}
 					lastIndex={lastIndex}
 					firstIndex={firstIndex}
-					currentGuitars={currentGuitars}
+					currentProducts={currentGuitars}
 					paginate={paginate}
 				/>
 			</main>

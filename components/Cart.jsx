@@ -1,21 +1,17 @@
-'use client'
 import cartStyles from '../styles/Cart.module.css'
 import Image from 'next/image'
-import { useContext, useEffect } from 'react'
+import { useEffect } from 'react'
 import { urlFor } from '@/lib/client'
 import { useStateContext } from '@/context/StateContext'
 
 const Cart = () => {
 	const {
-		cartOpen,
 		cartItems,
 		totalPrice,
-		persistCartFromLocal,
 		totalQuantities,
 		setCartItems,
 		setTotalPrice,
 		setTotalQuantities,
-		onAdd,
 		onRemove,
 		toggleCartItemQuantity,
 	} = useStateContext()
@@ -26,7 +22,6 @@ const Cart = () => {
 		const localCartTotal = localCartPriceArray.reduce((a, b) => {
 			return a + b
 		}, 0)
-		console.log(localCartTotal)
 		return localCartTotal
 	}
 
@@ -44,11 +39,6 @@ const Cart = () => {
 		localStorage.setItem('cart', JSON.stringify(cartItems))
 	}, [cartItems])
 
-	/* 	function handleRemoveClick() {
-		console.log('on remove')
-		onRemove(item)
-	} */
-
 	return (
 		<>
 			<div className={cartStyles.cartMaster}>
@@ -57,7 +47,7 @@ const Cart = () => {
 					<div className={cartStyles.cartBody}>
 						{cartItems.map(item => (
 							<div
-								key={item.key}
+								key={item._id}
 								className={cartStyles.cartEntry}>
 								<Image
 									src={urlFor(item?.image).url()}

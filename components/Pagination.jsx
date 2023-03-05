@@ -1,9 +1,9 @@
 import paginationStyles from '@/styles/Pagination.module.css'
 
-const Pagination = ({ guitPerPage, totalGuitars, paginate }) => {
+const Pagination = ({ guitPerPage, totalProducts, paginate }) => {
 	const pageNumbers = []
 
-	for (let i = 1; i <= Math.ceil(totalGuitars / guitPerPage); i++) {
+	for (let i = 1; i <= Math.ceil(totalProducts / guitPerPage); i++) {
 		pageNumbers.push(i)
 	}
 	return (

@@ -2,30 +2,29 @@ import { useMemo, useState } from 'react'
 import { GuitarCard } from '@/components/GuitarCard'
 import Pagination from '@/components/Pagination'
 
-export default function GuitarContainer({
-	guitars,
+export default function ProductContainer({
+	products,
 	categoryStyles,
 	query,
 	setQuery,
 	guitPerPage,
-	currentGuitars,
+	currentProducts,
 	paginate,
 }) {
-	console.log(guitars)
 	// const [firstIndex, setFirstIndex] = useState(0)
 	// const [lastIndex, setLastIndex] = useState(firstIndex + guitPerPage)
 
 	// Search bar
-	const filteredGuitars = useMemo(() => {
-		return guitars.filter(guitar =>
-			Object.values(guitar)
+	const filteredProducts = useMemo(() => {
+		return products.filter(product =>
+			Object.values(product)
 				.map(String)
 				.some(v => v.toLowerCase().includes(query.toLowerCase()))
 		)
-	}, [guitars, query])
+	}, [products, query])
 	// FLIP BETWEEN PAGES ONE AT A TIME
 	/* 
-	// Set guitars per page
+	// Set products per page
 	let firstIndex = 0
 	let lastIndex
 
@@ -35,25 +34,25 @@ export default function GuitarContainer({
 		console.log(`First Index: ${firstIndex} Last Index: ${lastIndex}`)
 		return firstIndex, lastIndex
 	}
- 	const currentGuitars = useMemo(() => {
+ 	const currentProducts = useMemo(() => {
 		if (firstIndex > 8) {
 			console.log('end of list')
 			return
 		} else {
-			return filteredGuitars.slice(firstIndex, lastIndex)
+			return filteredProducts.slice(firstIndex, lastIndex)
 		}
-	}, [filteredGuitars, firstIndex, lastIndex])
+	}, [filteredProducts, firstIndex, lastIndex])
  */
 
 	return (
 		<>
 			<main className={categoryStyles.guitarsContainer}>
-				{guitars.length > 0 && (
+				{products.length > 0 && (
 					<div className={categoryStyles.guitarsContainer}>
-						{currentGuitars.map(guitar => (
+						{currentProducts.map(product => (
 							<GuitarCard
-								key={guitar._id}
-								guitar={guitar}
+								key={product._id}
+								guitar={product}
 								categoryStyles={categoryStyles}
 							/>
 						))}
@@ -62,7 +61,7 @@ export default function GuitarContainer({
 			</main>
 			<Pagination
 				guitPerPage={guitPerPage}
-				totalGuitars={filteredGuitars.length}
+				totalProducts={filteredProducts.length}
 				paginate={paginate}
 			/>{' '}
 		</>

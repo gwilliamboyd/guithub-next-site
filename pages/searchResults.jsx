@@ -1,28 +1,29 @@
-import { useMemo } from 'react'
+import { useMemo, useEffect } from 'react'
 import { useRouter, Router } from 'next/router'
 import { client } from '@/lib/client'
 import { GuitarCard } from '@/components/GuitarCard'
 import searchStyles from '../styles/Search.module.css'
 import categoryStyles from '../styles/Category.module.css'
 
-const searchResults = ({ guitars, amps }) => {
+const searchResults = ({ products }) => {
 	const router = useRouter()
 	const query = Object.keys(router.query)[0]
 	console.log(query)
+	console.log(products)
 
-	const filteredGuitars = useMemo(() => {
-		return guitars.filter(guitar =>
-			Object.values(guitar)
+	const filteredProducts = useMemo(() => {
+		return products.filter(prod =>
+			Object.values(prod)
 				.map(String)
 				.some(v => v.toLowerCase().includes(query.toLowerCase()))
 		)
-	}, [guitars, query])
+	}, [products, query])
 	return (
 		<>
 			<div className={searchStyles.searchMaster}>
 				<h1>Search Results:</h1>
 				<div className={searchStyles.resultsContainer}>
-					{filteredGuitars?.map(guitar => (
+					{filteredProducts?.map(guitar => (
 						<GuitarCard
 							key={guitar._id}
 							categoryStyles={categoryStyles}
@@ -43,8 +44,10 @@ export const getServerSideProps = async () => {
 
 	const ampQuery = '*[_type == "amp"]'
 	const amps = await client.fetch(ampQuery)
+	// Combine guitars and amps into one search pool
+	const products = [...guitars, ...amps]
 
 	return {
-		props: { guitars, amps },
+		props: { products },
 	}
 }

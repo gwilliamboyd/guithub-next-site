@@ -17,8 +17,9 @@ import SearchBar from './SearchBar'
 import Cart from './Cart'
 import { useStateContext } from '@/context/StateContext'
 
-const Navbar = ({ guitars }) => {
+const Navbar = ({ products, guitars, amps }) => {
 	const { cartOpen, setCartOpen } = useStateContext()
+
 	return (
 		<header className={navbarStyles.header}>
 			<nav className={navbarStyles.nav}>
@@ -38,7 +39,8 @@ const Navbar = ({ guitars }) => {
 				</div>
 				<SearchBar
 					navbarStyles={navbarStyles}
-					guitars={guitars}
+					products={products}
+					// amps={amps}
 				/>
 				<div className={navbarStyles.rightLinks}>
 					<ul className={navbarStyles.productLinks}>

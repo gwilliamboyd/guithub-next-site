@@ -14,20 +14,6 @@ export const StateContext = ({ children }) => {
 	let foundProduct
 	let index
 
-	function persistCartFromLocal() {
-		const cartFromLocalStorage = JSON.parse(
-			localStorage.getItem('cart') || '[]'
-		)
-		setCartItems(cartFromLocalStorage)
-	}
-
-	//Remove item from Local Storage
-	/* 	function removeFromLocalStorage(index) {
-		const cartFromLocalStorage = JSON.parse(
-			localStorage.getItem('cart') || '[]'
-		)
-		cartFromLocalStorage.splice(0, index)
-	} */
 	// Add item to cart
 	const onAdd = (product, quantity) => {
 		const checkCartProduct = cartItems.find(item => item._id === product._id)
@@ -43,7 +29,6 @@ export const StateContext = ({ children }) => {
 					}
 			})
 			setCartItems(updatedCartItems)
-			// localStorage.setItem('cart', JSON.stringify(cartItems))
 		} else {
 			product.quantity = quantity
 			setCartItems([...cartItems, { ...product }])
@@ -63,9 +48,6 @@ export const StateContext = ({ children }) => {
 			prevTotalQuantities => prevTotalQuantities - foundProduct.quantity
 		)
 		setCartItems(newCartItems)
-		// removeFromLocalStorage(product)
-		// localStorage.removeItem('cart'[0])
-		// persistCartFromLocal()
 	}
 
 	// Change quantity of items already in cart
@@ -125,7 +107,6 @@ export const StateContext = ({ children }) => {
 				setCartOpen,
 				cartItems,
 				totalPrice,
-				persistCartFromLocal,
 				totalQuantities,
 				qty,
 				incQty,
