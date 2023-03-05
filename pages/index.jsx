@@ -1,4 +1,5 @@
 import { client } from '@/lib/client'
+import homeStyles from '../styles/Home.module.css'
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import Navbar from '@/components/Navbar'
@@ -13,18 +14,12 @@ export default function IndexPage({ products, guitars, amps }) {
 	}) */
 
 	return (
-		<>
-			<Link
-				legacyBehavior
-				href='/guitars'>
-				<a>Guitars</a>
-			</Link>
-			<Link
-				legacyBehavior
-				href='/searchResults'>
-				<a>Search results</a>
-			</Link>
-		</>
+		<div className={homeStyles.homeMaster}>
+			<h1 className={homeStyles.homeHeading}>Welcome to GuitHub!</h1>
+			<h5 className={homeStyles.tagline}>
+				We're <i>committed</i> to excellence!
+			</h5>
+		</div>
 	)
 }
 

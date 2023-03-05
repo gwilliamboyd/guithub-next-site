@@ -1,5 +1,5 @@
-import { useMemo, useEffect } from 'react'
-import { useRouter, Router } from 'next/router'
+import { useMemo } from 'react'
+import { useRouter } from 'next/router'
 import { client } from '@/lib/client'
 import { GuitarCard } from '@/components/GuitarCard'
 import searchStyles from '../styles/Search.module.css'
@@ -23,11 +23,11 @@ const searchResults = ({ products }) => {
 			<div className={searchStyles.searchMaster}>
 				<h1>Search Results:</h1>
 				<div className={searchStyles.resultsContainer}>
-					{filteredProducts?.map(guitar => (
+					{filteredProducts?.map(product => (
 						<GuitarCard
-							key={guitar._id}
+							key={product._id}
 							categoryStyles={categoryStyles}
-							guitar={guitar}
+							product={product}
 						/>
 					))}
 				</div>

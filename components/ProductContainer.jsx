@@ -52,7 +52,7 @@ export default function ProductContainer({
 						{currentProducts.map(product => (
 							<GuitarCard
 								key={product._id}
-								guitar={product}
+								product={product}
 								categoryStyles={categoryStyles}
 							/>
 						))}
