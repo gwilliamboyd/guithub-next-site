@@ -20,32 +20,101 @@ const Amp = ({ amp }) => {
 
 	return (
 		<div className={productStyles.productMaster}>
+			<p className={productStyles.productHeading}>{amp.name}</p>
 			<div className={productStyles.productBody}>
-				<p className={productStyles.productHeading}>{amp.name}</p>
-				<Image
-					src={urlFor(amp.image).url()}
-					width={0}
-					height={0}
-					alt={amp.name}
-					sizes='100vw'
-					style={{ width: '500px', height: 'auto' }}
-				/>
-				<button
-					className={productStyles.addToCart}
-					onClick={() => onAdd(amp, 1)}>
-					Add To Cart
-				</button>
-				<h2>Product Description</h2>
-				<p className={productStyles.prodDesc}>
-					{amp.productDescription[0].children[0].text}
-				</p>
-				{/* <p>{Object.values(amp.productDescription)}</p> */}
-				<p>
-					<b>Body Material: </b>
-					{amp.bodyMaterial}
-				</p>
-				{/* Need to find property to display for block text */}
+				<div className={productStyles.bodyImages}>
+					<div className={productStyles.mainImage}>
+						<Image
+							src={urlFor(amp.image[0]).url()}
+							width={0}
+							height={0}
+							alt={amp.name}
+							sizes='100vw'
+							style={{ width: '300px', height: 'auto' }}
+						/>
+					</div>
+					<div className={productStyles.imageTiles}>
+						<Image
+							src={urlFor(amp.image[1]).url()}
+							width={0}
+							height={0}
+							alt={amp.name}
+							sizes='100vw'
+							style={{ width: '50px', height: 'auto' }}
+						/>
+						<Image
+							src={urlFor(amp.image[2]).url()}
+							width={0}
+							height={0}
+							alt={amp.name}
+							sizes='100vw'
+							style={{ width: '50px', height: 'auto' }}
+						/>
+					</div>
+				</div>
+				<div className={productStyles.bodyText}>
+					<div className={productStyles.bodyRowOne}>
+						<span className={productStyles.ourPrice}>Our Price:</span>
+						<span className={productStyles.price}>{`$${amp.price}`}</span>
+					</div>
+					<div className={productStyles.bodyRowTwo}>
+						<span className={productStyles.ourRating}>Rating:</span>
+						<span className={productStyles.rating}>
+							{`${amp.rating}/5`} {/* Icons to show star rating out of 5 */}
+							<RatingIcon />
+							<RatingIcon />
+							<RatingIcon />
+							<RatingIcon />
+							<RatingIcon />
+						</span>
+					</div>
+					<div className={productStyles.bodyRowThree}>
+						<div className={productStyles.addButton}>
+							<button
+								className={productStyles.addToCart}
+								onClick={() => onAdd(amp, 1)}>
+								Add To Cart
+							</button>
+						</div>
+						<div className={productStyles.shippingInfo}>
+							<div className={productStyles.shippingCost}>
+								Shipping:{' '}
+								<span className={productStyles.shippingPrice}>$229.99</span>
+							</div>
+							<div className={productStyles.usaCanada}>
+								1-2 Weeks (USA and Canada)
+							</div>
+							<div className={productStyles.international}>
+								3-4 Weeks (International)
+							</div>
+						</div>
+					</div>
+					<div className={productStyles.bodyRowFour}>
+						<span className={productStyles.quickSpecs}>Quick Specs:</span>
+						<div className={productStyles.quickSpecsList}>
+							<div>
+								<span className={productStyles.emphasizedSpec}>Chorus</span>{' '}
+								Effect
+							</div>
+							<div>
+								<span className={productStyles.emphasizedSpec}>
+									{amp.isAnalog ? 'Analog' : 'Digital'}
+								</span>{' '}
+								Circuitry
+							</div>
+							<div>
+								{' '}
+								<span className={productStyles.emphasizedSpec}>9V </span>Power
+								Required
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
+			<h2>Product Description</h2>
+			<p className={productStyles.prodDesc}>
+				{amp.productDescription[0].children[0].text}
+			</p>
 		</div>
 	)
 }

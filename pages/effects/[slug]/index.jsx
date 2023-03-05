@@ -4,6 +4,7 @@ import RatingIcon from '@/components/RatingIcon'
 import productStyles from '../../../styles/Product.module.css'
 import { useContext, useEffect } from 'react'
 import { useStateContext } from '@/context/StateContext'
+import ProductCarousel from '@/components/ProductCarousel'
 
 const Effect = ({ effect }) => {
 	console.log(effect.image)
@@ -32,25 +33,13 @@ const Effect = ({ effect }) => {
 							height={0}
 							alt={effect.name}
 							sizes='100vw'
-							style={{ width: '300px', height: 'auto' }}
+							style={{ width: '350px', height: 'auto' }}
 						/>
 					</div>
 					<div className={productStyles.imageTiles}>
-						<Image
-							src={urlFor(effect.image[1]).url()}
-							width={0}
-							height={0}
-							alt={effect.name}
-							sizes='100vw'
-							style={{ width: '50px', height: 'auto' }}
-						/>
-						<Image
-							src={urlFor(effect.image[2]).url()}
-							width={0}
-							height={0}
-							alt={effect.name}
-							sizes='100vw'
-							style={{ width: '50px', height: 'auto' }}
+						<ProductCarousel
+							productStyles={productStyles}
+							product={effect}
 						/>
 					</div>
 				</div>

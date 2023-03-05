@@ -34,7 +34,7 @@ export const GuitarCard = ({ product, categoryStyles }) => {
 				<a>
 					<div className={categoryStyles.guitarCard}>
 						<Image
-							src={urlFor(product.image).url()}
+							src={urlFor(product.image[0]).url()}
 							width={0}
 							height={0}
 							sizes='100vw'
