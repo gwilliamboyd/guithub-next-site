@@ -32,6 +32,12 @@ export default {
       type: 'number',
     },
     {
+      name: 'rating',
+      title: 'Rating',
+      type: 'number',
+      description: 'No. of stars out of 5',
+    },
+    {
       name: 'productDescription',
       title: 'Product Description',
       type: 'array',
