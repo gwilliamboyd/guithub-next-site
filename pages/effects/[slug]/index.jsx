@@ -6,6 +6,7 @@ import { useContext, useEffect } from 'react'
 import { useStateContext } from '@/context/StateContext'
 
 const Effect = ({ effect }) => {
+	console.log(effect.image)
 	const {
 		cartOpen,
 		cartItems,
@@ -24,14 +25,34 @@ const Effect = ({ effect }) => {
 			<p className={productStyles.productHeading}>{effect.name}</p>
 			<div className={productStyles.productBody}>
 				<div className={productStyles.bodyImages}>
-					<Image
-						src={urlFor(effect.image).url()}
-						width={0}
-						height={0}
-						alt={effect.name}
-						sizes='100vw'
-						style={{ width: '300px', height: 'auto' }}
-					/>
+					<div className={productStyles.mainImage}>
+						<Image
+							src={urlFor(effect.image[0]).url()}
+							width={0}
+							height={0}
+							alt={effect.name}
+							sizes='100vw'
+							style={{ width: '300px', height: 'auto' }}
+						/>
+					</div>
+					<div className={productStyles.imageTiles}>
+						<Image
+							src={urlFor(effect.image[1]).url()}
+							width={0}
+							height={0}
+							alt={effect.name}
+							sizes='100vw'
+							style={{ width: '50px', height: 'auto' }}
+						/>
+						<Image
+							src={urlFor(effect.image[2]).url()}
+							width={0}
+							height={0}
+							alt={effect.name}
+							sizes='100vw'
+							style={{ width: '50px', height: 'auto' }}
+						/>
+					</div>
 				</div>
 				<div className={productStyles.bodyText}>
 					<div className={productStyles.bodyRowOne}>
