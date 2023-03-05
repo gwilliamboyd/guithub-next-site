@@ -39,6 +39,12 @@ export default {
       description: 'No. of stars out of 5',
     },
     {
+      name: 'productDescriptionHeading',
+      title: 'Product Description Heading',
+      type: 'string',
+      description: 'Heading that goes above the block of Product Description text.',
+    },
+    {
       name: 'productDescription',
       title: 'Product Description',
       type: 'array',

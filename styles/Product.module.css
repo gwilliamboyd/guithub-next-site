@@ -138,3 +138,44 @@
 	background-color: var(--light-font-color);
 	color: var(--main-red-color);
 }
+
+.productDescription {
+	color: var(--light-font-color);
+	margin-top: 2rem;
+	display: flex;
+	flex-direction: column;
+	gap: 0.25rem;
+	width: 100vw;
+	overflow: hidden;
+}
+/* .prodDescHeading,
+.prodDescText {
+	padding: 0 14rem;
+} */
+.prodDescHeading {
+	background-color: var(--main-red-color);
+	padding: 1rem 0;
+	text-align: center;
+	font-size: 4rem;
+	font-weight: 900;
+}
+.prodDescTextHeading {
+	font-size: 1.5rem;
+	font-weight: 700;
+}
+.prodDescBody {
+	background-color: var(--main-red-color);
+	margin: 0;
+	display: flex;
+	justify-content: center;
+}
+.prodDescText {
+	width: 70%;
+	padding: 2rem 0;
+	margin: 0;
+	font-size: 1.2rem;
+	line-height: 2rem;
+	display: flex;
+	flex-direction: column;
+	gap: 1.5rem;
+}

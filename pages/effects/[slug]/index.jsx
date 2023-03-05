@@ -102,10 +102,20 @@ const Effect = ({ effect }) => {
 					</div>
 				</div>
 			</div>
-			<h2>Product Description</h2>
-			<p className={productStyles.prodDesc}>
-				{effect.productDescription[0].children[0].text}
-			</p>
+			<div className={productStyles.productDescription}>
+				<span className={productStyles.prodDescHeading}>
+					Product Description
+				</span>
+				<div className={productStyles.prodDescBody}>
+					<p className={productStyles.prodDescText}>
+						<span className={productStyles.prodDescTextHeading}>
+							{effect.productDescriptionHeading}
+						</span>
+						<br />
+						{effect.productDescription[0].children[0].text}
+					</p>
+				</div>
+			</div>
 		</div>
 	)
 }
