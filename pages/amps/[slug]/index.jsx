@@ -24,9 +24,11 @@ const Amp = ({ amp }) => {
 				<p className={productStyles.productHeading}>{amp.name}</p>
 				<Image
 					src={urlFor(amp.image).url()}
-					width={300}
-					height={450}
+					width={0}
+					height={0}
 					alt={amp.name}
+					sizes='100vw'
+					style={{ width: '500px', height: 'auto' }}
 				/>
 				<button
 					className={productStyles.addToCart}

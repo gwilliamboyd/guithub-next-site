@@ -22,6 +22,11 @@ export default {
       },
     },
     {
+      name: 'price',
+      title: 'Price',
+      type: 'number',
+    },
+    {
       name: 'productDescription',
       title: 'Product Description',
       type: 'array',

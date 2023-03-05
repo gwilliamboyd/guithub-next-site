@@ -37,6 +37,8 @@ export const GuitarCard = ({ product, categoryStyles }) => {
 							src={urlFor(product.image).url()}
 							width={250}
 							height={350}
+							sizes='100vw'
+							style={{ width: '250px', height: 'auto' }}
 							alt={product.name}
 						/>
 						<b>{product.name}</b>
