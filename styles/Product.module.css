@@ -154,7 +154,8 @@
 .prodDescText {
 	padding: 0 14rem;
 } */
-.prodDescHeading {
+.prodDescHeading,
+.techSpecsHeading {
 	background-color: var(--main-red-color);
 	padding: 1rem 0;
 	text-align: center;
@@ -180,4 +181,41 @@
 	display: flex;
 	flex-direction: column;
 	gap: 1.5rem;
+}
+.techSpecs {
+	width: 100%;
+	margin-top: 2rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.techSpecsHeading {
+	color: var(--main-red-color);
+	background-color: var(--light-font-color);
+}
+.techSpecsBody {
+	width: 75%;
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+}
+.techSpecsBlockHeading {
+	font-size: 2rem;
+	font-weight: 700;
+}
+.techSpecTable {
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-auto-rows: 80px;
+}
+.techSpecRow {
+	background-color: lightgray;
+	font-size: 2rem;
+	font-weight: 500;
+	padding: 1rem 0;
+	display: grid;
+	grid-template-columns: 30% 70%;
+}
+.techSpecRow:nth-child(2n) {
+	background-color: darkgray;
 }

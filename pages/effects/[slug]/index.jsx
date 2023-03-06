@@ -2,12 +2,13 @@ import { client, urlFor } from '@/lib/client'
 import Image from 'next/image'
 import RatingIcon from '@/components/RatingIcon'
 import productStyles from '../../../styles/Product.module.css'
-import { useContext, useEffect } from 'react'
+// import { useContext, useEffect } from 'react'
 import { useStateContext } from '@/context/StateContext'
 import ProductCarousel from '@/components/ProductCarousel'
+import TechSpecsBlock from '@/components/TechSpecsBlock'
 
 const Effect = ({ effect }) => {
-	console.log(effect.image)
+	// console.log(effect.techSpecs)
 	const {
 		cartOpen,
 		cartItems,
@@ -20,6 +21,13 @@ const Effect = ({ effect }) => {
 		onRemove,
 		toggleCartItemQuantity,
 	} = useStateContext()
+
+	/* 
+	const techSpecsArray = [
+		effect.effectType,
+		effect.isAnalog,
+		effect.powerRequirements,
+	] */
 
 	return (
 		<div className={productStyles.productMaster}>
@@ -114,6 +122,15 @@ const Effect = ({ effect }) => {
 						<br />
 						{effect.productDescription[0].children[0].text}
 					</p>
+				</div>
+			</div>
+			<div className={productStyles.techSpecs}>
+				<span className={productStyles.techSpecsHeading}>Tech Specs</span>
+				<div className={productStyles.techSpecsBody}>
+					<TechSpecsBlock
+						effect={effect}
+						productStyles={productStyles}
+					/>
 				</div>
 			</div>
 		</div>

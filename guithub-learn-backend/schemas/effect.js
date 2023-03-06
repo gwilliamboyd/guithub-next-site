@@ -51,6 +51,16 @@ export default {
       of: [{type: 'block'}],
     },
     {
+      name: 'techSpecs',
+      title: 'Tech Specs',
+      type: 'object',
+      fields: [
+        {name: 'effectType', title: 'Effect Type', type: 'string'},
+        {name: 'isAnalog', title: 'Analog or Digital?', type: 'boolean'},
+        {name: 'powerRequirements', title: 'Power Requirements', type: 'number'},
+      ],
+    },
+    /* {
       name: 'effectType',
       title: 'Effect Type',
       type: 'string',
@@ -66,7 +76,7 @@ export default {
       title: 'Power Requirements',
       type: 'number',
       description: 'Number refers to volts of AC adapter, or no. of 9V batteries required',
-    },
+    }, */
     {
       name: 'artistModel',
       title: 'Artist Model',
