@@ -144,16 +144,11 @@
 	margin-top: 2rem;
 	display: flex;
 	flex-direction: column;
-	/* align-items: stretch; */
 	gap: 0.25rem;
 	/* Sets width to 100% viewport minus scrollbar */
 	width: calc(100vw - 17px);
 	overflow-x: hidden;
 }
-/* .prodDescHeading,
-.prodDescText {
-	padding: 0 14rem;
-} */
 .prodDescHeading,
 .techSpecsHeading {
 	background-color: var(--main-red-color);
@@ -214,7 +209,7 @@
 	font-weight: 500;
 	padding: 1rem 0;
 	display: grid;
-	grid-template-columns: 30% 70%;
+	grid-template-columns: 40% 60%;
 }
 .techSpecRow:nth-child(2n) {
 	background-color: darkgray;

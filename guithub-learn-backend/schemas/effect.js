@@ -55,28 +55,51 @@ export default {
       title: 'Tech Specs',
       type: 'object',
       fields: [
-        {name: 'effectType', title: 'Effect Type', type: 'string'},
-        {name: 'isAnalog', title: 'Analog or Digital?', type: 'boolean'},
-        {name: 'powerRequirements', title: 'Power Requirements', type: 'number'},
+        {
+          name: 'effect_Type',
+          title: 'Effect Type',
+          type: 'array',
+          of: [{type: 'string'}],
+          options: {
+            list: [
+              {title: 'Distortion/Overdrive', value: 'distortion/overdrive'},
+              {title: 'Chorus', value: 'chorus'},
+              {title: 'Phaser', value: 'phaser'},
+              {title: 'Flanger', value: 'flanger'},
+              {title: 'Wah', value: 'wah'},
+              {title: 'Reverb', value: 'reverb'},
+              {title: 'Delay', value: 'delay'},
+            ],
+          },
+        },
+        {
+          name: 'is_Analog',
+          title: 'Analog or Digital?',
+          type: 'array',
+          of: [{type: 'string'}],
+          options: {
+            list: [
+              {title: 'Analog', value: 'analog'},
+              {title: 'Digital', value: 'digital'},
+            ],
+          },
+          validation: (Rule) => Rule.length(1),
+        },
+        {
+          name: 'power_Requirements',
+          title: 'Power Requirements',
+          type: 'array',
+          of: [{type: 'string'}],
+          options: {
+            list: [
+              {title: '9V', value: '9V'},
+              {title: '18V', value: '18V'},
+            ],
+          },
+          validation: (Rule) => Rule.length(1),
+        },
       ],
     },
-    /* {
-      name: 'effectType',
-      title: 'Effect Type',
-      type: 'string',
-    },
-    {
-      name: 'isAnalog',
-      title: 'Is Analog?',
-      type: 'boolean',
-      description: 'If checked no, type assumed to be Digital',
-    },
-    {
-      name: 'powerRequirements',
-      title: 'Power Requirements',
-      type: 'number',
-      description: 'Number refers to volts of AC adapter, or no. of 9V batteries required',
-    }, */
     {
       name: 'artistModel',
       title: 'Artist Model',
