@@ -18,22 +18,8 @@ export default function Effects({ effects }) {
 	const [guitPerPage] = useState(4)
 
 	// Search bar
-	/* const filteredeffects = useMemo(() => {
-		return effects.filter(effect =>
-			Object.values(effect)
-				.map(String)
-				.some(v => v.toLowerCase().includes(query.toLowerCase()))
-		)
-	}, [effects, query]) */
-
-	const lastIndex = currentPage * guitPerPage
-	const firstIndex = lastIndex - guitPerPage
-	const currentEffects = effects.slice(firstIndex, lastIndex)
-	const paginate = pageNumber => setCurrentPage(pageNumber)
-	// console.log(effects)
-	// Search bar
 	const filteredProducts = useMemo(() => {
-		return currentEffects.filter(product =>
+		return effects.filter(product =>
 			Object.values(product)
 				.map(String)
 				.some(v => v.toLowerCase().includes(query.toLowerCase()))
@@ -41,6 +27,11 @@ export default function Effects({ effects }) {
 	}, [effects, query])
 
 	useEffect(() => console.log(query), [query])
+
+	const lastIndex = currentPage * guitPerPage
+	const firstIndex = lastIndex - guitPerPage
+	const currentEffects = filteredProducts.slice(firstIndex, lastIndex)
+	const paginate = pageNumber => setCurrentPage(pageNumber)
 
 	return (
 		<>

@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { GuitarCard } from '@/components/GuitarCard'
 import Pagination from '@/components/Pagination'
 
@@ -35,6 +35,11 @@ export default function ProductContainer({
 		}
 	}, [filteredProducts, firstIndex, lastIndex])
  */
+
+	useEffect(() => {
+		console.log(currentProducts)
+		console.log(filteredProducts)
+	}, [query])
 
 	return (
 		<>
