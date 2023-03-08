@@ -7,6 +7,20 @@
 	justify-content: center;
 	align-items: center;
 }
+.categoryHeading {
+	font-size: 3.5rem;
+	font-weight: 900;
+}
+/* .middle {
+	position: relative;
+	width: 100%;
+	display: grid;
+	grid-template-columns: 10% 10% 65% 15%;
+	grid-template-areas: 'a . b .';
+} */
+.heroCarousel {
+	margin-top: 1rem;
+}
 .guitarsContainer {
 	width: 75%;
 	height: 100%;
@@ -16,22 +30,6 @@
 	justify-content: center;
 	align-items: flex-start;
 	gap: 2rem;
-}
-.categoryHeading {
-	font-size: 3.5rem;
-	font-weight: 900;
-}
-.heroCarousel {
-	margin-top: 1rem;
-}
-.searchBar {
-	margin-top: 2rem;
-	width: 400px;
-	font-size: 1.5rem;
-	padding: 0.75rem 1.5rem;
-}
-.searchBar:focus {
-	outline: 3px solid var(--main-red-color);
 }
 .guitarCard {
 	display: flex;

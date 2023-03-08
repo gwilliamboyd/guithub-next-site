@@ -1,0 +1,61 @@
+.filterContainer {
+	position: absolute;
+}
+.filterMaster {
+	width: fit-content;
+	padding: 0;
+	position: fixed;
+	top: 8rem;
+	left: 3rem;
+	background-color: var(--main-red-color);
+	color: var(--light-font-color);
+	display: flex;
+	flex-direction: column;
+	justify-content: stretch;
+	gap: 3rem;
+	padding: 1.5rem 0.75rem;
+}
+.filterItemText {
+	position: relative;
+}
+.filterItemText:hover {
+	cursor: pointer;
+}
+.filterItemText:after {
+	content: '';
+	background-color: var(--light-font-color);
+	height: 3px;
+	width: 0;
+	position: absolute;
+	left: 0;
+	bottom: -7px;
+	transition: 0.2s ease-out;
+}
+.filterItemText:hover:after {
+	width: 100%;
+}
+.subMenu {
+	display: flex;
+	flex-direction: column;
+	padding: 1rem 0;
+	gap: 0.75rem;
+}
+.subMenuItemText {
+	position: relative;
+}
+.subMenuItemText:hover {
+	cursor: pointer;
+}
+.subMenuItemText:after {
+	content: '';
+	background-color: var(--light-font-color);
+	position: absolute;
+	height: 3px;
+	width: 0;
+	left: 0;
+	bottom: -7px;
+	transition: 0.2s ease-out;
+}
+.subMenuItemText:hover:after {
+	width: 100%;
+}

@@ -34,21 +34,43 @@ export default {
       of: [{type: 'block'}],
     },
     {
-      name: 'totalPower',
-      title: 'Total Power',
-      type: 'number',
-    },
-    {
-      name: 'type',
-      title: 'Type',
-      type: 'string',
-      description: 'Choose either "Tube" or "Solid-state"',
-    },
-    {
-      name: 'footswitch',
-      title: 'Footswitch',
-      type: 'boolean',
-      description: 'Choose "Yes" or "No" - Whether footswitch is included',
+      name: 'techSpecs',
+      title: 'Tech Specs',
+      type: 'object',
+      fields: [
+        {
+          name: 'amp_Type',
+          title: 'Amp Type',
+          type: 'array',
+          of: [{type: 'string'}],
+          options: {
+            list: [
+              {title: 'Tube', value: 'tube'},
+              {title: 'Solid State', value: 'solidState'},
+            ],
+          },
+          validation: (Rule) => Rule.length(1),
+        },
+        {
+          name: 'power',
+          title: 'Power',
+          type: 'number',
+          description: 'No. of watts total',
+        },
+        {
+          name: 'footswitch',
+          title: 'Footswitch',
+          type: 'array',
+          of: [{type: 'string'}],
+          options: {
+            list: [
+              {title: 'Included', value: 'included'},
+              {title: 'Not Included', value: 'not_included'},
+            ],
+          },
+          validation: (Rule) => Rule.length(1),
+        },
+      ],
     },
   ],
 }

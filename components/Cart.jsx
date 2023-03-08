@@ -50,7 +50,7 @@ const Cart = () => {
 								key={item._id}
 								className={cartStyles.cartEntry}>
 								<Image
-									src={urlFor(item?.image).url()}
+									src={urlFor(item?.image[0]).url()}
 									width={67}
 									height={100}
 									alt={`${item.name}`}

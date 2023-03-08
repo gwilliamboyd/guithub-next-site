@@ -5,6 +5,7 @@ import categoryStyles from '../styles/Category.module.css'
 // Components
 import HeroCarousel from '@/components/HeroCarousel'
 import ProductContainer from '@/components/ProductContainer'
+import FilterMenu from '@/components/product-filter/FilterMenu'
 
 import { useStateContext } from '@/context/StateContext'
 
@@ -35,6 +36,7 @@ export default function Effects({ effects }) {
 	return (
 		<>
 			<main className={categoryStyles.mainContainer}>
+				<FilterMenu effects={effects} />
 				<h1 className={categoryStyles.categoryHeading}>Effects Pedals</h1>
 				<HeroCarousel categoryStyles={categoryStyles} />
 				<ProductContainer
