@@ -1,14 +1,30 @@
 import paginationStyles from '@/styles/Pagination.module.css'
 
-const Pagination = ({ guitPerPage, totalProducts, paginate }) => {
+const Pagination = ({
+	guitPerPage,
+	totalProducts,
+	paginate,
+	firstIndex,
+	lastIndex,
+	previousPage,
+	nextPage,
+}) => {
 	const pageNumbers = []
 
 	for (let i = 1; i <= Math.ceil(totalProducts / guitPerPage); i++) {
 		pageNumbers.push(i)
 	}
+
+	/* 	const nextPage = () => {
+		firstIndex = lastIndex
+		lastIndex = lastIndex + guitPerPage
+		console.log(`First Index: ${firstIndex} Last Index: ${lastIndex}`)
+		return firstIndex, lastIndex
+	} */
 	return (
 		<nav>
 			<div className={paginationStyles.pagination}>
+				<button onClick={previousPage}>Prev</button>
 				{pageNumbers.map(number => (
 					<div
 						key={number}
@@ -22,6 +38,7 @@ const Pagination = ({ guitPerPage, totalProducts, paginate }) => {
 						</button>
 					</div>
 				))}
+				<button onClick={nextPage}>Next</button>
 			</div>
 		</nav>
 	)

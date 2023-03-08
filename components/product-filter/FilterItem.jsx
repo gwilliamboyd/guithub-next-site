@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import SubMenuItem from './SubmenuItem'
 
-const FilterItem = ({ filterStyles, text, effects, query, setQuery }) => {
+const FilterItem = ({ filterStyles, text, query, setQuery }) => {
 	const [menuOpen, setMenuOpen] = useState(false)
 	return (
 		<span className={filterStyles.filterItem}>

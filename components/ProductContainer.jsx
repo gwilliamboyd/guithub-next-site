@@ -5,27 +5,45 @@ import Pagination from '@/components/Pagination'
 export default function ProductContainer({
 	products,
 	categoryStyles,
+	currentPage,
+	setCurrentPage,
 	guitPerPage,
+	firstIndex,
+	lastIndex,
 	filteredProducts,
 	currentProducts,
 	paginate,
 }) {
-	const [query, setQuery] = useState('')
 	// const [firstIndex, setFirstIndex] = useState(0)
 	// const [lastIndex, setLastIndex] = useState(firstIndex + guitPerPage)
 
 	// FLIP BETWEEN PAGES ONE AT A TIME
-	/* 
-	// Set products per page
-	let firstIndex = 0
-	let lastIndex
 
-		const nextPage = () => {
-		setFirstIndex(lastIndex)
-		setLastIndex(lastIndex + guitPerPage)
+	// Set products per page
+	// let firstIndex = 0
+	// let lastIndex
+
+	const previousPage = () => {
+		// firstIndex = lastIndex
+		// lastIndex = lastIndex + guitPerPage
+		if (currentProducts.length < 1) {
+			return
+		}
+		setCurrentPage(currentPage - 1)
 		console.log(`First Index: ${firstIndex} Last Index: ${lastIndex}`)
 		return firstIndex, lastIndex
 	}
+	const nextPage = () => {
+		// firstIndex = lastIndex
+		// lastIndex = lastIndex + guitPerPage
+		if (currentProducts.length < 1) {
+			return
+		}
+		setCurrentPage(currentPage + 1)
+		console.log(`First Index: ${firstIndex} Last Index: ${lastIndex}`)
+		return firstIndex, lastIndex
+	}
+	/*
  	const currentProducts = useMemo(() => {
 		if (firstIndex > 8) {
 			console.log('end of list')
@@ -35,11 +53,6 @@ export default function ProductContainer({
 		}
 	}, [filteredProducts, firstIndex, lastIndex])
  */
-
-	useEffect(() => {
-		console.log(currentProducts)
-		console.log(filteredProducts)
-	}, [query])
 
 	return (
 		<>
@@ -60,6 +73,10 @@ export default function ProductContainer({
 				guitPerPage={guitPerPage}
 				totalProducts={filteredProducts.length}
 				paginate={paginate}
+				firstIndex={firstIndex}
+				lastIndex={lastIndex}
+				previousPage={previousPage}
+				nextPage={nextPage}
 			/>{' '}
 		</>
 	)
