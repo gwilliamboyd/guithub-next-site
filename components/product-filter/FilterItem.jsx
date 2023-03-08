@@ -11,6 +11,15 @@ const FilterItem = ({ filterStyles, text, effects, query, setQuery }) => {
 				onMouseLeave={() => setMenuOpen(!menuOpen)}>
 				{text}
 				<div className={filterStyles.subMenu}>
+					{query !== '' && (
+						<span className={filterStyles.subMenuItem}>
+							<span
+								className={filterStyles.subMenuItemText}
+								onClick={() => setQuery('')}>
+								Clear Filters
+							</span>
+						</span>
+					)}
 					<SubMenuItem
 						filterStyles={filterStyles}
 						text={'Distortion'}
