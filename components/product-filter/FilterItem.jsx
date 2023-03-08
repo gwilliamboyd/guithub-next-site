@@ -1,8 +1,7 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import SubMenuItem from './SubmenuItem'
 
-const FilterItem = ({ filterStyles, text, effects }) => {
-	const [query, setQuery] = useState('')
+const FilterItem = ({ filterStyles, text, effects, query, setQuery }) => {
 	const [menuOpen, setMenuOpen] = useState(false)
 	return (
 		<span className={filterStyles.filterItem}>
@@ -11,42 +10,56 @@ const FilterItem = ({ filterStyles, text, effects }) => {
 				onMouseEnter={() => setMenuOpen(!menuOpen)}
 				onMouseLeave={() => setMenuOpen(!menuOpen)}>
 				{text}
-				{menuOpen && (
-					<div className={filterStyles.subMenu}>
-						<SubMenuItem
-							filterStyles={filterStyles}
-							text={'Distortion'}
-						/>
-						<SubMenuItem
-							filterStyles={filterStyles}
-							text={'Overdrive'}
-						/>
-						<SubMenuItem
-							filterStyles={filterStyles}
-							text={'Chorus'}
-						/>
-						<SubMenuItem
-							filterStyles={filterStyles}
-							text={'Phaser'}
-						/>
-						<SubMenuItem
-							filterStyles={filterStyles}
-							text={'Flanger'}
-						/>
-						<SubMenuItem
-							filterStyles={filterStyles}
-							text={'Wah'}
-						/>
-						<SubMenuItem
-							filterStyles={filterStyles}
-							text={'Reverb'}
-						/>
-						<SubMenuItem
-							filterStyles={filterStyles}
-							text={'Delay'}
-						/>
-					</div>
-				)}
+				<div className={filterStyles.subMenu}>
+					<SubMenuItem
+						filterStyles={filterStyles}
+						text={'Distortion'}
+						query={query}
+						setQuery={setQuery}
+					/>
+					<SubMenuItem
+						filterStyles={filterStyles}
+						text={'Overdrive'}
+						query={query}
+						setQuery={setQuery}
+					/>
+					<SubMenuItem
+						filterStyles={filterStyles}
+						text={'Chorus'}
+						query={query}
+						setQuery={setQuery}
+					/>
+					<SubMenuItem
+						filterStyles={filterStyles}
+						text={'Phaser'}
+						query={query}
+						setQuery={setQuery}
+					/>
+					<SubMenuItem
+						filterStyles={filterStyles}
+						text={'Flanger'}
+						query={query}
+						setQuery={setQuery}
+					/>
+					<SubMenuItem
+						filterStyles={filterStyles}
+						text={'Wah'}
+						query={query}
+						setQuery={setQuery}
+					/>
+					<SubMenuItem
+						filterStyles={filterStyles}
+						text={'Reverb'}
+						query={query}
+						setQuery={setQuery}
+					/>
+					<SubMenuItem
+						filterStyles={filterStyles}
+						text={'Delay'}
+						query={query}
+						setQuery={setQuery}
+					/>
+				</div>
 			</span>
 		</span>
 	)

@@ -5,23 +5,15 @@ import Pagination from '@/components/Pagination'
 export default function ProductContainer({
 	products,
 	categoryStyles,
-	query,
-	setQuery,
 	guitPerPage,
+	filteredProducts,
 	currentProducts,
 	paginate,
 }) {
+	const [query, setQuery] = useState('')
 	// const [firstIndex, setFirstIndex] = useState(0)
 	// const [lastIndex, setLastIndex] = useState(firstIndex + guitPerPage)
 
-	// Search bar
-	const filteredProducts = useMemo(() => {
-		return products.filter(product =>
-			Object.values(product)
-				.map(String)
-				.some(v => v.toLowerCase().includes(query.toLowerCase()))
-		)
-	}, [products, query])
 	// FLIP BETWEEN PAGES ONE AT A TIME
 	/* 
 	// Set products per page

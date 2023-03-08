@@ -11,9 +11,8 @@ import { useStateContext } from '@/context/StateContext'
 
 export default function Effects({ effects }) {
 	const { incQty, decQty } = useStateContext()
-
-	// State declaration
 	const [query, setQuery] = useState('')
+
 	// Pagination
 	const [currentPage, setCurrentPage] = useState(1)
 	const [guitPerPage] = useState(4)
@@ -32,23 +31,36 @@ export default function Effects({ effects }) {
 	const currentEffects = effects.slice(firstIndex, lastIndex)
 	const paginate = pageNumber => setCurrentPage(pageNumber)
 	// console.log(effects)
+	// Search bar
+	const filteredProducts = useMemo(() => {
+		return currentEffects.filter(product =>
+			Object.values(product)
+				.map(String)
+				.some(v => v.toLowerCase().includes(query.toLowerCase()))
+		)
+	}, [effects, query])
+
+	useEffect(() => console.log(query), [query])
 
 	return (
 		<>
 			<main className={categoryStyles.mainContainer}>
-				<FilterMenu effects={effects} />
+				<FilterMenu
+					effects={effects}
+					query={query}
+					setQuery={setQuery}
+				/>
 				<h1 className={categoryStyles.categoryHeading}>Effects Pedals</h1>
 				<HeroCarousel categoryStyles={categoryStyles} />
 				<ProductContainer
 					products={effects}
 					categoryStyles={categoryStyles}
-					query={query}
-					setQuery={setQuery}
 					currentPage={currentPage}
 					setCurrentPage={setCurrentPage}
 					guitPerPage={guitPerPage}
 					lastIndex={lastIndex}
 					firstIndex={firstIndex}
+					filteredProducts={filteredProducts}
 					currentProducts={currentEffects}
 					paginate={paginate}
 				/>

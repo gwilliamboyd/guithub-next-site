@@ -7,7 +7,7 @@ export const GuitarCard = ({ product, categoryStyles }) => {
 	const [isGuitar, setIsGuitar] = useState(false)
 	const [isAmp, setIsAmp] = useState(false)
 
-	function determineGuitars() {
+	/* 	function determineGuitars() {
 		if (product._type == 'guitar') {
 			setIsGuitar(true)
 			setIsAmp(false)
@@ -23,7 +23,7 @@ export const GuitarCard = ({ product, categoryStyles }) => {
 	}
 	useEffect(() => {
 		determineGuitars()
-	})
+	}) */
 	// const x = true
 	return (
 		<div className={categoryStyles.guitarCard}>
