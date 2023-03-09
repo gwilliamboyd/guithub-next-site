@@ -14,45 +14,25 @@ export default function ProductContainer({
 	currentProducts,
 	paginate,
 }) {
-	// const [firstIndex, setFirstIndex] = useState(0)
-	// const [lastIndex, setLastIndex] = useState(firstIndex + guitPerPage)
-
-	// FLIP BETWEEN PAGES ONE AT A TIME
-
-	// Set products per page
-	// let firstIndex = 0
-	// let lastIndex
-
+	useEffect(() => {
+		console.log(`Current Products: ${currentProducts.length}`)
+	}, [currentProducts])
 	const previousPage = () => {
-		// firstIndex = lastIndex
-		// lastIndex = lastIndex + guitPerPage
-		if (currentProducts.length < 1) {
-			return
+		if (firstIndex == 0) {
+			return null
 		}
 		setCurrentPage(currentPage - 1)
 		console.log(`First Index: ${firstIndex} Last Index: ${lastIndex}`)
 		return firstIndex, lastIndex
 	}
 	const nextPage = () => {
-		// firstIndex = lastIndex
-		// lastIndex = lastIndex + guitPerPage
-		if (currentProducts.length < 1) {
-			return
+		if (lastIndex > products.length) {
+			return null
 		}
 		setCurrentPage(currentPage + 1)
 		console.log(`First Index: ${firstIndex} Last Index: ${lastIndex}`)
 		return firstIndex, lastIndex
 	}
-	/*
- 	const currentProducts = useMemo(() => {
-		if (firstIndex > 8) {
-			console.log('end of list')
-			return
-		} else {
-			return filteredProducts.slice(firstIndex, lastIndex)
-		}
-	}, [filteredProducts, firstIndex, lastIndex])
- */
 
 	return (
 		<>
