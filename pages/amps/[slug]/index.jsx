@@ -1,10 +1,14 @@
 import { client, urlFor } from '@/lib/client'
 import Image from 'next/image'
+import RatingIcon from '@/components/RatingIcon'
 import productStyles from '../../../styles/Product.module.css'
-import { useContext, useEffect } from 'react'
+// import { useContext, useEffect } from 'react'
 import { useStateContext } from '@/context/StateContext'
+import ProductCarousel from '@/components/ProductCarousel'
+import TechSpecsBlock from '@/components/TechSpecsBlock'
 
 const Amp = ({ amp }) => {
+	// console.log(amp.techSpecs)
 	const {
 		cartOpen,
 		cartItems,
@@ -18,6 +22,13 @@ const Amp = ({ amp }) => {
 		toggleCartItemQuantity,
 	} = useStateContext()
 
+	/* 
+	const techSpecsArray = [
+		amp.ampType,
+		amp.isAnalog,
+		amp.powerRequirements,
+	] */
+
 	return (
 		<div className={productStyles.productMaster}>
 			<p className={productStyles.productHeading}>{amp.name}</p>
@@ -30,25 +41,13 @@ const Amp = ({ amp }) => {
 							height={0}
 							alt={amp.name}
 							sizes='100vw'
-							style={{ width: '300px', height: 'auto' }}
+							style={{ width: '350px', height: 'auto' }}
 						/>
 					</div>
 					<div className={productStyles.imageTiles}>
-						<Image
-							src={urlFor(amp.image[1]).url()}
-							width={0}
-							height={0}
-							alt={amp.name}
-							sizes='100vw'
-							style={{ width: '50px', height: 'auto' }}
-						/>
-						<Image
-							src={urlFor(amp.image[2]).url()}
-							width={0}
-							height={0}
-							alt={amp.name}
-							sizes='100vw'
-							style={{ width: '50px', height: 'auto' }}
+						<ProductCarousel
+							productStyles={productStyles}
+							product={amp}
 						/>
 					</div>
 				</div>
@@ -96,14 +95,8 @@ const Amp = ({ amp }) => {
 								<span className={productStyles.emphasizedSpec}>Chorus</span>{' '}
 								Effect
 							</div>
+							<div>{amp.power} W</div>
 							<div>
-								<span className={productStyles.emphasizedSpec}>
-									{amp.isAnalog ? 'Analog' : 'Digital'}
-								</span>{' '}
-								Circuitry
-							</div>
-							<div>
-								{' '}
 								<span className={productStyles.emphasizedSpec}>9V </span>Power
 								Required
 							</div>
@@ -111,10 +104,29 @@ const Amp = ({ amp }) => {
 					</div>
 				</div>
 			</div>
-			<h2>Product Description</h2>
-			<p className={productStyles.prodDesc}>
-				{amp.productDescription[0].children[0].text}
-			</p>
+			<div className={productStyles.productDescription}>
+				<span className={productStyles.prodDescHeading}>
+					Product Description
+				</span>
+				<div className={productStyles.prodDescBody}>
+					<p className={productStyles.prodDescText}>
+						<span className={productStyles.prodDescTextHeading}>
+							{amp.productDescriptionHeading}
+						</span>
+						<br />
+						{amp.productDescription[0].children[0].text}
+					</p>
+				</div>
+			</div>
+			<div className={productStyles.techSpecs}>
+				<span className={productStyles.techSpecsHeading}>Tech Specs</span>
+				<div className={productStyles.techSpecsBody}>
+					<TechSpecsBlock
+						product={amp}
+						productStyles={productStyles}
+					/>
+				</div>
+			</div>
 		</div>
 	)
 }

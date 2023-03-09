@@ -1,6 +1,6 @@
-const TechSpecsBlock = ({ effect, productStyles }) => {
+const TechSpecsBlock = ({ product, productStyles }) => {
 	// Puts Sanity tech specs array into an array readable by component
-	const techSpecsArray = Object.entries(effect.techSpecs)
+	const techSpecsArray = Object.entries(product.techSpecs)
 
 	// Formats key names from Sanity to be readable on Tech Specs table
 	// This helps to automatically generate all the names

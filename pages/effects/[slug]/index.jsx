@@ -128,7 +128,7 @@ const Effect = ({ effect }) => {
 				<span className={productStyles.techSpecsHeading}>Tech Specs</span>
 				<div className={productStyles.techSpecsBody}>
 					<TechSpecsBlock
-						effect={effect}
+						product={effect}
 						productStyles={productStyles}
 					/>
 				</div>
