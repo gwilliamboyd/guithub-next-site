@@ -48,7 +48,7 @@ const Amp = ({ amp }) => {
 							height={0}
 							alt={amp.name}
 							sizes='100vw'
-							style={{ width: '100%', height: 'auto' }}
+							style={{ maxWidth: '600px', width: '100%', height: 'auto' }}
 						/>
 					</div>
 					<div className={productStyles.imageTiles}>

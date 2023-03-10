@@ -1,5 +1,5 @@
 .productMaster {
-	width: max(calc(90vw - 17px), 400px);
+	width: 100%;
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-start;
@@ -14,31 +14,36 @@
 }
 .productBody {
 	margin-top: 3rem;
-	width: 100%;
-	display: grid;
+	width: 80%;
+	/* height: min-content; */
+	display: flex;
+	justify-content: space-around;
+	align-items: flex-start;
+	/* display: grid;
 	grid-template-columns: 50% 50%;
 	grid-template-rows: 1fr;
-	align-items: flex-start;
+	align-items: flex-start; */
 }
 .bodyImages {
+	max-height: fit-content;
+	height: min-content;
 	display: grid;
-	grid-template-columns: 1fr;
-	grid-template-rows: 1fr 1fr;
+	grid-template-columns: 100%;
+	grid-template-rows: fit-content fit-content;
 	column-gap: 2rem;
 }
 .mainImage {
-	width: fit-content;
-	padding: 0 1rem;
-	display: flex;
-	justify-content: flex-start;
+	display: block;
+	text-align: center;
+	height: fit-content;
 }
 .imageTiles {
-	height: 100%;
+	height: fit-content;
 }
 .productCarousel {
 	height: 100%;
 	display: flex;
-	flex-direction: column;
+	/* flex-direction: column; */
 	justify-content: space-around;
 	/* gap: 2rem; */
 }
@@ -51,10 +56,10 @@
 }
 .carouselImage {
 	width: 80px;
-	height: 80px;
+	height: fit-content;
 	background-color: #ffffff;
 	display: flex;
-	flex-direction: column;
+	/* flex-direction: column; */
 	justify-content: center;
 }
 .bodyText {

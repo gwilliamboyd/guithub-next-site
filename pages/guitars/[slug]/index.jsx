@@ -49,7 +49,7 @@ const Guitar = ({ guitar }) => {
 							height={0}
 							alt={guitar.name}
 							sizes='100vw'
-							style={{ width: '350px', height: 'auto' }}
+							style={{ width: '70%', height: 'auto' }}
 						/>
 					</div>
 					<div className={productStyles.imageTiles}>
