@@ -10,7 +10,12 @@ const ProductCarouselImage = ({ product, imageIndex, productStyles }) => {
 				height={0}
 				alt={product.name}
 				sizes='100vw'
-				style={{ width: '80px', height: 'auto' }}
+				style={{
+					maxWidth: '80px',
+					width: '100%',
+					maxHeight: '120px',
+					height: 'auto',
+				}}
 			/>
 		</div>
 	)

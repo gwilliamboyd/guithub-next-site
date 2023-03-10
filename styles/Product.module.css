@@ -45,7 +45,7 @@
 	display: flex;
 	/* flex-direction: column; */
 	justify-content: space-around;
-	/* gap: 2rem; */
+	gap: 1.5rem;
 }
 .productCarouselAmps {
 	height: 100%;
@@ -55,18 +55,19 @@
 	/* gap: 2rem; */
 }
 .carouselImage {
-	width: 80px;
-	height: fit-content;
+	max-width: 80px;
+	max-height: 140px;
 	background-color: #ffffff;
 	display: flex;
-	/* flex-direction: column; */
 	justify-content: center;
+	align-items: center;
 }
 .bodyText {
 	display: grid;
 	grid-template-columns: 1fr;
 	grid-template-rows: 1fr 1fr 1fr 2fr;
 	row-gap: 2rem;
+	align-self: center;
 }
 .bodyRowOne,
 .bodyRowTwo,
