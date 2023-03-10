@@ -12,12 +12,12 @@ const TechSpecsBlock = ({ product, productStyles }) => {
 			finalResult[i] = finalResult[i][0].toUpperCase() + finalResult[i].slice(1)
 		}
 		const result = finalResult.join(' ')
-		console.log(result)
 		return result
 	}
 	// Formats value names for Tech Specs table
 	const capitalizeValue = s => {
-		const result = s.charAt(0).toUpperCase() + s.slice(1)
+		const stringValue = s.toString()
+		const result = stringValue.charAt(0).toUpperCase() + stringValue.slice(1)
 		return result
 	}
 
@@ -28,10 +28,13 @@ const TechSpecsBlock = ({ product, productStyles }) => {
 				{techSpecsArray.map(spec => (
 					<div className={productStyles.techSpecRow}>
 						<span className={productStyles.rowHeading}>
+							{/* {spec[0]} */}
 							{formatKey(spec[0])}
 						</span>
 						<span className={productStyles.rowText}>
-							{capitalizeValue(spec[1][0])}
+							{/* {formatKey(spec[1])} */}
+							{/* {spec[1].toString()} */}
+							{capitalizeValue(spec[1])}
 						</span>
 					</div>
 				))}
