@@ -1,5 +1,5 @@
 .productMaster {
-	width: 75%;
+	width: max(calc(90vw - 17px), 400px);
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-start;
@@ -22,8 +22,8 @@
 }
 .bodyImages {
 	display: grid;
-	grid-template-columns: fit-content(50%) 1fr;
-	grid-template-rows: 1fr;
+	grid-template-columns: 1fr;
+	grid-template-rows: 1fr 1fr;
 	column-gap: 2rem;
 }
 .mainImage {
@@ -39,6 +39,13 @@
 	height: 100%;
 	display: flex;
 	flex-direction: column;
+	justify-content: space-around;
+	/* gap: 2rem; */
+}
+.productCarouselAmps {
+	height: 100%;
+	display: flex;
+	/* flex-direction: column; */
 	justify-content: space-around;
 	/* gap: 2rem; */
 }

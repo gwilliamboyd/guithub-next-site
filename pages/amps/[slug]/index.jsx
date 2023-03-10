@@ -11,6 +11,7 @@ const Amp = ({ amp }) => {
 	// console.log(amp.techSpecs)
 	const {
 		cartOpen,
+		setCartOpen,
 		cartItems,
 		totalPrice,
 		totalQuantities,
@@ -18,9 +19,15 @@ const Amp = ({ amp }) => {
 		setTotalPrice,
 		setTotalQuantities,
 		onAdd,
+		qty,
 		onRemove,
 		toggleCartItemQuantity,
 	} = useStateContext()
+
+	const addToCart = async () => {
+		await setCartOpen(true)
+		onAdd(amp, qty)
+	}
 
 	/* 
 	const techSpecsArray = [
@@ -41,7 +48,7 @@ const Amp = ({ amp }) => {
 							height={0}
 							alt={amp.name}
 							sizes='100vw'
-							style={{ width: '350px', height: 'auto' }}
+							style={{ width: '100%', height: 'auto' }}
 						/>
 					</div>
 					<div className={productStyles.imageTiles}>
@@ -71,7 +78,7 @@ const Amp = ({ amp }) => {
 						<div className={productStyles.addButton}>
 							<button
 								className={productStyles.addToCart}
-								onClick={() => onAdd(amp, 1)}>
+								onClick={addToCart}>
 								Add To Cart
 							</button>
 						</div>
