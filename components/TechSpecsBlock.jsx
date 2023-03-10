@@ -1,9 +1,9 @@
 const TechSpecsBlock = ({ product, productStyles }) => {
-	// Puts Sanity tech specs array into an array readable by component
+	// Puts Sanity Tech Specs array into an array readable by component
 	const techSpecsArray = Object.entries(product.techSpecs)
 
-	// Formats key names from Sanity to be readable on Tech Specs table
-	// This helps to automatically generate all the names
+	// Formats KEY names from Sanity to be readable on Tech Specs table
+	// Auto-generating all the names
 	const formatKey = s => {
 		const spaceResult = s.replace('_', ' ')
 
@@ -14,7 +14,7 @@ const TechSpecsBlock = ({ product, productStyles }) => {
 		const result = finalResult.join(' ')
 		return result
 	}
-	// Formats value names for Tech Specs table
+	// Formats VALUE names for Tech Specs table
 	const capitalizeValue = s => {
 		const stringValue = s.toString()
 		const result = stringValue.charAt(0).toUpperCase() + stringValue.slice(1)
@@ -28,12 +28,9 @@ const TechSpecsBlock = ({ product, productStyles }) => {
 				{techSpecsArray.map(spec => (
 					<div className={productStyles.techSpecRow}>
 						<span className={productStyles.rowHeading}>
-							{/* {spec[0]} */}
 							{formatKey(spec[0])}
 						</span>
 						<span className={productStyles.rowText}>
-							{/* {formatKey(spec[1])} */}
-							{/* {spec[1].toString()} */}
 							{capitalizeValue(spec[1])}
 						</span>
 					</div>

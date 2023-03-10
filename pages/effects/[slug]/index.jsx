@@ -11,6 +11,7 @@ const Effect = ({ effect }) => {
 	// console.log(effect.techSpecs)
 	const {
 		cartOpen,
+		setCartOpen,
 		cartItems,
 		totalPrice,
 		totalQuantities,
@@ -19,8 +20,15 @@ const Effect = ({ effect }) => {
 		setTotalQuantities,
 		onAdd,
 		onRemove,
+		qty,
+		setQty,
 		toggleCartItemQuantity,
 	} = useStateContext()
+
+	const addToCart = async () => {
+		await setCartOpen(true)
+		onAdd(effect, qty)
+	}
 
 	/* 
 	const techSpecsArray = [
@@ -71,7 +79,7 @@ const Effect = ({ effect }) => {
 						<div className={productStyles.addButton}>
 							<button
 								className={productStyles.addToCart}
-								onClick={() => onAdd(effect, 1)}>
+								onClick={addToCart}>
 								Add To Cart
 							</button>
 						</div>
