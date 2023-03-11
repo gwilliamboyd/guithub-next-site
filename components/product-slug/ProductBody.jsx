@@ -3,8 +3,10 @@ import Image from 'next/image'
 import RatingIcon from '@/components/product-slug/RatingIcon'
 import { useStateContext } from '@/context/StateContext'
 import ProductCarousel from '@/components/product-slug/ProductCarousel'
+import QuickSpecs from './QuickSpecs'
 
 const ProductBody = ({ product, productStyles, enchanceImage }) => {
+	console.log(`Product Type: ${product._type}`)
 	const {
 		cartOpen,
 		setCartOpen,
@@ -86,19 +88,10 @@ const ProductBody = ({ product, productStyles, enchanceImage }) => {
 						</div>
 					</div>
 					<div className={productStyles.bodyRowFour}>
-						<span className={productStyles.quickSpecs}>Quick Specs:</span>
-						<div className={productStyles.quickSpecsList}>
-							<div>
-								<span className={productStyles.emphasizedSpec}>Chorus</span>{' '}
-								Effect
-							</div>
-							<div>Humbuckers broh!</div>
-							<div>
-								{' '}
-								<span className={productStyles.emphasizedSpec}>9V </span>Power
-								Required
-							</div>
-						</div>
+						<QuickSpecs
+							product={product}
+							productStyles={productStyles}
+						/>
 					</div>
 				</div>
 			</div>

@@ -8,8 +8,6 @@ import categoryStyles from '../styles/Category.module.css'
 const searchResults = ({ products }) => {
 	const router = useRouter()
 	const query = Object.keys(router.query)[0]
-	console.log(query)
-	console.log(products)
 
 	const filteredProducts = useMemo(() => {
 		return products.filter(prod =>
