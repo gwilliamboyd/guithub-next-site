@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
-import { GuitarCard } from '@/components/GuitarCard'
+import { ProductCard } from '@/components/ProductCard'
 import Pagination from '@/components/Pagination'
 
 export default function ProductContainer({
@@ -36,11 +36,11 @@ export default function ProductContainer({
 
 	return (
 		<>
-			<main className={categoryStyles.guitarsContainer}>
+			<main className={categoryStyles.productsContainer}>
 				{products.length > 0 && (
-					<div className={categoryStyles.guitarsContainer}>
+					<div className={categoryStyles.productsContainer}>
 						{currentProducts.map(product => (
-							<GuitarCard
+							<ProductCard
 								key={product._id}
 								product={product}
 								categoryStyles={categoryStyles}

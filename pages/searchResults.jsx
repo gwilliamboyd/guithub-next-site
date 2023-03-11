@@ -1,7 +1,7 @@
 import { useMemo } from 'react'
 import { useRouter } from 'next/router'
 import { client } from '@/lib/client'
-import { GuitarCard } from '@/components/GuitarCard'
+import { ProductCard } from '@/components/ProductCard'
 import searchStyles from '../styles/Search.module.css'
 import categoryStyles from '../styles/Category.module.css'
 
@@ -24,7 +24,7 @@ const searchResults = ({ products }) => {
 				<h1>Search Results:</h1>
 				<div className={searchStyles.resultsContainer}>
 					{filteredProducts?.map(product => (
-						<GuitarCard
+						<ProductCard
 							key={product._id}
 							categoryStyles={categoryStyles}
 							product={product}
