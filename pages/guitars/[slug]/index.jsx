@@ -3,12 +3,12 @@ import Image from 'next/image'
 import RatingIcon from '@/components/RatingIcon'
 import productStyles from '../../../styles/Product.module.css'
 // import { useContext, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { useStateContext } from '@/context/StateContext'
 import ProductCarousel from '@/components/ProductCarousel'
 import TechSpecsBlock from '@/components/TechSpecsBlock'
 
 const Guitar = ({ guitar }) => {
-	// console.log(guitar.techSpecs)
 	const {
 		cartOpen,
 		setCartOpen,
@@ -25,10 +25,55 @@ const Guitar = ({ guitar }) => {
 		toggleCartItemQuantity,
 	} = useStateContext()
 
+	// Refs
+	let imageRef = useRef(null)
+	let scrollRef = useRef(null)
+
+	const [imageOpen, setImageOpen] = useState(false)
+	const [imageContent, setImageContent] = useState(null)
+	const [imageIndex, setImageIndex] = useState(0)
+
 	const addToCart = async () => {
 		await setCartOpen(true)
 		onAdd(guitar, qty)
 	}
+
+	const enchanceImage = i => {
+		// i = indexOf(guitar.image)
+		setImageOpen(true)
+		setImageContent(i)
+	}
+
+	const closeImage = () => {
+		document.addEventListener('mousedown', e => {
+			if (imageRef.current == null || scrollRef.current == null) {
+				return
+			}
+			if (!imageRef.current.contains(e.target)) {
+				setImageOpen(false)
+				setImageIndex(0)
+			}
+		})
+	}
+
+	const scrollPrevious = () => {
+		if (imageIndex == 0) {
+			return
+		} else {
+			setImageIndex(imageIndex - 1)
+		}
+	}
+	const scrollNext = () => {
+		if (imageIndex == 5) {
+			return
+		} else {
+			setImageIndex(imageIndex + 1)
+		}
+	}
+
+	useEffect(() => {
+		closeImage()
+	}, [])
 
 	/* 
 	const techSpecsArray = [
@@ -39,6 +84,32 @@ const Guitar = ({ guitar }) => {
 
 	return (
 		<div className={productStyles.productMaster}>
+			{imageOpen && (
+				<div
+					ref={imageRef}
+					className={productStyles.imageModal}>
+					<button
+						ref={scrollRef}
+						className={productStyles.scrollButton}
+						onClick={scrollPrevious}>
+						Prev
+					</button>
+					<Image
+						src={urlFor(guitar.image[imageIndex]).url()}
+						width={0}
+						height={0}
+						alt={guitar.name}
+						sizes='100vw'
+						style={{ width: 'min(100%, 500px)', height: 'auto' }}
+					/>
+					<button
+						ref={scrollRef}
+						className={productStyles.scrollButton}
+						onClick={scrollNext}>
+						Next
+					</button>
+				</div>
+			)}
 			<p className={productStyles.productHeading}>{guitar.name}</p>
 			<div className={productStyles.productBody}>
 				<div className={productStyles.bodyImages}>
@@ -50,6 +121,10 @@ const Guitar = ({ guitar }) => {
 							alt={guitar.name}
 							sizes='100vw'
 							style={{ width: '70%', height: 'auto' }}
+							onClick={e => {
+								setImageOpen(true)
+								setImageContent(e.target.value)
+							}}
 						/>
 					</div>
 					<div className={productStyles.imageTiles}>
