@@ -1,14 +1,10 @@
-import { client, urlFor } from '@/lib/client'
+import { urlFor } from '@/lib/client'
 import Image from 'next/image'
 import RatingIcon from '@/components/product-slug/RatingIcon'
-import productStyles from '../../../styles/Product.module.css'
-// import { useContext, useEffect } from 'react'
 import { useStateContext } from '@/context/StateContext'
 import ProductCarousel from '@/components/product-slug/ProductCarousel'
-import TechSpecsBlock from '@/components/product-slug/TechSpecsBlock'
 
-const Amp = ({ amp }) => {
-	// console.log(amp.techSpecs)
+const ProductBody = ({ product, productStyles, enchanceImage }) => {
 	const {
 		cartOpen,
 		setCartOpen,
@@ -20,53 +16,47 @@ const Amp = ({ amp }) => {
 		setTotalQuantities,
 		onAdd,
 		qty,
-		onRemove,
+		setQty,
 		toggleCartItemQuantity,
 	} = useStateContext()
 
 	const addToCart = async () => {
 		await setCartOpen(true)
-		onAdd(amp, qty)
+		onAdd(product, qty)
 	}
 
-	/* 
-	const techSpecsArray = [
-		amp.ampType,
-		amp.isAnalog,
-		amp.powerRequirements,
-	] */
-
 	return (
-		<div className={productStyles.productMaster}>
-			<p className={productStyles.productHeading}>{amp.name}</p>
+		<>
 			<div className={productStyles.productBody}>
 				<div className={productStyles.bodyImages}>
-					<div className={productStyles.mainImage}>
+					<div
+						className={productStyles.mainImage}
+						onClick={enchanceImage}>
 						<Image
-							src={urlFor(amp.image[0]).url()}
+							src={urlFor(product.image[0]).url()}
 							width={0}
 							height={0}
-							alt={amp.name}
+							alt={product.name}
 							sizes='100vw'
-							style={{ maxWidth: '600px', width: '100%', height: 'auto' }}
+							style={{ width: '70%', height: 'auto' }}
 						/>
 					</div>
 					<div className={productStyles.imageTiles}>
 						<ProductCarousel
 							productStyles={productStyles}
-							product={amp}
+							product={product}
 						/>
 					</div>
 				</div>
 				<div className={productStyles.bodyText}>
 					<div className={productStyles.bodyRowOne}>
 						<span className={productStyles.ourPrice}>Our Price:</span>
-						<span className={productStyles.price}>{`$${amp.price}`}</span>
+						<span className={productStyles.price}>{`$${product.price}`}</span>
 					</div>
 					<div className={productStyles.bodyRowTwo}>
 						<span className={productStyles.ourRating}>Rating:</span>
 						<span className={productStyles.rating}>
-							{`${amp.rating}/5`} {/* Icons to show star rating out of 5 */}
+							{`${product.rating}/5`} {/* Icons to show star rating out of 5 */}
 							<RatingIcon />
 							<RatingIcon />
 							<RatingIcon />
@@ -102,8 +92,9 @@ const Amp = ({ amp }) => {
 								<span className={productStyles.emphasizedSpec}>Chorus</span>{' '}
 								Effect
 							</div>
-							<div>{amp.power} W</div>
+							<div>Humbuckers broh!</div>
 							<div>
+								{' '}
 								<span className={productStyles.emphasizedSpec}>9V </span>Power
 								Required
 							</div>
@@ -111,65 +102,8 @@ const Amp = ({ amp }) => {
 					</div>
 				</div>
 			</div>
-			<div className={productStyles.productDescription}>
-				<span className={productStyles.prodDescHeading}>
-					Product Description
-				</span>
-				<div className={productStyles.prodDescBody}>
-					<p className={productStyles.prodDescText}>
-						<span className={productStyles.prodDescTextHeading}>
-							{amp.productDescriptionHeading}
-						</span>
-						<br />
-						{amp.productDescription[0].children[0].text}
-					</p>
-				</div>
-			</div>
-			<div className={productStyles.techSpecs}>
-				<span className={productStyles.techSpecsHeading}>Tech Specs</span>
-				<div className={productStyles.techSpecsBody}>
-					<TechSpecsBlock
-						product={amp}
-						productStyles={productStyles}
-					/>
-				</div>
-			</div>
-		</div>
+		</>
 	)
 }
 
-export const getStaticProps = async ({ params: { slug } }) => {
-	const query = `*[_type == "amp" && slug.current == '${slug}'][0]`
-	const ampsQuery = '*[_type == "amp"]'
-
-	const amp = await client.fetch(query)
-	const amps = await client.fetch(ampsQuery)
-	console.log(amp)
-
-	return {
-		props: {
-			amps,
-			amp,
-		},
-	}
-}
-export const getStaticPaths = async () => {
-	const query = `*[_type == "amp"] {
-			slug {
-				current
-			}
-		}`
-	const amps = await client.fetch(query)
-	const paths = amps.map(amp => ({
-		params: {
-			slug: amp.slug.current,
-		},
-	}))
-
-	return {
-		paths,
-		fallback: false,
-	}
-}
-
-export default Amp
+export default ProductBody

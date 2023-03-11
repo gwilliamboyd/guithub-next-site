@@ -1,11 +1,11 @@
 import { client, urlFor } from '@/lib/client'
 import Image from 'next/image'
-import RatingIcon from '@/components/RatingIcon'
+import RatingIcon from '@/components/product-slug/RatingIcon'
 import productStyles from '../../../styles/Product.module.css'
 // import { useContext, useEffect } from 'react'
 import { useStateContext } from '@/context/StateContext'
-import ProductCarousel from '@/components/ProductCarousel'
-import TechSpecsBlock from '@/components/TechSpecsBlock'
+import ProductCarousel from '@/components/product-slug/ProductCarousel'
+import TechSpecsBlock from '@/components/product-slug/TechSpecsBlock'
 
 const Effect = ({ effect }) => {
 	// console.log(effect.techSpecs)

@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import ratingIcon from '../public/images/hand_horns_icon.png'
+import ratingIcon from '../../public/images/hand_horns_icon.png'
 
 const RatingIcon = () => {
 	return (
