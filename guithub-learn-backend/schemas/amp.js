@@ -9,6 +9,11 @@ export default {
       type: 'string',
     },
     {
+      name: 'brand',
+      title: 'Brand',
+      type: 'string',
+    },
+    {
       name: 'image',
       title: 'Image',
       type: 'array',
@@ -26,6 +31,18 @@ export default {
       name: 'price',
       title: 'Price',
       type: 'number',
+    },
+    {
+      name: 'rating',
+      title: 'Rating',
+      type: 'number',
+      description: 'No. of stars out of 5',
+    },
+    {
+      name: 'productDescriptionHeading',
+      title: 'Product Description Heading',
+      type: 'string',
+      description: 'Heading that goes above the block of Product Description text.',
     },
     {
       name: 'productDescription',
@@ -58,6 +75,36 @@ export default {
           description: 'No. of watts total',
         },
         {
+          name: 'number_Of_Channels',
+          title: 'Number of Channels',
+          type: 'number',
+        },
+        {
+          name: 'speaker_Size',
+          title: 'Speaker Size',
+          type: 'string',
+        },
+        {
+          name: 'preamp_Tubes',
+          title: 'Preamp Tubes',
+          type: 'string',
+        },
+        {
+          name: 'power_Tubes',
+          title: 'Power Tubes',
+          type: 'string',
+        },
+        {
+          name: 'eq',
+          title: 'EQ',
+          type: 'string',
+        },
+        {
+          name: 'reverb',
+          title: 'Reverb',
+          type: 'string',
+        },
+        {
           name: 'footswitch',
           title: 'Footswitch',
           type: 'array',
@@ -69,6 +116,30 @@ export default {
             ],
           },
           validation: (Rule) => Rule.length(1),
+        },
+        {
+          name: 'height',
+          title: 'Height',
+          type: 'number',
+          description: 'Number is in inches. Please include up to 2 decimal places if required.',
+        },
+        {
+          name: 'width',
+          title: 'Width',
+          type: 'number',
+          description: 'Number is in inches. Please include up to 2 decimal places if required.',
+        },
+        {
+          name: 'depth',
+          title: 'Depth',
+          type: 'number',
+          description: 'Number is in inches. Please include up to 2 decimal places if required.',
+        },
+        {
+          name: 'weight',
+          title: 'Weight',
+          type: 'number',
+          description: 'Number is in pounds. Please include up to 2 decimal places if required.',
         },
       ],
     },
