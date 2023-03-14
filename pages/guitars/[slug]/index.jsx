@@ -24,6 +24,8 @@ const Guitar = ({ guitar }) => {
 		toggleCartItemQuantity,
 	} = useStateContext()
 
+	useEffect(() => console.log(cartItems))
+
 	// Refs
 	let imageRef = useRef(null)
 	let scrollRef = useRef(null)

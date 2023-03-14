@@ -12,18 +12,32 @@ const Cart = () => {
 		setCartItems,
 		setTotalPrice,
 		setTotalQuantities,
+		qty,
+		setQty,
 		onRemove,
 		toggleCartItemQuantity,
 	} = useStateContext()
 
+	useEffect(() => {
+		console.log(totalPrice)
+		console.log(totalQuantities)
+	}, [totalPrice, totalQuantities])
+	useEffect(() => {
+		console.log(cartItems)
+	}, [cartItems])
+
 	// Set total cart price from Local Storage cart items
-	const totalCartPriceLocal = cartFromLocalStorage => {
-		const localCartPriceArray = cartFromLocalStorage.map(x => x.price)
+	/* 	const totalCartPriceLocal = cartFromLocalStorage => {
+		const localCartPriceArray = cartFromLocalStorage.map(
+			x => x.price * x.quantity
+		)
 		const localCartTotal = localCartPriceArray.reduce((a, b) => {
 			return a + b
 		}, 0)
 		return localCartTotal
 	}
+
+	useEffect(() => console.log(cartItems))
 
 	// Get Local Storage cart items on each page load
 	useEffect(() => {
@@ -32,12 +46,13 @@ const Cart = () => {
 		)
 		setCartItems(cartFromLocalStorage)
 		setTotalPrice(totalCartPriceLocal(cartFromLocalStorage))
+		toggleCartItemQuantity(cartFromLocalStorage)
 	}, [])
 
 	// Put each item added to cart in Local Storage cart array
 	useEffect(() => {
 		localStorage.setItem('cart', JSON.stringify(cartItems))
-	}, [cartItems])
+	}, [cartItems]) */
 
 	return (
 		<>
@@ -50,7 +65,7 @@ const Cart = () => {
 								key={item._id}
 								className={cartStyles.cartEntry}>
 								<Image
-									src={urlFor(item?.image[0]).url()}
+									src={urlFor(item.image[0]).url()}
 									width={67}
 									height={100}
 									alt={`${item.name}`}
@@ -63,6 +78,8 @@ const Cart = () => {
 										{`$${item.price}`}
 									</span>
 									<button onClick={() => onRemove(item)}>X</button>
+									<br />
+									<span>{`Qty: ${item.quantity}`}</span>
 								</div>
 							</div>
 						))}

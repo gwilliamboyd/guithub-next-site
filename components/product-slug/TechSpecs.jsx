@@ -30,7 +30,9 @@ const TechSpecs = ({ product, productStyles }) => {
 					<span className={productStyles.techSpecsBlockHeading}>General</span>
 					<div className={productStyles.techSpecsTable}>
 						{techSpecsArray.map(spec => (
-							<div className={productStyles.techSpecRow}>
+							<div
+								className={productStyles.techSpecRow}
+								key={Object.values(spec)}>
 								<span className={productStyles.rowHeading}>
 									{formatKey(spec[0])}
 								</span>

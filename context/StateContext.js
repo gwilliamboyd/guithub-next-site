@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, useEffect } from 'react'
+import { createContext, useContext, useState } from 'react'
 
 const Context = createContext()
 
@@ -8,7 +8,7 @@ export const StateContext = ({ children }) => {
 	const [totalPrice, setTotalPrice] = useState(0)
 	const [totalQuantities, setTotalQuantities] = useState(0)
 	const [qty, setQty] = useState(1)
-	const [results, setResults] = useState([])
+	// const [results, setResults] = useState([])
 	const [products, setProducts] = useState([])
 
 	let foundProduct
@@ -18,22 +18,25 @@ export const StateContext = ({ children }) => {
 	const onAdd = (product, quantity) => {
 		// setCartOpen(true)
 		const checkCartProduct = cartItems.find(item => item._id === product._id)
-		setTotalPrice(
-			prevTotalPrice =>
-				prevTotalPrice + (Math.round(product.price * 100) / 100) * quantity
-		)
+		console.log(checkCartProduct)
+
+		setTotalPrice(prevTotalPrice => prevTotalPrice + product.price * quantity)
 		setTotalQuantities(prevTotalQuantities => prevTotalQuantities + quantity)
 
 		if (checkCartProduct) {
 			const updatedCartItems = cartItems.map(cartItem => {
-				if (cartItem._id === product._id)
+				if (cartItem._id === product._id) {
 					return {
 						...cartItem,
 						quantity: cartItem.quantity + quantity,
 					}
+				} else {
+					return cartItem
+				}
 			})
 			setCartItems(updatedCartItems)
 		} else {
+			console.log('item not found')
 			product.quantity = quantity
 			setCartItems([...cartItems, { ...product }])
 		}
@@ -94,8 +97,7 @@ export const StateContext = ({ children }) => {
 			return prevQty - 1
 		})
 	}
-
-	// Take in query from search bar
+	// Take in query from search bar - DO NOT CHANGE FOR CART FUNCTIONS
 	const handleSearch = query => {
 		return products.filter(product =>
 			Object.values(product)
@@ -130,3 +132,97 @@ export const StateContext = ({ children }) => {
 
 // Import this variable in components to access all contexts
 export const useStateContext = () => useContext(Context)
+
+// cartOpen,
+// 				setCartOpen,
+// 				cartItems,
+// 				totalPrice,
+// 				totalQuantities,
+// 				qty,
+// 				incQty,
+// 				decQty,
+// 				onAdd,
+// 				toggleCartItemQuantity,
+// 				onRemove,
+// 				setCartItems,
+// 				setTotalPrice,
+// 				setTotalQuantities,
+// 				handleSearch,
+
+// handleSearch,
+// cartOpen,
+// setCartOpen,
+// cartProducts,
+// setCartProducts,
+// getProductQuantity,
+// addToCart,
+// removeFromCart,
+// deleteAllFromCart,
+// totalCost,
+// getTotalCost,
+/* 	const [cartOpen, setCartOpen] = useState(false)
+	const [cartProducts, setCartProducts] = useState([])
+
+	// [ { id: 1, quantity: 2 } ]
+	const getProductQuantity = id => {
+		const quantity = cartProducts.find(product => product.id === id)?.quantity
+		if (quantity === undefined) {
+			return 0
+		}
+		return quantity
+	}
+
+	const addToCart = id => {
+		const quantity = getProductQuantity(id)
+		if (quantity === 0) {
+			//Product not in cart
+			setCartProducts([
+				...cartProducts,
+				{
+					id: id,
+					quantity: 1,
+				},
+			])
+		} else {
+			//Product is in cart
+			setCartProducts(
+				cartProducts.map(product =>
+					product.id === id
+						? { ...product, quantity: product.quantity + 1 }
+						: product
+				)
+			)
+		}
+	}
+	const removeFromCart = id => {
+		const quantity = getProductQuantity(id)
+		if (quantity == 1) {
+			deleteAllFromCart(id)
+		} else {
+			setCartProducts(
+				cartProducts.map(product =>
+					product.id === id
+						? { ...product, quantity: product.quantity - 1 }
+						: product
+				)
+			)
+		}
+	}
+	const deleteAllFromCart = id => {
+		setCartProducts(
+			cartProducts =>
+				cartProducts.filter(currentProduct => {
+					return currentProduct.id != id
+				}) // [] if obj meets condition, add obj to array
+		)
+	}
+	let totalCost
+	const getTotalCost = () => {
+		totalCost = 0
+		cartProducts.map(cartItem => {
+			totalCost += cartItem.price * cartItem.quantity
+		})
+		return totalCost
+	}
+
+	 */
