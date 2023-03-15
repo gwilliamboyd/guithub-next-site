@@ -3,6 +3,7 @@ import Image from 'next/image'
 import { useEffect } from 'react'
 import { urlFor } from '@/lib/client'
 import { useStateContext } from '@/context/StateContext'
+import getStripe from '@/lib/getStripe'
 
 const Cart = () => {
 	const {
@@ -54,6 +55,24 @@ const Cart = () => {
 		localStorage.setItem('cart', JSON.stringify(cartItems))
 	}, [cartItems]) */
 
+	const handleCheckout = async () => {
+		const stripe = await getStripe()
+
+		const response = await fetch('/api/stripe', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify(cartItems),
+		})
+
+		if (response.statusCode === 500) return
+
+		const data = await response.json()
+
+		stripe.redirectToCheckout({ sessionId: data.id })
+	}
+
 	return (
 		<>
 			<div className={cartStyles.cartMaster}>
@@ -92,7 +111,7 @@ const Cart = () => {
 					</div>
 					<button
 						className={cartStyles.checkoutButton}
-						onClick={() => console.log('checkout')}>
+						onClick={handleCheckout}>
 						Checkout
 					</button>
 				</div>
