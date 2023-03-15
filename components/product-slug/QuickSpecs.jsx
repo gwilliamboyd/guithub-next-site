@@ -58,25 +58,22 @@ const QuickSpecs = ({ product, productStyles }) => {
 				<div className={productStyles.quickSpecsList}>
 					<div>
 						<span className={productStyles.emphasizedSpec}>
-							{capitalizeValue(product.techSpecs.amp_Type)}
-						</span>{' '}
-						Amplification
-					</div>
-					<div>
-						<span className={productStyles.emphasizedSpec}>
 							{product.techSpecs.power}W
 						</span>{' '}
 						Total Power
 					</div>
 					<div>
 						<span className={productStyles.emphasizedSpec}>
-							{product.techSpecs.pickupType == 'humbucker'
-								? 'Humbucking'
-								: 'Single-coil'}
+							{product.techSpecs.number_Of_Channels}
 						</span>{' '}
-						{'Pickups'}
+						Channels
 					</div>
-					<div>{product.techSpecs.bridge}</div>
+					<div>
+						<span>{product.techSpecs.speaker_Size}</span>
+					</div>
+					<div>
+						<span>{product.techSpecs.eq}</span>
+					</div>
 				</div>
 			)}
 			{/* EFFECTS */}

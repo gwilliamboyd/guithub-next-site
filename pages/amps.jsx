@@ -15,7 +15,7 @@ export default function Amps({ amps }) {
 
 	// Pagination
 	const [currentPage, setCurrentPage] = useState(1)
-	const [guitPerPage] = useState(4)
+	const [guitPerPage] = useState(6)
 
 	// Search bar
 	const filteredProducts = useMemo(() => {

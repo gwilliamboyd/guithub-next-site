@@ -22,6 +22,7 @@ const TechSpecs = ({ product, productStyles }) => {
 		const result = stringValue.charAt(0).toUpperCase() + stringValue.slice(1)
 		return result
 	}
+	// Formats KEY names - no need for underscores in key name
 	const formatEntry = s => {
 		const stringValue = s.toString()
 		const result = stringValue.charAt(0).toUpperCase() + stringValue.slice(1)

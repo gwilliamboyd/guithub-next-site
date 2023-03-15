@@ -9,7 +9,8 @@
 .imageModal {
 	position: absolute;
 	background-color: rgba(0, 0, 0, 0.9);
-	width: 80%;
+	padding: 12rem 0;
+	width: 85%;
 	height: auto;
 	display: flex;
 	justify-content: center;
