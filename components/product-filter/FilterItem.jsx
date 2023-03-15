@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import SubMenuItem from './SubmenuItem'
 
 const FilterItem = ({ effects, filterStyles, text, query, setQuery }) => {
-	const getAttribute = attr => {
+	/* 	const getAttribute = attr => {
 		const attributeArray = []
 
 		const attributes = effects.map(product => {
@@ -16,7 +16,7 @@ const FilterItem = ({ effects, filterStyles, text, query, setQuery }) => {
 	useEffect(() => {
 		// console.log(effects)
 		getAttribute(text.toLowerCase())
-	}, [])
+	}, []) */
 	const [menuOpen, setMenuOpen] = useState(false)
 	return (
 		<span className={filterStyles.filterItem}>

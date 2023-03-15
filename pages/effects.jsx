@@ -28,6 +28,11 @@ export default function Effects({ effects }) {
 
 	useEffect(() => console.log(`Query: ${query}`), [query])
 
+	let inputString = 'WhatHaveYouTried?'
+	let newInputString = inputString.replace(/([A-Z])/g, ' $1').trim()
+
+	console.log(newInputString)
+
 	/* const getAttribute = attr => {
 		const attributeArray = []
 

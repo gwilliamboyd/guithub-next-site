@@ -6,7 +6,7 @@ const TechSpecs = ({ product, productStyles }) => {
 
 	// Formats KEY names from Sanity to be readable on Tech Specs table
 	// Auto-generating all the names
-	const formatKey = s => {
+	/* 	const formatKey = s => {
 		const spaceResult = s.replace('_', ' ')
 
 		const finalResult = spaceResult.split(' ')
@@ -15,12 +15,18 @@ const TechSpecs = ({ product, productStyles }) => {
 		}
 		const result = finalResult.join(' ')
 		return result
-	}
+	} */
 	// Formats VALUE names for Tech Specs table
 	const capitalizeValue = s => {
 		const stringValue = s.toString()
 		const result = stringValue.charAt(0).toUpperCase() + stringValue.slice(1)
 		return result
+	}
+	const formatEntry = s => {
+		const stringValue = s.toString()
+		const result = stringValue.charAt(0).toUpperCase() + stringValue.slice(1)
+		const finalResult = result.replace(/([A-Z])/g, ' $1').trim()
+		return finalResult
 	}
 	return (
 		<div className={productStyles.techSpecs}>
@@ -34,7 +40,7 @@ const TechSpecs = ({ product, productStyles }) => {
 								className={productStyles.techSpecRow}
 								key={Object.values(spec)}>
 								<span className={productStyles.rowHeading}>
-									{formatKey(spec[0])}
+									{formatEntry(spec[0])}
 								</span>
 								<span className={productStyles.rowText}>
 									{capitalizeValue(spec[1])}
