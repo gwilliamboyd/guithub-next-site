@@ -36,7 +36,7 @@ export default function ProductContainer({
 
 	return (
 		<>
-			<main className={categoryStyles.productsContainer}>
+			<main className={categoryStyles.productsMaster}>
 				{products.length > 0 && (
 					<div className={categoryStyles.productsContainer}>
 						{currentProducts.map(product => (

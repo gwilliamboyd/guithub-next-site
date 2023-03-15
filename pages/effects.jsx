@@ -15,7 +15,7 @@ export default function Effects({ effects }) {
 
 	// Pagination
 	const [currentPage, setCurrentPage] = useState(1)
-	const [guitPerPage] = useState(4)
+	const [guitPerPage] = useState(6)
 
 	// Search bar
 	const filteredProducts = useMemo(() => {
@@ -26,7 +26,23 @@ export default function Effects({ effects }) {
 		)
 	}, [effects, query])
 
-	useEffect(() => console.log(query), [query])
+	useEffect(() => console.log(`Query: ${query}`), [query])
+
+	/* const getAttribute = attr => {
+		const attributeArray = []
+
+		const attributes = effects.map(product => {
+			let value = product.attr
+			attributeArray.push(value)
+			return attributeArray
+		})
+		// console.log(attributes[0])
+		return attributes
+	} */
+
+	/* 	useEffect(() => {
+		getAttribute()
+	}, []) */
 
 	const lastIndex = currentPage * guitPerPage
 	const firstIndex = lastIndex - guitPerPage
@@ -36,13 +52,13 @@ export default function Effects({ effects }) {
 	return (
 		<>
 			<main className={categoryStyles.mainContainer}>
-				<FilterMenu
+				{/* <FilterMenu
 					effects={effects}
 					query={query}
 					setQuery={setQuery}
-				/>
+				/> */}
 				<h1 className={categoryStyles.categoryHeading}>Effects Pedals</h1>
-				<HeroCarousel categoryStyles={categoryStyles} />
+				{/* <HeroCarousel categoryStyles={categoryStyles} /> */}
 				<ProductContainer
 					products={effects}
 					categoryStyles={categoryStyles}
