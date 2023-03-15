@@ -13,6 +13,7 @@
     "@sanity/client": "^4.0.1",
     "@sanity/image-url": "^1.0.2",
     "@stripe/stripe-js": "^1.49.0",
+    "framer-motion": "^10.3.2",
     "net": "^1.0.2",
     "next": "13.1.6",
     "next-sanity": "^4.1.2",

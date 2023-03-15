@@ -1,6 +1,8 @@
 .container {
+	margin: 0;
+	padding: 0;
 	min-height: 100vh;
-	padding: 1.5rem;
+	/* padding: 1.5rem; */
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-start;
