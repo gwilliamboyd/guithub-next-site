@@ -85,21 +85,34 @@ const Cart = () => {
 								className={cartStyles.cartEntry}>
 								<Image
 									src={urlFor(item.image[0]).url()}
-									width={67}
-									height={100}
+									width={0}
+									height={0}
+									sizes='100vw'
+									style={{
+										maxWidth: '71px',
+										width: 'auto',
+										height: 'auto',
+									}}
 									alt={`${item.name}`}
 									className={cartStyles.cartEntryImage}
 								/>
-								<div className={cartStyles.cartEntryName}>
-									{item.name}
-									<br />
-									<span className={cartStyles.cartEntryPrice}>
-										{`$${item.price}`}
-									</span>
-									<button onClick={() => onRemove(item)}>X</button>
-									<br />
-									<span>{`Qty: ${item.quantity}`}</span>
+								<div className={cartStyles.cartEntryBody}>
+									<span className={cartStyles.cartEntryName}>{item.name}</span>
+									<div className={cartStyles.cartEntryInfo}>
+										<span className={cartStyles.cartEntryPrice}>
+											{`$${item.price}`}
+										</span>
+										<span
+											className={
+												cartStyles.itemQuantity
+											}>{`Qty: ${item.quantity}`}</span>
+									</div>
 								</div>
+								<button
+									className={cartStyles.removeButton}
+									onClick={() => onRemove(item)}>
+									X
+								</button>
 							</div>
 						))}
 					</div>
