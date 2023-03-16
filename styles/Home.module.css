@@ -5,12 +5,14 @@
 	justify-content: flex-start;
 	align-items: center;
 }
-.guitarHero {
+.guitarHero,
+.ampHero {
 	position: relative;
 	margin-top: 0;
 	width: calc(100vw - 17px);
-	height: calc(100vh - 150px);
+	height: calc(100vh - 80px);
 }
+/* GUITARS HERO */
 .redBg,
 .blackBg,
 .prs,
@@ -39,17 +41,17 @@
 	z-index: 3;
 }
 .prs {
-	max-height: 750px;
-	left: 20%;
+	max-height: 780px;
+	right: 45%;
 }
 .explorer {
 	max-height: 612px;
-	top: 4%;
+	top: 8%;
 	right: 23%;
 }
 .schecter {
 	max-height: 383px;
-	top: 9%;
+	top: 18%;
 	right: 5%;
 }
 .guitarsText {
@@ -61,13 +63,68 @@
 }
 .browseButton {
 	position: absolute;
+	z-index: 7;
 	background-color: var(--main-red-color);
 	color: var(--light-font-color);
 	padding: 0.9rem 1.8rem;
+	outline: 3px solid var(--main-red-color);
 	border-radius: 0.4rem;
 	font-size: 1.8rem;
 	top: 48%;
 	left: 5%;
+	transition: 0.15s all ease-out;
+}
+.browseButton:hover {
+	background-color: rgba(var(--light-font-color) 0.5);
+	/* color: var(--main-red-color); */
+	outline: 3px solid var(--main-red-color);
+}
+
+/* AMPS HERO */
+.ampHero {
+	height: 1080px;
+}
+.redAmpBgImg,
+.blackAmpBgImg,
+.marshall {
+	max-width: 100%;
+	position: absolute;
+}
+.blackAmpBgImg {
+	max-height: 1080px;
+	z-index: 2;
+	top: 0;
+}
+.redAmpBgImg {
+	max-height: 995px;
+	bottom: 0;
+	z-index: 3;
+}
+.marshall {
+	z-index: 5;
+	top: 15%;
+	left: 4%;
+}
+.ampsText {
+	z-index: 1000;
+	position: absolute;
+	color: var(--light-font-color);
+	font-size: 7rem;
+	top: 45%;
+	right: 5%;
+}
+.browseButtonAmp {
+	position: absolute;
+	z-index: 7;
+	background-color: var(--dark-font-color);
+	color: var(--light-font-color);
+	padding: 0.9rem 1.8rem;
+	outline: 3px solid var(--dark-font-color);
+	border-radius: 0.4rem;
+	font-size: 1.8rem;
+	top: 65%;
+	right: 5%;
+	transition: 0.15s all ease-out;
 }
 
 .homeHeading {
