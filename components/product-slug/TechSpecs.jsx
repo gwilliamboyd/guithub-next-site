@@ -3,7 +3,7 @@ import TechSpecsBlock from './TechSpecsBlock'
 const TechSpecs = ({ product, productStyles }) => {
 	// Puts Sanity Tech Specs array into an array readable by component
 	const techSpecsArray = Object.entries(product.techSpecs)
-	console.log(techSpecsArray)
+	// console.log(techSpecsArray)
 
 	// Formats KEY names from Sanity to be readable on Tech Specs table
 	// Auto-generating all the names

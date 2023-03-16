@@ -6,7 +6,6 @@ import ProductCarousel from '@/components/product-slug/ProductCarousel'
 import QuickSpecs from './QuickSpecs'
 
 const ProductBody = ({ product, productStyles, enchanceImage }) => {
-	console.log(`Product Type: ${product._type}`)
 	const {
 		cartOpen,
 		setCartOpen,
@@ -47,6 +46,7 @@ const ProductBody = ({ product, productStyles, enchanceImage }) => {
 						<ProductCarousel
 							productStyles={productStyles}
 							product={product}
+							enchanceImage={enchanceImage}
 						/>
 					</div>
 				</div>
