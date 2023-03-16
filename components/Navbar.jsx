@@ -59,11 +59,11 @@ const Navbar = ({ products, guitars, amps }) => {
 							name='Effects'
 							destination='/effects'
 						/>
-						<NavbarLink
+						{/* <NavbarLink
 							navbarStyles={navbarStyles}
 							name='Accessories'
 							destination='/accessories'
-						/>
+						/> */}
 					</ul>
 					<ul className={navbarStyles.socialsLinks}>
 						<SocialIcon iconUrl={instagramIcon} />
