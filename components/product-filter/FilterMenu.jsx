@@ -1,4 +1,4 @@
-import FilterItem from '@/components/product-filter/FilterItem'
+// import FilterItem from '@/components/product-filter/FilterItem'
 // Styles
 import filterStyles from '../../styles/Filter.module.css'
 
@@ -7,7 +7,7 @@ const FilterMenu = ({ effects, query, setQuery }) => {
 	return (
 		<div className={filterStyles.filterContainer}>
 			<div className={filterStyles.filterMaster}>
-				<FilterItem
+				{/* <FilterItem
 					effects={effects}
 					filterStyles={filterStyles}
 					text={'Brand'}
@@ -48,7 +48,7 @@ const FilterMenu = ({ effects, query, setQuery }) => {
 					text={'Pricing'}
 					query={query}
 					setQuery={setQuery}
-				/>
+				/> */}
 			</div>
 		</div>
 	)
