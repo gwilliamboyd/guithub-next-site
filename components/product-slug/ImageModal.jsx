@@ -17,9 +17,13 @@ const ImageModal = ({
 			ref={imageRef}
 			className={productStyles.imageModal}
 			onClick={enchanceImage}>
+			{/* Prev Button */}
 			<button
 				ref={scrollRef}
-				className={productStyles.scrollButton}
+				className={[
+					productStyles.scrollButton,
+					productStyles.previousButton,
+				].join(' ')}
 				onClick={scrollPrevious}>
 				Prev
 			</button>
@@ -31,9 +35,12 @@ const ImageModal = ({
 				sizes='100vw'
 				style={{ width: 'min(100%, 500px)', height: 'auto' }}
 			/>
+			{/* Next Button */}
 			<button
 				ref={scrollRef}
-				className={productStyles.scrollButton}
+				className={[productStyles.scrollButton, productStyles.nextButton].join(
+					' '
+				)}
 				onClick={scrollNext}>
 				Next
 			</button>

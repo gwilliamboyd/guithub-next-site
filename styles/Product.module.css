@@ -1,3 +1,4 @@
+/* PRODUCT MASTER */
 .productMaster {
 	position: relative;
 	width: 100%;
@@ -6,51 +7,62 @@
 	justify-content: flex-start;
 	align-items: center;
 }
+
+/* Enhanced Image Modal */
 .imageModal {
 	position: absolute;
+	top: 0;
 	background-color: rgba(0, 0, 0, 0.9);
-	padding: 12rem 0;
-	width: 85%;
-	height: auto;
+	padding: 6rem 0;
+	width: 70%;
+	height: 90vh;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	gap: 1rem;
 }
 .scrollButton {
-	/* box-sizing: border-box; */
+	position: absolute;
 	margin-bottom: 1rem;
 	padding: 0.75rem 1.5rem;
 	font-size: 1.5rem;
 	border: none;
 	border-radius: 0.5rem;
-	background-color: crimson;
-	color: #ececec;
+	background-color: var(--main-red-color);
+	color: var(--light-font-color);
 }
 .scrollButton:hover {
-	background-color: #ececec;
-	color: crimson;
-	/* outline: 2px solid crimson; */
+	background-color: var(--light-font-color);
+	color: var(--main-red-color);
 }
+.previousButton,
+.nextButton {
+	top: 40%;
+}
+.previousButton {
+	left: 20%;
+}
+.nextButton {
+	right: 20%;
+}
+
+/* PRODUCT BODY */
 .productHeading {
 	width: 100%;
-	font-size: 2rem;
+	font-size: 4rem;
 	font-weight: 900;
-	margin: 1rem 0 0;
+	margin: 3rem 0 0;
 	text-align: center;
 }
 .productBody {
-	margin-top: 3rem;
+	margin-top: 4rem;
 	width: 80%;
-	/* height: min-content; */
 	display: flex;
 	justify-content: space-around;
 	align-items: flex-start;
-	/* display: grid;
-	grid-template-columns: 50% 50%;
-	grid-template-rows: 1fr;
-	align-items: flex-start; */
 }
+
+/* Product Images */
 .bodyImages {
 	max-height: fit-content;
 	height: min-content;
@@ -70,16 +82,13 @@
 .productCarousel {
 	height: 100%;
 	display: flex;
-	/* flex-direction: column; */
 	justify-content: space-around;
 	gap: 1.5rem;
 }
 .productCarouselAmps {
 	height: 100%;
 	display: flex;
-	/* flex-direction: column; */
 	justify-content: space-around;
-	/* gap: 2rem; */
 }
 .carouselImage {
 	max-width: 80px;
@@ -89,6 +98,8 @@
 	justify-content: center;
 	align-items: center;
 }
+
+/* Product text */
 .bodyText {
 	display: grid;
 	grid-template-columns: 1fr;
@@ -142,6 +153,11 @@
 	font-size: 1.1rem;
 	padding: 0.75rem 1.8rem;
 }
+.addToCart:hover {
+	outline: 3px solid var(--main-red-color);
+	background-color: var(--light-font-color);
+	color: var(--main-red-color);
+}
 .shippingInfo {
 	display: grid;
 	grid-template-columns: 1fr;
@@ -156,6 +172,7 @@
 	color: var(--main-red-color);
 	font-weight: 900;
 }
+/* Quick Specs */
 .quickSpecs {
 	text-align: right;
 	color: var(--main-red-color);
@@ -173,12 +190,8 @@
 	color: var(--main-red-color);
 	font-weight: 500;
 }
-.addToCart:hover {
-	outline: 3px solid var(--main-red-color);
-	background-color: var(--light-font-color);
-	color: var(--main-red-color);
-}
 
+/* Product Description */
 .productDescription {
 	color: var(--light-font-color);
 	margin-top: 2rem;
@@ -251,6 +264,7 @@
 	display: grid;
 	grid-template-columns: 40% 60%;
 }
+/* Sets every other row to be a different shade of gray */
 .techSpecRow:nth-child(2n) {
 	background-color: darkgray;
 }
