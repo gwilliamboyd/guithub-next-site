@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-// import SubMenuItem from './SubmenuItem'
+import SubMenuItem from './SubmenuItem'
 
 const FilterItem = ({ effects, filterStyles, text, query, setQuery }) => {
 	/* 	const getAttribute = attr => {
@@ -36,7 +36,7 @@ const FilterItem = ({ effects, filterStyles, text, query, setQuery }) => {
 								</span>
 							</span>
 						)}
-						{/* <SubMenuItem
+						<SubMenuItem
 							filterStyles={filterStyles}
 							text={'Distortion'}
 							query={query}
@@ -83,7 +83,7 @@ const FilterItem = ({ effects, filterStyles, text, query, setQuery }) => {
 							text={'Delay'}
 							query={query}
 							setQuery={setQuery}
-						/> */}
+						/>
 					</div>
 				)}
 			</span>

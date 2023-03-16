@@ -36,13 +36,13 @@ export default function Amps({ amps }) {
 	return (
 		<>
 			<main className={categoryStyles.mainContainer}>
-				<FilterMenu
+				{/* <FilterMenu
 					amps={amps}
 					query={query}
 					setQuery={setQuery}
-				/>
+				/> */}
 				<h1 className={categoryStyles.categoryHeading}>Amplifiers</h1>
-				<HeroCarousel categoryStyles={categoryStyles} />
+				{/* <HeroCarousel categoryStyles={categoryStyles} /> */}
 				<ProductContainer
 					products={amps}
 					categoryStyles={categoryStyles}
