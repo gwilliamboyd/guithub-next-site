@@ -15,8 +15,7 @@ const ImageModal = ({
 	return (
 		<div
 			ref={imageRef}
-			className={productStyles.imageModal}
-			onClick={enchanceImage}>
+			className={productStyles.imageModal}>
 			{/* Prev Button */}
 			<button
 				ref={scrollRef}

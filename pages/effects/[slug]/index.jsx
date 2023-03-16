@@ -24,7 +24,7 @@ const Effect = ({ effect }) => {
 		toggleCartItemQuantity,
 	} = useStateContext()
 
-	// Refs
+	/* // Refs
 	let imageRef = useRef(null)
 	let scrollRef = useRef(null)
 
@@ -35,6 +35,8 @@ const Effect = ({ effect }) => {
 
 	const enchanceImage = i => {
 		setImageOpen(true)
+		console.log(`Index: ${imageIndex}`)
+		setImageIndex(imageIndex)
 		setImageContent(i)
 	}
 
@@ -67,11 +69,11 @@ const Effect = ({ effect }) => {
 
 	useEffect(() => {
 		closeImage()
-	}, [])
+	}, []) */
 
 	return (
 		<div className={productStyles.productMaster}>
-			{imageOpen && (
+			{/* {imageOpen && (
 				<ImageModal
 					imageRef={imageRef}
 					scrollRef={scrollRef}
@@ -82,12 +84,11 @@ const Effect = ({ effect }) => {
 					scrollPrevious={scrollPrevious}
 					scrollNext={scrollNext}
 				/>
-			)}
+			)} */}
 			<p className={productStyles.productHeading}>{effect.name}</p>
 			<ProductBody
 				product={effect}
 				productStyles={productStyles}
-				enchanceImage={enchanceImage}
 			/>
 			<ProductDescription
 				product={effect}

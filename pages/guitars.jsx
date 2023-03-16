@@ -36,13 +36,13 @@ export default function Guitars({ guitars }) {
 	return (
 		<>
 			<main className={categoryStyles.mainContainer}>
-				<FilterMenu
+				{/* <FilterMenu
 					guitars={guitars}
 					query={query}
 					setQuery={setQuery}
-				/>
-				<h1 className={categoryStyles.categoryHeading}>Amplifiers</h1>
-				<HeroCarousel categoryStyles={categoryStyles} />
+				/> */}
+				<h1 className={categoryStyles.categoryHeading}>Guitars</h1>
+				{/* <HeroCarousel categoryStyles={categoryStyles} /> */}
 				<ProductContainer
 					products={guitars}
 					categoryStyles={categoryStyles}

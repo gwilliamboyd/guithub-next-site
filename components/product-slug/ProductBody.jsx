@@ -1,11 +1,14 @@
 import { urlFor } from '@/lib/client'
+import { useRef, useState, useEffect } from 'react'
 import Image from 'next/image'
 import RatingIcon from '@/components/product-slug/RatingIcon'
 import { useStateContext } from '@/context/StateContext'
 import ProductCarousel from '@/components/product-slug/ProductCarousel'
 import QuickSpecs from './QuickSpecs'
+import ImageModal from './ImageModal'
 
-const ProductBody = ({ product, productStyles, enchanceImage }) => {
+const ProductBody = ({ product, productStyles }) => {
+	console.log(`Product Type: ${product._type}`)
 	const {
 		cartOpen,
 		setCartOpen,
@@ -26,8 +29,69 @@ const ProductBody = ({ product, productStyles, enchanceImage }) => {
 		onAdd(product, qty)
 	}
 
+	// Refs
+	let imageRef = useRef(null)
+	let scrollRef = useRef(null)
+
+	// State
+	const [imageOpen, setImageOpen] = useState(false)
+	const [imageContent, setImageContent] = useState(null)
+	const [imageIndex, setImageIndex] = useState(0)
+
+	const enchanceImage = i => {
+		setImageOpen(true)
+		console.log(`Index: ${imageIndex}`)
+		setImageIndex(imageIndex)
+		setImageContent(i)
+	}
+
+	const closeImage = () => {
+		document.addEventListener('mousedown', e => {
+			if (imageRef.current == null || scrollRef.current == null) {
+				return
+			}
+			if (!imageRef.current.contains(e.target)) {
+				setImageOpen(false)
+				setImageIndex(0)
+			}
+		})
+	}
+
+	const scrollPrevious = () => {
+		if (imageIndex == 0) {
+			return
+		} else {
+			setImageIndex(imageIndex - 1)
+		}
+	}
+	const scrollNext = () => {
+		if (imageIndex == 5) {
+			return
+		} else {
+			setImageIndex(imageIndex + 1)
+		}
+	}
+
+	function handleCarouselClick() {}
+
+	useEffect(() => {
+		closeImage()
+	}, [])
+
 	return (
 		<>
+			{imageOpen && (
+				<ImageModal
+					imageRef={imageRef}
+					scrollRef={scrollRef}
+					product={product}
+					productStyles={productStyles}
+					imageIndex={imageIndex}
+					enchanceImage={enchanceImage}
+					scrollPrevious={scrollPrevious}
+					scrollNext={scrollNext}
+				/>
+			)}
 			<div className={productStyles.productBody}>
 				<div className={productStyles.bodyImages}>
 					<div
@@ -43,11 +107,108 @@ const ProductBody = ({ product, productStyles, enchanceImage }) => {
 						/>
 					</div>
 					<div className={productStyles.imageTiles}>
-						<ProductCarousel
-							productStyles={productStyles}
-							product={product}
-							enchanceImage={enchanceImage}
-						/>
+						<div className={productStyles.productCarousel}>
+							<div className={productStyles.carouselImage}>
+								<Image
+									src={urlFor(product.image[1]).url()}
+									width={0}
+									height={0}
+									alt={product.name}
+									sizes='100vw'
+									style={{
+										maxWidth: '80px',
+										width: '100%',
+										maxHeight: '120px',
+										height: 'auto',
+									}}
+								/>
+							</div>
+							<div className={productStyles.carouselImage}>
+								<Image
+									src={urlFor(product.image[2]).url()}
+									width={0}
+									height={0}
+									alt={product.name}
+									sizes='100vw'
+									style={{
+										maxWidth: '80px',
+										width: '100%',
+										maxHeight: '120px',
+										height: 'auto',
+									}}
+								/>
+							</div>
+							<div className={productStyles.carouselImage}>
+								<Image
+									src={urlFor(product.image[3]).url()}
+									width={0}
+									height={0}
+									alt={product.name}
+									sizes='100vw'
+									style={{
+										maxWidth: '80px',
+										width: '100%',
+										maxHeight: '120px',
+										height: 'auto',
+									}}
+								/>
+							</div>
+							<div className={productStyles.carouselImage}>
+								<Image
+									src={urlFor(product.image[4]).url()}
+									width={0}
+									height={0}
+									alt={product.name}
+									sizes='100vw'
+									style={{
+										maxWidth: '80px',
+										width: '100%',
+										maxHeight: '120px',
+										height: 'auto',
+									}}
+								/>
+							</div>
+							<div className={productStyles.carouselImage}>
+								<Image
+									src={urlFor(product.image[5]).url()}
+									width={0}
+									height={0}
+									alt={product.name}
+									sizes='100vw'
+									style={{
+										maxWidth: '80px',
+										width: '100%',
+										maxHeight: '120px',
+										height: 'auto',
+									}}
+								/>
+							</div>
+							{/* <ProductCarouselImage
+				product={product}
+				imageIndex={1}
+				productStyles={productStyles}
+			/>
+			<ProductCarouselImage
+				product={product}
+				imageIndex={2}
+				productStyles={productStyles}
+			/>
+			<ProductCarouselImage
+				product={product}
+				imageIndex={3}
+				productStyles={productStyles}
+			/>
+			<ProductCarouselImage
+				product={product}
+				imageIndex={4}
+				productStyles={productStyles}
+			/>
+			<ProductCarouselImage
+				product={product}
+				imageIndex={5}
+				productStyles={productStyles}
+			/> */}
+						</div>
 					</div>
 				</div>
 				<div className={productStyles.bodyText}>
