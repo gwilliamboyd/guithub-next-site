@@ -1,0 +1,6 @@
+.footerMaster {
+	width: 100%;
+	padding: 5rem 10rem;
+	margin: 0;
+	background-color: var(--main-red-color);
+}

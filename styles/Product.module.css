@@ -56,7 +56,7 @@
 }
 .productBody {
 	margin-top: 4rem;
-	width: 80%;
+	width: 65%;
 	display: flex;
 	justify-content: space-around;
 	align-items: flex-start;
@@ -232,7 +232,7 @@
 }
 .techSpecs {
 	width: 100%;
-	margin-top: 2rem;
+	margin: 2rem 0 4rem;
 	display: flex;
 	flex-direction: column;
 	align-items: center;

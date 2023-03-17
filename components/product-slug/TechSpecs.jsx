@@ -24,7 +24,7 @@ const TechSpecs = ({ product, productStyles }) => {
 			<span className={productStyles.techSpecsHeading}>Tech Specs</span>
 			<div className={productStyles.techSpecsBody}>
 				<div className={productStyles.techSpecsBlock}>
-					<span className={productStyles.techSpecsBlockHeading}>General</span>
+					{/* <span className={productStyles.techSpecsBlockHeading}>General</span> */}
 					<div className={productStyles.techSpecsTable}>
 						{techSpecsArray.map(spec => (
 							<div
