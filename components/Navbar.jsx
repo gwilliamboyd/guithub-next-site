@@ -37,11 +37,14 @@ const Navbar = ({ products, guitars, amps }) => {
 						</a>
 					</Link>
 				</div>
-				<SearchBar
-					navbarStyles={navbarStyles}
-					products={products}
-					// amps={amps}
-				/>
+				<div className={navbarStyles.searchElements}>
+					Search products:
+					<SearchBar
+						navbarStyles={navbarStyles}
+						products={products}
+						// amps={amps}
+					/>
+				</div>
 				<div className={navbarStyles.rightLinks}>
 					<ul className={navbarStyles.productLinks}>
 						<NavbarLink
@@ -65,11 +68,11 @@ const Navbar = ({ products, guitars, amps }) => {
 							destination='/accessories'
 						/> */}
 					</ul>
-					<ul className={navbarStyles.socialsLinks}>
+					{/* <ul className={navbarStyles.socialsLinks}>
 						<SocialIcon iconUrl={instagramIcon} />
 						<SocialIcon iconUrl={youtubeIcon} />
 						<SocialIcon iconUrl={reverbIcon} />
-					</ul>
+					</ul> */}
 					<Link
 						legacyBehavior
 						href='#'>

@@ -8,6 +8,8 @@
 	align-items: center;
 }
 .categoryHeading {
+	width: calc(100vw - 17px);
+	text-align: center;
 	font-size: 3.5rem;
 	font-weight: 900;
 }

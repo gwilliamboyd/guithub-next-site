@@ -18,6 +18,11 @@
 .storeLogo:hover {
 	filter: brightness(0%);
 }
+.searchElements {
+	display: flex;
+	gap: 1rem;
+	align-items: center;
+}
 .rightLinks {
 	display: flex;
 	align-items: stretch;
