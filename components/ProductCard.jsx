@@ -1,7 +1,8 @@
 import { urlFor } from '@/lib/client'
 import Image from 'next/image'
 import Link from 'next/link'
-import RatingIcon from './product-slug/RatingIcon'
+import ratingIcon from '../public/images/hand_horns_icon.png'
+
 import { useState, useEffect } from 'react'
 
 export const ProductCard = ({ product, categoryStyles }) => {
@@ -30,7 +31,13 @@ export const ProductCard = ({ product, categoryStyles }) => {
 						<div className={categoryStyles.productInfo}>
 							<b className={categoryStyles.productPrice}>${product.price}</b>
 							<span className={categoryStyles.productRating}>
-								{product.rating}/5 <RatingIcon />
+								{product.rating}/5{' '}
+								<Image
+									src={ratingIcon}
+									width={20}
+									height={20}
+									alt='Rating icon'
+								/>
 							</span>
 						</div>
 					</div>

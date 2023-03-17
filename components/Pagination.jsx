@@ -24,7 +24,11 @@ const Pagination = ({
 	return (
 		<nav>
 			<div className={paginationStyles.pagination}>
-				<button onClick={previousPage}>Prev</button>
+				<button
+					className={paginationStyles.previousButton}
+					onClick={previousPage}>
+					Prev
+				</button>
 				{pageNumbers.map(number => (
 					<div
 						key={number}
@@ -38,7 +42,11 @@ const Pagination = ({
 						</button>
 					</div>
 				))}
-				<button onClick={nextPage}>Next</button>
+				<button
+					className={paginationStyles.nextButton}
+					onClick={nextPage}>
+					Next
+				</button>
 			</div>
 		</nav>
 	)

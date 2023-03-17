@@ -3,18 +3,33 @@
 	padding: 1rem 0;
 	gap: 0.5rem;
 }
-.pageLink {
+.pageLink,
+.previousButton,
+.nextButton {
 	/* box-sizing: border-box; */
+	font-family: inherit;
 	padding: 0.3rem 0.6rem;
 	font-size: 1rem;
 	border: none;
 	border-radius: 0.5rem;
-	background-color: crimson;
-	color: #ececec;
+	background-color: var(--light-font-color);
+	color: var(--main-red-color);
+	transition: 0.15s all ease-out;
 }
-.pageLink:hover {
-	background-color: #ececec;
-	color: crimson;
-	font-weight: bold;
-	outline: 2px solid crimson;
+.pageLink {
+	padding: 0.3rem 0.6rem;
+	font-weight: 900;
+}
+.previousButton,
+.nextButton {
+	font-weight: 600;
+}
+.pageLink:hover,
+.previousButton:hover,
+.nextButton:hover {
+	background-color: var(--main-red-color);
+	color: var(--light-font-color);
+	/* font-weight: bold; */
+	/* outline: 2px solid var(--main-red-color); */
+	cursor: pointer;
 }
