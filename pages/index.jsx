@@ -15,6 +15,12 @@ import schecterBgImg from '@/public/images/banner-guitar-syn.png'
 import redAmpBgImg from '@/public/images/banner-amp-red-bg.png'
 import blackAmpBgImg from '@/public/images/banner-amp-black-bg.png'
 import marshallAmpImg from '@/public/images/banner-amp-amp.png'
+// Effects
+import redEffectBgImg from '@/public/images/banner-effect/banner-effect-red-bg.png'
+import blackEffectBgImg from '@/public/images/banner-effect/banner-effect-black-bg.png'
+import afterneathImg from '@/public/images/banner-effect/banner-effect-afterneath.png'
+import phase90Img from '@/public/images/banner-effect/banner-effect-phase-90.png'
+import bigSkyImg from '@/public/images/banner-effect/banner-effect-bigsky.png'
 
 export default function IndexPage({ products, guitars, amps }) {
 	const [gtrs, setGtrs] = useState(guitars)
@@ -132,6 +138,64 @@ export default function IndexPage({ products, guitars, amps }) {
 					animate={{ opacity: 1 }}
 					transition={{ delay: 0.6, duration: 0.85 }}
 					src={marshallAmpImg.src}
+				/>
+			</div>
+			{/* BANNER - EFFECT */}
+			<div className={homeStyles.effectHero}>
+				<motion.img
+					className={homeStyles.redEffectBgImg}
+					initial={{ y: 600 }}
+					animate={{ y: 0 }}
+					transition={{ duration: 0.6 }}
+					src={redEffectBgImg.src}
+				/>
+				<motion.img
+					className={homeStyles.blackEffectBgImg}
+					initial={{ x: -1650 }}
+					animate={{ x: 0 }}
+					transition={{ delay: 0.15, duration: 0.6 }}
+					src={blackEffectBgImg.src}
+				/>
+				<motion.span
+					className={homeStyles.effectText}
+					initial={{ opacity: 0 }}
+					animate={{ opacity: 1 }}
+					transition={{ delay: 2, duration: 0.85 }}>
+					Effects
+				</motion.span>
+
+				<motion.span
+					className={homeStyles.browseButtonEffect}
+					initial={{ opacity: 0 }}
+					animate={{ opacity: 1 }}
+					transition={{ delay: 2, duration: 0.85 }}>
+					<Link
+						legacyBehavior
+						href={'/amps'}>
+						<a>Browse Here</a>
+					</Link>
+				</motion.span>
+
+				<motion.img
+					className={homeStyles.afterneathImg}
+					initial={{ opacity: 0 }}
+					animate={{ opacity: 1 }}
+					transition={{ delay: 0.6, duration: 0.85 }}
+					src={afterneathImg.src}
+				/>
+				<motion.img
+					className={homeStyles.bigSkyImg}
+					initial={{ opacity: 0 }}
+					animate={{ opacity: 1 }}
+					transition={{ delay: 0.6, duration: 0.85 }}
+					src={bigSkyImg.src}
+				/>
+				<motion.img
+					className={homeStyles.phase90Img}
+					initial={{ opacity: 0 }}
+					animate={{ opacity: 1 }}
+					transition={{ delay: 0.6, duration: 0.85 }}
+					src={phase90Img.src}
 				/>
 			</div>
 		</div>
