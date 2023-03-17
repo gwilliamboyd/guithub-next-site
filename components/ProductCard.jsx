@@ -26,19 +26,22 @@ export const ProductCard = ({ product, categoryStyles }) => {
 								height: 'auto',
 							}}
 							alt={product.name}
+							className={categoryStyles.productCardImage}
 						/>
-						<b>{product.name}</b>
-						<div className={categoryStyles.productInfo}>
-							<b className={categoryStyles.productPrice}>${product.price}</b>
-							<span className={categoryStyles.productRating}>
-								{product.rating}/5{' '}
-								<Image
-									src={ratingIcon}
-									width={20}
-									height={20}
-									alt='Rating icon'
-								/>
-							</span>
+						<div className={categoryStyles.productCardBody}>
+							<b>{product.name}</b>
+							<div className={categoryStyles.productInfo}>
+								<b className={categoryStyles.productPrice}>${product.price}</b>
+								<span className={categoryStyles.productRating}>
+									{product.rating}/5{' '}
+									<Image
+										src={ratingIcon}
+										width={20}
+										height={20}
+										alt='Rating icon'
+									/>
+								</span>
+							</div>
 						</div>
 					</div>
 				</a>
