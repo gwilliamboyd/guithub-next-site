@@ -126,7 +126,7 @@
 	outline: 3px solid var(--dark-font-color);
 	border-radius: 0.4rem;
 	font-size: 1.8rem;
-	top: 65%;
+	top: 60%;
 	right: 5%;
 	transition: 0.15s all ease-out;
 }

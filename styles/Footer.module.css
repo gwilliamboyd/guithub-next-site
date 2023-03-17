@@ -2,6 +2,7 @@
 	width: 100%;
 	padding: 5rem 10rem;
 	margin: 0;
+	border-top: 3px solid var(--light-font-color);
 	background-color: var(--main-red-color);
 	color: var(--light-font-color);
 }
