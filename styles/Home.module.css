@@ -5,6 +5,9 @@
 	justify-content: flex-start;
 	align-items: center;
 }
+.guitarContainer {
+	width: 100%;
+}
 .guitarHero,
 .ampHero {
 	position: relative;

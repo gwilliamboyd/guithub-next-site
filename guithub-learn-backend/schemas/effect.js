@@ -56,13 +56,14 @@ export default {
       type: 'object',
       fields: [
         {
-          name: 'effect_Type',
+          name: 'effectType',
           title: 'Effect Type',
           type: 'array',
           of: [{type: 'string'}],
           options: {
             list: [
-              {title: 'Distortion/Overdrive', value: 'distortion/overdrive'},
+              {title: 'Distortion', value: 'distortion'},
+              {title: 'Overdrive', value: 'overdrive'},
               {title: 'Chorus', value: 'chorus'},
               {title: 'Phaser', value: 'phaser'},
               {title: 'Flanger', value: 'flanger'},
@@ -73,7 +74,7 @@ export default {
           },
         },
         {
-          name: 'is_Analog',
+          name: 'isAnalog',
           title: 'Analog or Digital?',
           type: 'array',
           of: [{type: 'string'}],
@@ -86,7 +87,19 @@ export default {
           validation: (Rule) => Rule.length(1),
         },
         {
-          name: 'power_Requirements',
+          name: 'isTrueBypass',
+          title: 'Is True Bypass',
+          type: 'array',
+          of: [{type: 'string'}],
+          options: {
+            list: [
+              {title: 'Yes', value: 'yes'},
+              {title: 'No', value: 'no'},
+            ],
+          },
+        },
+        {
+          name: 'powerRequirements',
           title: 'Power Requirements',
           type: 'array',
           of: [{type: 'string'}],
@@ -97,6 +110,24 @@ export default {
             ],
           },
           validation: (Rule) => Rule.length(1),
+        },
+        {
+          name: 'height',
+          title: 'Height',
+          type: 'number',
+          description: 'Number is in inches. Please include up to 2 decimal places if required.',
+        },
+        {
+          name: 'width',
+          title: 'Width',
+          type: 'number',
+          description: 'Number is in inches. Please include up to 2 decimal places if required.',
+        },
+        {
+          name: 'depth',
+          title: 'Depth',
+          type: 'number',
+          description: 'Number is in inches. Please include up to 2 decimal places if required.',
         },
       ],
     },

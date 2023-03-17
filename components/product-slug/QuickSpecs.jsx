@@ -81,19 +81,19 @@ const QuickSpecs = ({ product, productStyles }) => {
 				<div className={productStyles.quickSpecsList}>
 					<div>
 						<span className={productStyles.emphasizedSpec}>
-							{capitalizeValue(product.techSpecs.effect_Type)}
+							{capitalizeValue(product.techSpecs.effectType)}
 						</span>{' '}
 						Effect
 					</div>
 					<div>
 						<span className={productStyles.emphasizedSpec}>
-							{product.techSpecs.is_Analog == 'analog' ? 'Analog' : 'Digital'}
+							{product.techSpecs.isAnalog == 'analog' ? 'Analog' : 'Digital'}
 						</span>{' '}
 						Effect
 					</div>
 					<div>
 						<span className={productStyles.emphasizedSpec}>
-							{product.techSpecs.power_Requirements}
+							{product.techSpecs.powerRequirements}
 						</span>{' '}
 						{'Power Required'}
 					</div>

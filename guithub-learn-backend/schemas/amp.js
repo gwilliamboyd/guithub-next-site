@@ -56,7 +56,7 @@ export default {
       type: 'object',
       fields: [
         {
-          name: 'amp_Type',
+          name: 'ampType',
           title: 'Amp Type',
           type: 'array',
           of: [{type: 'string'}],
@@ -75,22 +75,22 @@ export default {
           description: 'No. of watts total',
         },
         {
-          name: 'number_Of_Channels',
+          name: 'numberOfChannels',
           title: 'Number of Channels',
           type: 'number',
         },
         {
-          name: 'speaker_Size',
+          name: 'speakerSize',
           title: 'Speaker Size',
           type: 'string',
         },
         {
-          name: 'preamp_Tubes',
+          name: 'preampTubes',
           title: 'Preamp Tubes',
           type: 'string',
         },
         {
-          name: 'power_Tubes',
+          name: 'powerTubes',
           title: 'Power Tubes',
           type: 'string',
         },
