@@ -13,7 +13,7 @@ export const ProductCard = ({ product, categoryStyles }) => {
 				as={`/${product._type}s/${product.slug.current}`}
 				legacyBehavior>
 				<a>
-					<div className={categoryStyles.productCard}>
+					<div>
 						<Image
 							src={urlFor(product.image[0]).url()}
 							width={0}
