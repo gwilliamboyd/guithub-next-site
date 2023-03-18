@@ -42,6 +42,21 @@ export default function Guitars({ guitars }) {
 					setQuery={setQuery}
 				/> */}
 				<h1 className={categoryStyles.categoryHeading}>Guitars</h1>
+				<div className={categoryStyles.filterBarMaster}>
+					<div className={categoryStyles.filterBar}>
+						<span>Filter products by:</span>
+						<div className={categoryStyles.filterBarRight}>
+							<span className={categoryStyles.filterBarCategory}>Brand</span>
+							<span className={categoryStyles.filterBarCategory}>
+								Body Material
+							</span>
+							<span className={categoryStyles.filterBarCategory}>
+								Pickup Type
+							</span>
+							<span className={categoryStyles.filterBarCategory}>Price</span>
+						</div>
+					</div>
+				</div>
 				{/* <HeroCarousel categoryStyles={categoryStyles} /> */}
 				<ProductContainer
 					products={guitars}

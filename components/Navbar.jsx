@@ -11,6 +11,7 @@ import navbarStyles from '../styles/Navbar.module.css'
 import cartStyles from '../styles/Cart.module.css'
 // Images & icons
 import guithubLogo from '../public/images/guithub-logo-white.png'
+import guithubLogoRed from '../public/images/guithub-logo-red.png'
 import instagramIcon from '@/public/images/instagram-icon-white.svg'
 import youtubeIcon from '@/public/images/youtube-icon-white.svg'
 import reverbIcon from '@/public/images/reverb-icon-white.svg'

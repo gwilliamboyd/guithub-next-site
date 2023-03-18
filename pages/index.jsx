@@ -36,7 +36,7 @@ export default function IndexPage({ products, guitars, amps }) {
 
 	// Stepped scrolling
 
-	let prevScroll = 0
+	/* 	let prevScroll = 0
 
 	const steppedScrolling = () => {
 		document.addEventListener('scroll', () => {
@@ -62,7 +62,7 @@ export default function IndexPage({ products, guitars, amps }) {
 
 	useEffect(() => {
 		steppedScrolling()
-	})
+	}) */
 
 	return (
 		<div className={homeStyles.homeMaster}>

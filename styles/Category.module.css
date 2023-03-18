@@ -1,5 +1,5 @@
 .mainContainer {
-	margin: 1rem 2rem;
+	margin: 0 2rem;
 	width: 100%;
 	height: 100%;
 	display: flex;
@@ -8,11 +8,61 @@
 	align-items: center;
 }
 .categoryHeading {
-	width: calc(100vw - 17px);
+	width: var(--home-full-width);
+	background-color: var(--light-font-color);
+	color: var(--dark-font-color);
 	text-align: center;
 	font-size: 3.5rem;
 	font-weight: 900;
+	padding: 2rem 0;
 }
+.filterBarMaster {
+	width: 75%;
+	background-color: #666666;
+	color: var(--light-font-color);
+	font-weight: 700;
+	display: flex;
+	justify-content: center;
+}
+.filterBar {
+	width: 100%;
+	padding: 0;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+.filterBarRight {
+	display: flex;
+	justify-content: flex-start;
+	gap: 6rem;
+}
+.filterBarCategory {
+	position: relative;
+	padding: 1.5rem 0.1rem 1.5rem 0.1rem;
+	font-weight: 300;
+	display: flex;
+	/* align-items: center; */
+	height: 100%;
+	transition: 0.2s all ease-out;
+	cursor: pointer;
+}
+.filterBarCategory:after {
+	content: '';
+	background-color: var(--light-font-color);
+	height: 3px;
+	width: 0;
+	position: absolute;
+	left: 0;
+	bottom: 18px;
+	transition: 0.2s ease-out;
+}
+.filterBarCategory:hover:after {
+	width: 100%;
+}
+/* .filterBarCategory:hover {
+	background-color: var(--light-font-color);
+	color: var(--dark-font-color);
+} */
 /* .middle {
 	position: relative;
 	width: 100%;
@@ -24,12 +74,17 @@
 	margin-top: 1rem;
 }
 .productsMaster {
-	width: 60%;
+	width: inherit;
 	height: 100%;
-	margin-top: 2rem;
+	/* padding: 2rem 0 0; */
+	display: flex;
+	justify-content: center;
+	/* margin-top: 2rem; */
 }
 .productsContainer {
-	width: 100%;
+	/* background-color: lightgray; */
+	width: 75%;
+	padding: 2rem 0 0;
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
 	grid-template-rows: 1fr 1fr;
