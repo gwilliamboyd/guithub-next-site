@@ -19,6 +19,7 @@ body {
 	background-color: var(--body-background-color);
 	color: var(--dark-font-color);
 	font-family: 'Kumbh Sans', sans-serif;
+	overflow-x: hidden;
 }
 h1 {
 	margin: 0;

@@ -1,6 +1,6 @@
 import { client } from '@/lib/client'
 import homeStyles from '../styles/Home.module.css'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import Link from 'next/link'
 import Navbar from '@/components/Navbar'
 import { motion, useScroll } from 'framer-motion'
@@ -15,6 +15,10 @@ import schecterBgImg from '@/public/images/banner-guitar-syn.png'
 import redAmpBgImg from '@/public/images/banner-amp-red-bg.png'
 import blackAmpBgImg from '@/public/images/banner-amp-black-bg.png'
 import marshallAmpImg from '@/public/images/banner-amp-amp.png'
+
+import ampRedFull from '@/public/images/banner-amp/banner-amp-red-bg.png'
+import ampBlackFull from '@/public/images/banner-amp/banner-amp-black-bg.png'
+import ampImg from '@/public/images/banner-amp/banner-amp-amp.png'
 // Effects
 import redEffectBgImg from '@/public/images/banner-effect/banner-effect-red-bg.png'
 import blackEffectBgImg from '@/public/images/banner-effect/banner-effect-black-bg.png'
@@ -26,92 +30,106 @@ export default function IndexPage({ products, guitars, amps }) {
 	const [gtrs, setGtrs] = useState(guitars)
 	const [amplifiers, setAmplifiers] = useState(amps)
 
-	// Framer Motion variables
-	const scrollY = useScroll()
-	/* 	useEffect(() => {
-		console.log(gtrs)
-		console.log(amplifiers)
-		console.log(products)
-	}) */
+	const guitarRef = useRef()
+	const ampRef = useRef()
+	const effectRef = useRef()
+
+	// Stepped scrolling
+
+	let prevScroll = 0
+
+	const steppedScrolling = () => {
+		document.addEventListener('scroll', () => {
+			let currentScroll = window.scrollY
+			console.log(window.scrollY)
+			console.log(`Prev: ${prevScroll}`)
+			console.log(`Current: ${currentScroll}`)
+
+			// On scroll down, scroll to amp
+			if (currentScroll > prevScroll && currentScroll < 916) {
+				ampRef.current.scrollIntoView({ behavior: 'smooth' })
+				prevScroll = 916
+				// currentScroll = prevScroll
+			}
+			// On scroll down, scroll to effects
+			else if (currentScroll > prevScroll && currentScroll < 1669) {
+				effectRef.current.scrollIntoView({ behavior: 'smooth' })
+				prevScroll = 1669
+				// currentScroll = prevScroll
+			}
+		})
+	}
+
+	useEffect(() => {
+		steppedScrolling()
+	})
 
 	return (
 		<div className={homeStyles.homeMaster}>
 			{/* BANNER - GUITAR */}
-			<div className={homeStyles.guitarContainer}>
-				<div className={homeStyles.guitarHero}>
-					<motion.img
-						className={homeStyles.redBg}
-						initial={{ y: 600 }}
-						animate={{ y: 0 }}
-						transition={{ duration: 0.6 }}
-						src={redBgImg.src}
-					/>
-					<motion.img
-						className={homeStyles.blackBg}
-						initial={{ x: -1650 }}
-						animate={{ x: 0 }}
-						transition={{ delay: 0.15, duration: 0.6 }}
-						src={blackBgImg.src}
-					/>
-					<motion.span
-						className={homeStyles.guitarsText}
-						initial={{ opacity: 0 }}
-						animate={{ opacity: 1 }}
-						transition={{ delay: 2, duration: 0.85 }}>
-						Guitars
-					</motion.span>
-
-					<motion.span
-						className={homeStyles.browseButton}
-						initial={{ opacity: 0 }}
-						animate={{ opacity: 1 }}
-						transition={{ delay: 2, duration: 0.85 }}>
-						<Link
-							legacyBehavior
-							href={'/guitars'}>
-							<a>Browse Here</a>
-						</Link>
-					</motion.span>
-
-					<motion.img
-						className={homeStyles.prs}
-						initial={{ opacity: 0 }}
-						animate={{ opacity: 1 }}
-						transition={{ delay: 0.6, duration: 0.85 }}
-						src={prsImg.src}
-					/>
-					<motion.img
-						className={homeStyles.explorer}
-						initial={{ opacity: 0 }}
-						animate={{ opacity: 1 }}
-						transition={{ delay: 1.1, duration: 0.85 }}
-						src={explorerBgImg.src}
-					/>
-					<motion.img
-						className={homeStyles.schecter}
-						initial={{ opacity: 0 }}
-						animate={{ opacity: 1 }}
-						transition={{ delay: 1.6, duration: 0.85 }}
-						src={schecterBgImg.src}
-					/>
-				</div>
-			</div>
-			{/* BANNER - AMP */}
-			<div className={homeStyles.ampHero}>
+			<div
+				ref={guitarRef}
+				className={homeStyles.guitarHero}>
 				<motion.img
-					className={homeStyles.redAmpBgImg}
+					className={homeStyles.redBg}
 					initial={{ y: 600 }}
 					animate={{ y: 0 }}
 					transition={{ duration: 0.6 }}
-					src={redAmpBgImg.src}
+					src={redBgImg.src}
 				/>
 				<motion.img
-					className={homeStyles.blackAmpBgImg}
+					className={homeStyles.blackBg}
 					initial={{ x: -1650 }}
 					animate={{ x: 0 }}
 					transition={{ delay: 0.15, duration: 0.6 }}
-					src={blackAmpBgImg.src}
+					src={blackBgImg.src}
 				/>
+				<motion.span
+					className={homeStyles.guitarsText}
+					initial={{ opacity: 0 }}
+					animate={{ opacity: 1 }}
+					transition={{ delay: 2, duration: 0.85 }}>
+					Guitars
+				</motion.span>
+
+				<motion.span
+					className={homeStyles.browseButton}
+					initial={{ opacity: 0 }}
+					animate={{ opacity: 1 }}
+					transition={{ delay: 2, duration: 0.85 }}>
+					<Link
+						legacyBehavior
+						href={'/guitars'}>
+						<a>Browse Here</a>
+					</Link>
+				</motion.span>
+
+				<motion.img
+					className={homeStyles.prs}
+					initial={{ opacity: 0 }}
+					animate={{ opacity: 1 }}
+					transition={{ delay: 0.6, duration: 0.85 }}
+					src={prsImg.src}
+				/>
+				<motion.img
+					className={homeStyles.explorer}
+					initial={{ opacity: 0 }}
+					animate={{ opacity: 1 }}
+					transition={{ delay: 1.1, duration: 0.85 }}
+					src={explorerBgImg.src}
+				/>
+				<motion.img
+					className={homeStyles.schecter}
+					initial={{ opacity: 0 }}
+					animate={{ opacity: 1 }}
+					transition={{ delay: 1.6, duration: 0.85 }}
+					src={schecterBgImg.src}
+				/>
+			</div>
+			{/* BANNER - AMP */}
+			<div
+				ref={ampRef}
+				className={homeStyles.ampHero}>
 				<motion.span
 					className={homeStyles.ampsText}
 					initial={{ opacity: 0 }}
@@ -131,17 +149,32 @@ export default function IndexPage({ products, guitars, amps }) {
 						<a>Browse Here</a>
 					</Link>
 				</motion.span>
-
+				<motion.img
+					className={homeStyles.redAmpBgImg}
+					initial={{ y: 1200 }}
+					animate={{ y: 0 }}
+					transition={{ duration: 0.6 }}
+					src={ampRedFull.src}
+				/>
+				<motion.img
+					className={homeStyles.blackAmpBgImg}
+					initial={{ x: 1650 }}
+					animate={{ x: 0 }}
+					transition={{ delay: 0.15, duration: 0.6 }}
+					src={ampBlackFull.src}
+				/>
 				<motion.img
 					className={homeStyles.marshall}
 					initial={{ opacity: 0 }}
 					animate={{ opacity: 1 }}
-					transition={{ delay: 0.6, duration: 0.85 }}
-					src={marshallAmpImg.src}
+					transition={{ delay: 0.75, duration: 0.5 }}
+					src={ampImg.src}
 				/>
 			</div>
 			{/* BANNER - EFFECT */}
-			<div className={homeStyles.effectHero}>
+			<div
+				ref={effectRef}
+				className={homeStyles.effectHero}>
 				<motion.img
 					className={homeStyles.redEffectBgImg}
 					initial={{ y: 600 }}

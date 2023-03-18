@@ -4,6 +4,7 @@
 	flex-direction: column;
 	justify-content: flex-start;
 	align-items: center;
+	scroll-snap-type: y mandatory;
 }
 .guitarContainer {
 	width: 100%;
@@ -86,7 +87,8 @@
 
 /* AMPS HERO */
 .ampHero {
-	height: 1080px;
+	/* max-height: 100vh; */
+	height: calc((100vw - 89px) / 1.7777777778);
 }
 .redAmpBgImg,
 .blackAmpBgImg,
@@ -95,38 +97,38 @@
 	position: absolute;
 }
 .blackAmpBgImg {
-	max-height: 1080px;
+	/* max-height: 1080px; */
 	z-index: 2;
-	top: 0;
+	/* top: 0; */
 }
 .redAmpBgImg {
-	max-height: 995px;
-	bottom: 0;
+	/* max-height: 995px; */
+	/* bottom: 0; */
 	z-index: 3;
 }
 .marshall {
 	z-index: 5;
-	top: 15%;
-	left: 4%;
+	/* top: 15%;
+	left: 4%; */
 }
 .ampsText {
 	z-index: 1000;
 	position: absolute;
 	color: var(--light-font-color);
-	font-size: 7rem;
+	font-size: 10vmin;
 	top: 45%;
 	right: 5%;
 }
 .browseButtonAmp {
 	position: absolute;
-	z-index: 7;
+	z-index: 70;
 	background-color: var(--dark-font-color);
 	color: var(--light-font-color);
-	padding: 0.9rem 1.8rem;
+	padding: 1vmin 2vmin;
 	outline: 3px solid var(--dark-font-color);
 	border-radius: 0.4rem;
-	font-size: 1.8rem;
-	top: 60%;
+	font-size: 3vmin;
+	top: 64%;
 	right: 5%;
 	transition: 0.15s all ease-out;
 }
@@ -147,31 +149,35 @@
 }
 
 /* EFFECTS HERO */
+.effectHero {
+	height: calc((100vw - 89px) / 1.7777777778);
+}
+
 .redEffectBgImg,
 .blackEffectBgImg,
 .afterneathImg,
 .phase90Img,
 .bigSkyImg {
-	max-height: 100%;
+	/* max-height: 100%; */
 	max-width: 100%;
 	position: absolute;
 }
 .redEffectBgImg {
 	z-index: 2;
-	left: 0;
-	bottom: 0;
+	/* left: 0;
+	bottom: 0; */
 }
 .blackEffectBgImg {
 	z-index: 1;
-	right: 0;
-	bottom: 0;
+	/* right: 0;
+	bottom: 0; */
 }
 .afterneathImg,
 .phase90Img,
 .bigSkyImg {
 	z-index: 3;
 }
-.afterneathImg,
+/* .afterneathImg,
 .bigSkyImg {
 	bottom: 4%;
 }
@@ -184,7 +190,7 @@
 .phase90Img {
 	right: 10%;
 	top: 10%;
-}
+} */
 .effectText {
 	z-index: 4;
 	position: absolute;
