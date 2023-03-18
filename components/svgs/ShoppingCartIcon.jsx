@@ -3,6 +3,7 @@ const ShoppingCartIcon = ({ currentColor, width, height }) => {
 		<div>
 			<svg
 				fill={currentColor}
+				// style={{ backgroundColor: 'green' }}
 				width={width}
 				height={height}
 				xmlns='http://www.w3.org/2000/svg'

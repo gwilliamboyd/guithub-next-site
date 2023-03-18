@@ -1,6 +1,8 @@
 import Image from 'next/image'
 import Link from 'next/link'
 
+import { useState } from 'react'
+
 import footerStyles from '@/styles/Footer.module.css'
 
 import SocialIcon from './SocialIcon'
@@ -10,8 +12,13 @@ import guithubLogo from '@/public/images/guithub-logo-white.png'
 import instagramIcon from '@/public/images/instagram-icon-white.svg'
 import youtubeIcon from '@/public/images/youtube-icon-white.svg'
 import reverbIcon from '@/public/images/reverb-icon-white.svg'
+// SVG's
+import InstagramIcon from './svgs/InstagramIcon'
+import YouTubeIcon from './svgs/YouTubeIcon'
 
 const Footer = () => {
+	const [currentColor, setCurrentColor] = useState('var(--dark-font-color)')
+
 	return (
 		<div className={footerStyles.footerMaster}>
 			<div className={footerStyles.footerContainer}>
@@ -22,8 +29,11 @@ const Footer = () => {
 						height={33}
 					/>
 					<div className={footerStyles.socials}>
-						<SocialIcon iconUrl={instagramIcon} />
-						<SocialIcon iconUrl={youtubeIcon} />
+						<InstagramIcon fill={currentColor} />
+						<YouTubeIcon fill={currentColor} />
+
+						{/* <SocialIcon iconUrl={instagramIcon} /> */}
+						{/* <SocialIcon iconUrl={youtubeIcon} /> */}
 						<SocialIcon iconUrl={reverbIcon} />
 					</div>
 					<div className={footerStyles.address}>
