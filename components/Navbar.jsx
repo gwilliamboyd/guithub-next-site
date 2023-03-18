@@ -1,6 +1,8 @@
 // Next.js utilities
 import Link from 'next/link'
 import Image from 'next/image'
+//React utilities
+import { useState } from 'react'
 // Components
 import NavbarLink from './NavbarLink'
 import SocialIcon from './SocialIcon'
@@ -12,13 +14,19 @@ import guithubLogo from '../public/images/guithub-logo-white.png'
 import instagramIcon from '@/public/images/instagram-icon-white.svg'
 import youtubeIcon from '@/public/images/youtube-icon-white.svg'
 import reverbIcon from '@/public/images/reverb-icon-white.svg'
-import shoppingCartIcon from '@/public/images/shopping-cart.svg'
+// import shoppingCartIcon from '@/public/images/shopping-cart.svg'
+import ShoppingCartIcon from './svgs/ShoppingCartIcon'
 import SearchBar from './SearchBar'
 import Cart from './Cart'
 import { useStateContext } from '@/context/StateContext'
 
 const Navbar = ({ products, guitars, amps }) => {
 	const { cartOpen, setCartOpen } = useStateContext()
+
+	//State
+	const [currentColor, setCurrentColor] = useState('var(--light-font-color)')
+	const [width, setWidth] = useState(30)
+	const [height, setHeight] = useState(30)
 
 	return (
 		<header className={navbarStyles.header}>
@@ -78,12 +86,29 @@ const Navbar = ({ products, guitars, amps }) => {
 						href='#'>
 						<a
 							className={navbarStyles.cartIcon}
-							onClick={() => setCartOpen(!cartOpen)}>
-							<Image
-								src={shoppingCartIcon}
+							onMouseEnter={() => {
+								setCurrentColor('blue')
+								setWidth(35)
+								setHeight(35)
+							}}
+							onMouseLeave={() => {
+								setCurrentColor('var(--light-font-color)')
+								setWidth(30)
+								setHeight(30)
+							}}
+							onClick={() => {
+								setCartOpen(!cartOpen)
+							}}>
+							{/* <Image
+								src={ShoppingCartIcon}
 								width={35}
 								height={35}
 								alt='View your cart'
+							/> */}
+							<ShoppingCartIcon
+								currentColor={currentColor}
+								width={width}
+								height={height}
 							/>
 						</a>
 					</Link>

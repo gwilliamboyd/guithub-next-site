@@ -54,8 +54,5 @@
 .cartIcon {
 	display: flex;
 	align-items: center;
-	filter: invert();
-}
-.cartIcon > * {
-	fill: white;
+	/* filter: invert(); */
 }
