@@ -14,8 +14,8 @@
 .effectHero {
 	position: relative;
 	margin-top: 0;
-	width: calc(100vw - 17px);
-	height: calc(100vh - 80px);
+	width: var(--home-full-width);
+	height: var(--home-full-height);
 }
 /* GUITARS HERO */
 .redBg,
@@ -87,13 +87,14 @@
 
 /* AMPS HERO */
 .ampHero {
-	/* max-height: 100vh; */
-	height: calc((100vw - 89px) / 1.7777777778);
+	width: var(--home-full-width);
+	height: var(--home-full-height);
 }
 .redAmpBgImg,
 .blackAmpBgImg,
 .marshall {
-	max-width: 100%;
+	width: var(--home-full-width);
+	height: var(--home-full-height);
 	position: absolute;
 }
 .blackAmpBgImg {
@@ -150,7 +151,7 @@
 
 /* EFFECTS HERO */
 .effectHero {
-	height: calc((100vw - 89px) / 1.7777777778);
+	height: var(--home-full-height);
 }
 
 .redEffectBgImg,
@@ -158,7 +159,6 @@
 .afterneathImg,
 .phase90Img,
 .bigSkyImg {
-	/* max-height: 100%; */
 	max-width: 100%;
 	position: absolute;
 }

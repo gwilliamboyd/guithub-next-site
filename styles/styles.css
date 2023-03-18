@@ -2,10 +2,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 :root {
+	/* COLORS */
 	--body-background-color: #eeeeee;
 	--dark-font-color: #121212;
 	--light-font-color: #f1f1f1;
 	--main-red-color: #af1a2f;
+	/* DIMENSIONS */
+	/* Full width excluding scroll bar (17px) */
+	--home-full-width: calc(100vw - 17px);
+	--home-full-height: calc((100vw - 80px) / 1.7777777778);
 }
 
 * {
