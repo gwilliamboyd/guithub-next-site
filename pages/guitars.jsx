@@ -1,7 +1,12 @@
 import { client } from '@/lib/client'
+// Next.js
+import Image from 'next/image'
+// React
 import { useState, useMemo, useEffect } from 'react'
 // Styles
 import categoryStyles from '../styles/Category.module.css'
+// Images
+import guitarBanner from '@/public/images/guitar-category-banner.png'
 // Components
 import HeroCarousel from '@/components/HeroCarousel'
 import ProductContainer from '@/components/ProductContainer'
@@ -41,8 +46,20 @@ export default function Guitars({ guitars }) {
 					query={query}
 					setQuery={setQuery}
 				/> */}
-				<h1 className={categoryStyles.categoryHeading}>Guitars</h1>
-				<div className={categoryStyles.filterBarMaster}>
+				<h1
+					className={[
+						`${categoryStyles.categoryHeading} ${categoryStyles.categoryHeadingGuitar}`,
+					]}>
+					Electric Guitars
+				</h1>
+				<Image
+					src={guitarBanner}
+					width={0}
+					height={0}
+					sizes='100vw'
+					style={{ width: '100%', height: 'auto' }}
+				/>
+				{/* <div className={categoryStyles.filterBarMaster}>
 					<div className={categoryStyles.filterBar}>
 						<span>Filter products by:</span>
 						<div className={categoryStyles.filterBarRight}>
@@ -56,7 +73,7 @@ export default function Guitars({ guitars }) {
 							<span className={categoryStyles.filterBarCategory}>Price</span>
 						</div>
 					</div>
-				</div>
+				</div> */}
 				{/* <HeroCarousel categoryStyles={categoryStyles} /> */}
 				<ProductContainer
 					products={guitars}

@@ -9,16 +9,26 @@
 }
 .categoryHeading {
 	width: var(--home-full-width);
-	background-color: var(--light-font-color);
+	background-color: var(--body-background-color);
 	color: var(--dark-font-color);
 	text-align: center;
-	font-size: 3.5rem;
+	font-size: 4rem;
 	font-weight: 900;
 	padding: 2rem 0;
 }
+.categoryHeadingGuitar {
+	background-color: var(--dark-gray);
+	color: var(--light-font-color);
+}
+.categoryHeadingAmp,
+.categoryHeadingEffect {
+	padding: 2rem 0 4rem;
+	background-color: var(--body-background-color);
+	color: var(--main-red-color);
+}
 .filterBarMaster {
 	width: 75%;
-	background-color: #666666;
+	background-color: #444444;
 	color: var(--light-font-color);
 	font-weight: 700;
 	display: flex;
@@ -83,7 +93,7 @@
 }
 .productsContainer {
 	/* background-color: lightgray; */
-	width: 75%;
+	width: 70%;
 	padding: 2rem 0 0;
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);

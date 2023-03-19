@@ -1,7 +1,9 @@
 import { client } from '@/lib/client'
+import Image from 'next/image'
 import { useState, useMemo, useEffect } from 'react'
 // Styles
 import categoryStyles from '../styles/Category.module.css'
+import effectBanner from '@/public/images/effect-category-banner.png'
 // Components
 import HeroCarousel from '@/components/HeroCarousel'
 import ProductContainer from '@/components/ProductContainer'
@@ -62,7 +64,19 @@ export default function Effects({ effects }) {
 					query={query}
 					setQuery={setQuery}
 				/> */}
-				<h1 className={categoryStyles.categoryHeading}>Effects Pedals</h1>
+				<h1
+					className={[
+						`${categoryStyles.categoryHeading} ${categoryStyles.categoryHeadingEffect}`,
+					]}>
+					Effects Pedals
+				</h1>
+				<Image
+					src={effectBanner}
+					width={0}
+					height={0}
+					sizes='100vw'
+					style={{ width: '100%', height: 'auto', marginTop: '-4rem' }}
+				/>
 				{/* <HeroCarousel categoryStyles={categoryStyles} /> */}
 				<ProductContainer
 					products={effects}

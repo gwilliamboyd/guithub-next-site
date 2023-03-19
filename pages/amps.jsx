@@ -1,7 +1,12 @@
 import { client } from '@/lib/client'
+// Next.js
+import Image from 'next/image'
+// React
 import { useState, useMemo, useEffect } from 'react'
 // Styles
 import categoryStyles from '../styles/Category.module.css'
+// Images
+import ampBanner from '@/public/images/amp-category-banner.png'
 // Components
 import HeroCarousel from '@/components/HeroCarousel'
 import ProductContainer from '@/components/ProductContainer'
@@ -41,7 +46,19 @@ export default function Amps({ amps }) {
 					query={query}
 					setQuery={setQuery}
 				/> */}
-				<h1 className={categoryStyles.categoryHeading}>Amplifiers</h1>
+				<h1
+					className={[
+						`${categoryStyles.categoryHeading} ${categoryStyles.categoryHeadingAmp}`,
+					]}>
+					Amplifiers
+				</h1>
+				<Image
+					src={ampBanner}
+					width={0}
+					height={0}
+					sizes='100vw'
+					style={{ width: '100%', height: 'auto', marginTop: '-4rem' }}
+				/>
 				{/* <HeroCarousel categoryStyles={categoryStyles} /> */}
 				<ProductContainer
 					products={amps}

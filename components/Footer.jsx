@@ -17,7 +17,7 @@ import InstagramIcon from './svgs/InstagramIcon'
 import YouTubeIcon from './svgs/YouTubeIcon'
 
 const Footer = () => {
-	const [currentColor, setCurrentColor] = useState('var(--dark-font-color)')
+	const [currentColor, setCurrentColor] = useState('var(--light-font-color)')
 
 	return (
 		<div className={footerStyles.footerMaster}>
