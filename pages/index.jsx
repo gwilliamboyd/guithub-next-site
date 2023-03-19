@@ -1,6 +1,7 @@
 import { client } from '@/lib/client'
 import homeStyles from '../styles/Home.module.css'
 import { useEffect, useState, useRef } from 'react'
+import Image from 'next/image'
 import Link from 'next/link'
 import Navbar from '@/components/Navbar'
 import { motion, useScroll } from 'framer-motion'
@@ -11,6 +12,10 @@ import blackBgImg from '@/public/images/banner-guitar-black-bg.png'
 import prsImg from '@/public/images/banner-guitar-prs.png'
 import explorerBgImg from '@/public/images/banner-guitar-explorer.png'
 import schecterBgImg from '@/public/images/banner-guitar-syn.png'
+
+import prsFull from '@/public/images/prs-full.png'
+import marshallFull from '@/public/images/marshall-full.png'
+import phase90Full from '@/public/images/phase-90-full.png'
 // Amps
 import redAmpBgImg from '@/public/images/banner-amp-red-bg.png'
 import blackAmpBgImg from '@/public/images/banner-amp-black-bg.png'
@@ -70,63 +75,111 @@ export default function IndexPage({ products, guitars, amps }) {
 			<div
 				ref={guitarRef}
 				className={homeStyles.guitarHero}>
-				<motion.img
-					className={homeStyles.redBg}
-					initial={{ y: 600 }}
-					animate={{ y: 0 }}
-					transition={{ duration: 0.6 }}
-					src={redBgImg.src}
-				/>
-				<motion.img
-					className={homeStyles.blackBg}
-					initial={{ x: -1650 }}
-					animate={{ x: 0 }}
-					transition={{ delay: 0.15, duration: 0.6 }}
-					src={blackBgImg.src}
-				/>
-				<motion.span
-					className={homeStyles.guitarsText}
-					initial={{ opacity: 0 }}
-					animate={{ opacity: 1 }}
-					transition={{ delay: 2, duration: 0.85 }}>
-					Guitars
-				</motion.span>
-
-				<motion.span
-					className={homeStyles.browseButton}
-					initial={{ opacity: 0 }}
-					animate={{ opacity: 1 }}
-					transition={{ delay: 2, duration: 0.85 }}>
-					<Link
-						legacyBehavior
-						href={'/guitars'}>
-						<a>Browse Here</a>
-					</Link>
-				</motion.span>
-
-				<motion.img
-					className={homeStyles.prs}
-					initial={{ opacity: 0 }}
-					animate={{ opacity: 1 }}
-					transition={{ delay: 0.6, duration: 0.85 }}
-					src={prsImg.src}
-				/>
-				<motion.img
-					className={homeStyles.explorer}
-					initial={{ opacity: 0 }}
-					animate={{ opacity: 1 }}
-					transition={{ delay: 1.1, duration: 0.85 }}
-					src={explorerBgImg.src}
-				/>
-				<motion.img
-					className={homeStyles.schecter}
-					initial={{ opacity: 0 }}
-					animate={{ opacity: 1 }}
-					transition={{ delay: 1.6, duration: 0.85 }}
-					src={schecterBgImg.src}
-				/>
+				<div className={homeStyles.guitarLeftColumn}>
+					{/* Guitars text */}
+					<motion.span
+						className={homeStyles.guitarsText}
+						initial={{ opacity: 0 }}
+						animate={{ opacity: 1 }}
+						transition={{ delay: 2, duration: 0.85 }}>
+						Guitars
+					</motion.span>
+					{/* Guitars button */}
+					<motion.span
+						className={homeStyles.browseButton}
+						initial={{ opacity: 0 }}
+						animate={{ opacity: 1 }}
+						transition={{ delay: 2, duration: 0.85 }}>
+						<Link
+							legacyBehavior
+							href={'/guitars'}>
+							<a>Plug In!</a>
+						</Link>
+					</motion.span>
+				</div>
+				<div className={homeStyles.guitarRightColumn}>
+					<Image
+						src={prsFull}
+						width={0}
+						height={0}
+						sizes='100vw'
+						style={{ width: '250px', height: 'auto' }}
+					/>
+				</div>
 			</div>
 			{/* BANNER - AMP */}
+			<div
+				ref={ampRef}
+				className={homeStyles.ampHero}>
+				<div className={homeStyles.ampLeftColumn}>
+					<Image
+						src={marshallFull}
+						width={0}
+						height={0}
+						sizes='100vw'
+						style={{ width: '450px', height: 'auto' }}
+					/>
+				</div>
+				<div className={homeStyles.ampRightColumn}>
+					{/* amps text */}
+					<motion.span
+						className={homeStyles.ampsText}
+						initial={{ opacity: 0 }}
+						animate={{ opacity: 1 }}
+						transition={{ delay: 2, duration: 0.85 }}>
+						Amplifiers
+					</motion.span>
+					{/* amps button */}
+					<motion.span
+						className={homeStyles.browseButtonAmp}
+						initial={{ opacity: 0 }}
+						animate={{ opacity: 1 }}
+						transition={{ delay: 2, duration: 0.85 }}>
+						<Link
+							legacyBehavior
+							href={'/amps'}>
+							<a>Crank It Up!</a>
+						</Link>
+					</motion.span>
+				</div>
+			</div>
+			{/* BANNER - EFFECT */}
+			<div
+				ref={effectRef}
+				className={homeStyles.effectHero}>
+				<div className={homeStyles.effectLeftColumn}>
+					{/* effects text */}
+					<motion.span
+						className={homeStyles.effectText}
+						initial={{ opacity: 0 }}
+						animate={{ opacity: 1 }}
+						transition={{ delay: 2, duration: 0.85 }}>
+						Effects Pedals
+					</motion.span>
+					{/* effects button */}
+					<motion.span
+						className={homeStyles.browseButtonEffect}
+						initial={{ opacity: 0 }}
+						animate={{ opacity: 1 }}
+						transition={{ delay: 2, duration: 0.85 }}>
+						<Link
+							legacyBehavior
+							href={'/effects'}>
+							<a>Browse Here</a>
+						</Link>
+					</motion.span>
+				</div>
+				<div className={homeStyles.effectRightColumn}>
+					<Image
+						src={phase90Full}
+						width={0}
+						height={0}
+						sizes='100vw'
+						style={{ width: '300px', height: 'auto' }}
+					/>
+				</div>
+			</div>
+			{/* BANNER - AMP
 			<div
 				ref={ampRef}
 				className={homeStyles.ampHero}>
@@ -171,7 +224,7 @@ export default function IndexPage({ products, guitars, amps }) {
 					src={ampImg.src}
 				/>
 			</div>
-			{/* BANNER - EFFECT */}
+			BANNER - EFFECT
 			<div
 				ref={effectRef}
 				className={homeStyles.effectHero}>
@@ -230,7 +283,7 @@ export default function IndexPage({ products, guitars, amps }) {
 					transition={{ delay: 0.6, duration: 0.85 }}
 					src={phase90Img.src}
 				/>
-			</div>
+			</div> */}
 		</div>
 	)
 }

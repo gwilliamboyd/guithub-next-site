@@ -9,13 +9,153 @@
 .guitarContainer {
 	width: 100%;
 }
+
 .guitarHero,
 .ampHero,
 .effectHero {
-	position: relative;
 	margin-top: 0;
 	width: var(--home-full-width);
 	height: var(--home-full-height);
+}
+.guitarHero,
+.ampHero,
+.effectHero {
+	max-height: 855px;
+	background-color: #1e1e1e;
+	display: grid;
+	grid-template-columns: 40% 60%;
+	grid-template-rows: 1fr;
+	align-items: center;
+}
+.ampHero {
+	grid-template-columns: 60% 40%;
+	background-color: var(--main-red-color);
+}
+.effectHero {
+	background-color: var(--body-background-color);
+	color: var(--main-red-color);
+}
+
+/* GUITARS */
+
+.guitarLeftColumn {
+	height: 80%;
+	grid-area: 1 / 1 / span 1 / span 1;
+	padding: 0 0 0 5rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	gap: 2rem;
+	border-right: 1px solid #eeeeee;
+}
+.guitarRightColumn {
+	/* height: 80%; */
+	grid-area: 1 / 2 / span 1 / span 1;
+	/* padding: 0 0 0 2rem; */
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	/* gap: 2rem; */
+}
+.guitarsText {
+	color: var(--light-font-color);
+	font-size: 7rem;
+}
+.browseButton {
+	background-color: var(--main-red-color);
+	color: var(--light-font-color);
+	padding: 0.9rem 1.8rem;
+	max-width: fit-content;
+	outline: 3px solid var(--main-red-color);
+	border-radius: 0.4rem;
+	font-size: 1.8rem;
+	transition: 0.15s all ease-out;
+}
+
+/* AMPS */
+
+.ampLeftColumn {
+	/* height: 80%; */
+	grid-area: 1 / 1 / span 1 / span 1;
+	/* padding: 0 0 0 2rem; */
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	/* gap: 2rem; */
+}
+.ampRightColumn {
+	height: 80%;
+	grid-area: 1 / 2 / span 1 / span 1;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: flex-end;
+	gap: 2rem;
+	padding: 0 5rem 0 0;
+	border-left: 1px solid #eeeeee;
+}
+.ampsText {
+	color: var(--light-font-color);
+	font-size: 10vmin;
+}
+.browseButtonAmp {
+	max-width: fit-content;
+	background-color: var(--dark-font-color);
+	color: var(--light-font-color);
+	padding: 1vmin 2vmin;
+	outline: 3px solid var(--dark-font-color);
+	border-radius: 0.4rem;
+	font-size: 3vmin;
+	transition: 0.15s all ease-out;
+}
+.browseButtonAmp:hover {
+	background-color: var(--main-red-color);
+	/* color: var(--dark-font-color); */
+	outline: 3px solid var(--dark-font-color);
+}
+
+/* EFFECTS */
+
+.effectLeftColumn {
+	height: 80%;
+	grid-area: 1 / 1 / span 1 / span 1;
+	padding: 0 0 0 5rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	gap: 2rem;
+	border-right: 1px solid #1e1e1e;
+}
+.effectRightColumn {
+	/* height: 80%; */
+	grid-area: 1 / 2 / span 1 / span 1;
+	/* padding: 0 0 0 2rem; */
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	/* gap: 2rem; */
+}
+.effectText {
+	color: var(--main-red-color);
+	font-size: 5rem;
+}
+.browseButtonEffect {
+	max-width: fit-content;
+	background-color: var(--dark-font-color);
+	color: var(--light-font-color);
+	padding: 0.9rem 1.8rem;
+	outline: 3px solid var(--dark-font-color);
+	border-radius: 0.4rem;
+	font-size: 1.8rem;
+	transition: 0.15s all ease-out;
+}
+.browseButtonEffect:hover {
+	background-color: rgba(var(--light-font-color) 0.5);
+	color: var(--main-red-color);
+	outline: 3px solid var(--dark-font-color);
 }
 /* GUITARS HERO */
 .redBg,
@@ -59,26 +199,7 @@
 	top: 18%;
 	right: 5%;
 }
-.guitarsText {
-	position: absolute;
-	color: var(--light-font-color);
-	font-size: 7rem;
-	top: 30%;
-	left: 4%;
-}
-.browseButton {
-	position: absolute;
-	z-index: 7;
-	background-color: var(--main-red-color);
-	color: var(--light-font-color);
-	padding: 0.9rem 1.8rem;
-	outline: 3px solid var(--main-red-color);
-	border-radius: 0.4rem;
-	font-size: 1.8rem;
-	top: 48%;
-	left: 5%;
-	transition: 0.15s all ease-out;
-}
+
 .browseButton:hover {
 	background-color: rgba(var(--light-font-color) 0.5);
 	/* color: var(--main-red-color); */
@@ -111,32 +232,6 @@
 	z-index: 5;
 	/* top: 15%;
 	left: 4%; */
-}
-.ampsText {
-	z-index: 1000;
-	position: absolute;
-	color: var(--light-font-color);
-	font-size: 10vmin;
-	top: 45%;
-	right: 5%;
-}
-.browseButtonAmp {
-	position: absolute;
-	z-index: 70;
-	background-color: var(--dark-font-color);
-	color: var(--light-font-color);
-	padding: 1vmin 2vmin;
-	outline: 3px solid var(--dark-font-color);
-	border-radius: 0.4rem;
-	font-size: 3vmin;
-	top: 64%;
-	right: 5%;
-	transition: 0.15s all ease-out;
-}
-.browseButtonAmp:hover {
-	background-color: var(--main-red-color);
-	/* color: var(--dark-font-color); */
-	outline: 3px solid var(--dark-font-color);
 }
 
 .homeHeading {
@@ -191,29 +286,3 @@
 	right: 10%;
 	top: 10%;
 } */
-.effectText {
-	z-index: 4;
-	position: absolute;
-	color: var(--main-red-color);
-	font-size: 7rem;
-	top: 3%;
-	left: 18%;
-}
-.browseButtonEffect {
-	position: absolute;
-	z-index: 7;
-	background-color: var(--dark-font-color);
-	color: var(--light-font-color);
-	padding: 0.9rem 1.8rem;
-	outline: 3px solid var(--dark-font-color);
-	border-radius: 0.4rem;
-	font-size: 1.8rem;
-	top: 20%;
-	left: 34%;
-	transition: 0.15s all ease-out;
-}
-.browseButtonEffect:hover {
-	background-color: rgba(var(--light-font-color) 0.5);
-	color: var(--main-red-color);
-	outline: 3px solid var(--dark-font-color);
-}
