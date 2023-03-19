@@ -87,16 +87,6 @@ const Navbar = ({ products, guitars, amps }) => {
 						href='#'>
 						<a
 							className={navbarStyles.cartIcon}
-							onMouseEnter={() => {
-								setCurrentColor('blue')
-								setWidth(35)
-								setHeight(35)
-							}}
-							onMouseLeave={() => {
-								setCurrentColor('var(--light-font-color)')
-								setWidth(30)
-								setHeight(30)
-							}}
 							onClick={() => {
 								setCartOpen(!cartOpen)
 							}}>

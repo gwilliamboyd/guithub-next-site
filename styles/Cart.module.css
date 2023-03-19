@@ -119,6 +119,7 @@
 	font-weight: 600;
 	font-size: 1.1rem;
 	padding: 0.75rem 1.8rem;
+	cursor: pointer;
 }
 .checkoutButton:hover {
 	outline: 3px solid var(--main-red-color);

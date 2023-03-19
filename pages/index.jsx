@@ -77,15 +77,15 @@ export default function IndexPage({ products, guitars, amps }) {
 				className={homeStyles.guitarHero}>
 				<div className={homeStyles.guitarLeftColumn}>
 					{/* Guitars text */}
-					<motion.span
+					<span
 						className={homeStyles.guitarsText}
 						initial={{ opacity: 0 }}
 						animate={{ opacity: 1 }}
 						transition={{ delay: 2, duration: 0.85 }}>
 						Guitars
-					</motion.span>
+					</span>
 					{/* Guitars button */}
-					<motion.span
+					<span
 						className={homeStyles.browseButton}
 						initial={{ opacity: 0 }}
 						animate={{ opacity: 1 }}
@@ -95,7 +95,7 @@ export default function IndexPage({ products, guitars, amps }) {
 							href={'/guitars'}>
 							<a>Plug In!</a>
 						</Link>
-					</motion.span>
+					</span>
 				</div>
 				<div className={homeStyles.guitarRightColumn}>
 					<Image
@@ -122,15 +122,15 @@ export default function IndexPage({ products, guitars, amps }) {
 				</div>
 				<div className={homeStyles.ampRightColumn}>
 					{/* amps text */}
-					<motion.span
+					<span
 						className={homeStyles.ampsText}
 						initial={{ opacity: 0 }}
 						animate={{ opacity: 1 }}
 						transition={{ delay: 2, duration: 0.85 }}>
 						Amplifiers
-					</motion.span>
+					</span>
 					{/* amps button */}
-					<motion.span
+					<span
 						className={homeStyles.browseButtonAmp}
 						initial={{ opacity: 0 }}
 						animate={{ opacity: 1 }}
@@ -140,7 +140,7 @@ export default function IndexPage({ products, guitars, amps }) {
 							href={'/amps'}>
 							<a>Crank It Up!</a>
 						</Link>
-					</motion.span>
+					</span>
 				</div>
 			</div>
 			{/* BANNER - EFFECT */}
@@ -149,15 +149,15 @@ export default function IndexPage({ products, guitars, amps }) {
 				className={homeStyles.effectHero}>
 				<div className={homeStyles.effectLeftColumn}>
 					{/* effects text */}
-					<motion.span
+					<span
 						className={homeStyles.effectText}
 						initial={{ opacity: 0 }}
 						animate={{ opacity: 1 }}
 						transition={{ delay: 2, duration: 0.85 }}>
 						Effects Pedals
-					</motion.span>
+					</span>
 					{/* effects button */}
-					<motion.span
+					<span
 						className={homeStyles.browseButtonEffect}
 						initial={{ opacity: 0 }}
 						animate={{ opacity: 1 }}
@@ -167,7 +167,7 @@ export default function IndexPage({ products, guitars, amps }) {
 							href={'/effects'}>
 							<a>Browse Here</a>
 						</Link>
-					</motion.span>
+					</span>
 				</div>
 				<div className={homeStyles.effectRightColumn}>
 					<Image
