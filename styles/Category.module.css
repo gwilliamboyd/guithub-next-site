@@ -20,11 +20,12 @@
 	background-color: var(--dark-gray);
 	color: var(--light-font-color);
 }
+.categoryHeadingGuitar,
 .categoryHeadingAmp,
 .categoryHeadingEffect {
-	padding: 2rem 0 4rem;
+	padding: 1rem 0;
 	background-color: var(--body-background-color);
-	color: var(--main-red-color);
+	color: var(--dark-font-color);
 }
 .filterBarMaster {
 	width: 75%;

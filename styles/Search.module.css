@@ -1,15 +1,29 @@
 .searchMaster {
-	display: flex;
 	width: 90%;
+	display: flex;
 	flex-direction: column;
 	justify-content: flex-start;
 	align-items: center;
 }
-.resultsContainer {
-	margin-top: 3rem;
+.searchHeading {
+	width: var(--home-full-width);
+	background-color: var(--body-background-color);
+	color: var(--dark-font-color);
+	text-align: center;
+	font-size: 4rem;
+	font-weight: 900;
+	padding: 2rem 0;
+}
+.searchContainer {
 	width: 100%;
 	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-evenly;
+	justify-content: center;
+}
+.resultsContainer {
+	margin-bottom: 3rem;
+	width: 70%;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	justify-items: center;
 	/* gap: 2rem; */
 }

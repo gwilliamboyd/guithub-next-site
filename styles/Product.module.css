@@ -157,6 +157,7 @@
 	outline: 3px solid var(--main-red-color);
 	background-color: var(--light-font-color);
 	color: var(--main-red-color);
+	cursor: pointer;
 }
 .shippingInfo {
 	display: grid;

@@ -75,7 +75,7 @@ export default function Effects({ effects }) {
 					width={0}
 					height={0}
 					sizes='100vw'
-					style={{ width: '100%', height: 'auto', marginTop: '-4rem' }}
+					style={{ width: '100%', height: 'auto', marginBottom: '2rem' }}
 				/>
 				{/* <HeroCarousel categoryStyles={categoryStyles} /> */}
 				<ProductContainer

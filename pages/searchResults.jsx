@@ -19,15 +19,17 @@ const searchResults = ({ products }) => {
 	return (
 		<>
 			<div className={searchStyles.searchMaster}>
-				<h1>Search Results:</h1>
-				<div className={searchStyles.resultsContainer}>
-					{filteredProducts?.map(product => (
-						<ProductCard
-							key={product._id}
-							categoryStyles={categoryStyles}
-							product={product}
-						/>
-					))}
+				<h1 className={searchStyles.searchHeading}>Search Results:</h1>
+				<div className={searchStyles.searchContainer}>
+					<div className={searchStyles.resultsContainer}>
+						{filteredProducts?.map(product => (
+							<ProductCard
+								key={product._id}
+								categoryStyles={categoryStyles}
+								product={product}
+							/>
+						))}
+					</div>
 				</div>
 			</div>
 		</>
