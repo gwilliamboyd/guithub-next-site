@@ -4,7 +4,7 @@ import { useEffect, useState, useRef } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import Navbar from '@/components/Navbar'
-import { motion, useScroll } from 'framer-motion'
+import { motion, useScroll, MotionCofig, stagger } from 'framer-motion'
 // Hero Banner Imports
 // Guitars
 import redBgImg from '@/public/images/banner-guitar-red-bg.png'
@@ -16,6 +16,8 @@ import schecterBgImg from '@/public/images/banner-guitar-syn.png'
 import prsFull from '@/public/images/prs-full.png'
 import marshallFull from '@/public/images/marshall-full.png'
 import phase90Full from '@/public/images/phase-90-full.png'
+import paulGilbertFull from '@/public/images/paul-gilbert-full.png'
+import afterneathFull from '@/public/images/afterneath-full.png'
 // Amps
 import redAmpBgImg from '@/public/images/banner-amp-red-bg.png'
 import blackAmpBgImg from '@/public/images/banner-amp-black-bg.png'
@@ -68,6 +70,44 @@ export default function IndexPage({ products, guitars, amps }) {
 	useEffect(() => {
 		steppedScrolling()
 	}) */
+
+	/* 	const motionContainer = {
+		on: { transition: { staggerChildren: 5, repeat: Infinity } },
+	}
+	const motionItem = {
+		on: { opacity: 1 },
+	} */
+
+	const [index, setIndex] = useState(0)
+
+	const changeEffectImg = (n, m) => {
+		let result = n % m
+
+		// Return a positive value
+		return result >= 0 ? result : result + m
+	}
+
+	useEffect(() => {
+		setTimeout(() => {
+			setIndex((index + 1) % images.length)
+			console.log(index)
+		}, 5000)
+	}, [index])
+
+	const images = [
+		{
+			id: '1',
+			image: phase90Full,
+		},
+		{
+			id: '2',
+			image: paulGilbertFull,
+		},
+		{
+			id: '3',
+			image: afterneathFull,
+		},
+	]
 
 	return (
 		<div className={homeStyles.homeMaster}>
@@ -170,13 +210,32 @@ export default function IndexPage({ products, guitars, amps }) {
 					</span>
 				</div>
 				<div className={homeStyles.effectRightColumn}>
-					<Image
-						src={phase90Full}
-						width={0}
-						height={0}
-						sizes='100vw'
-						style={{ width: '300px', height: 'auto' }}
-					/>
+					{images.map((img, i) => {
+						const indexLeft = changeEffectImg(index - 1, images.length)
+						const indexRight = changeEffectImg(index + 1, images.length)
+
+						let className = 'image'
+
+						if (i === index) {
+							className = 'image image--active'
+						} else if (i === indexRight) {
+							className = 'image image--right'
+						} else if (i === indexLeft) {
+							className = 'image image--left'
+						} else className = 'image'
+
+						return (
+							<Image
+								key={img.id}
+								className={className}
+								src={img.image}
+								width={0}
+								height={0}
+								sizes='100vw'
+								style={{ width: '250px', height: 'auto' }}
+							/>
+						)
+					})}
 				</div>
 			</div>
 			{/* BANNER - AMP

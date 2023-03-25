@@ -11,6 +11,7 @@
 	/* DIMENSIONS */
 	/* Full width excluding scroll bar (17px) */
 	--home-full-width: calc(100vw - 17px);
+	/* Full height excluding navbar (80px) */
 	--home-full-height: calc((100vw - 80px) / 1.7777777778);
 }
 
@@ -60,4 +61,44 @@ input:focus {
 .header {
 	background-color: var(--main-red-color);
 	padding: 0;
+}
+/* Styles for index carousel */
+/* Solution was more oriented around a vanilla react app,
+therefore those components are not styled within the 
+Home module that the other home page elements are 
+styled from */
+.image {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	margin: auto;
+	width: 350px;
+	height: 525px;
+	object-fit: cover;
+	cursor: pointer;
+	z-index: 3;
+	opacity: 0;
+
+	transition: 500ms;
+}
+.image--active {
+	opacity: 1;
+	transform: scale(1);
+	z-index: 4;
+}
+
+.image--left {
+	transform: translateX(-250%);
+	transition: 500ms;
+	/* opacity: 0.3; */
+	z-index: 4;
+}
+
+.image--right {
+	transform: translateX(250%);
+	transition: 500ms;
+	/* opacity: 0.3; */
+	z-index: 4;
 }
