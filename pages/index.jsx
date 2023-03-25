@@ -10,11 +10,15 @@ import { motion, useScroll, MotionCofig, stagger } from 'framer-motion'
 import redBgImg from '@/public/images/banner-guitar-red-bg.png'
 import blackBgImg from '@/public/images/banner-guitar-black-bg.png'
 import prsImg from '@/public/images/banner-guitar-prs.png'
-import explorerBgImg from '@/public/images/banner-guitar-explorer.png'
-import schecterBgImg from '@/public/images/banner-guitar-syn.png'
+// import explorerBgImg from '@/public/images/banner-guitar-explorer.png'
+// import schecterBgImg from '@/public/images/banner-guitar-syn.png'
 
 import prsFull from '@/public/images/prs-full.png'
+import explorerFull from '@/public/images/banner-guitar-explorer.png'
+import schecterFull from '@/public/images/banner-guitar-syn.png'
 import marshallFull from '@/public/images/marshall-full.png'
+import orangeFull from '@/public/images/orange-rockerverb-full.png'
+import mesaFull from '@/public/images/mesa-full.png'
 import phase90Full from '@/public/images/phase-90-full.png'
 import paulGilbertFull from '@/public/images/paul-gilbert-full.png'
 import afterneathFull from '@/public/images/afterneath-full.png'
@@ -78,23 +82,66 @@ export default function IndexPage({ products, guitars, amps }) {
 		on: { opacity: 1 },
 	} */
 
+	// Rotating carousel - vanilla React solution
+
 	const [index, setIndex] = useState(0)
 
-	const changeEffectImg = (n, m) => {
+	const changeImageSrc = (n, m) => {
 		let result = n % m
 
 		// Return a positive value
 		return result >= 0 ? result : result + m
 	}
+	let timer
+	const setRandomTimer = (minimum = 3000, maximum = 6000) => {
+		let difference = maximum - minimum
+		let random = Math.random()
+		random = Math.floor(random * difference)
+		random += minimum
+		return random
+	}
 
+	// Change index every 5 seconds
 	useEffect(() => {
 		setTimeout(() => {
-			setIndex((index + 1) % images.length)
-			console.log(index)
+			setIndex((index + 1) % guitarsImages.length)
+			setIndex((index + 1) % ampsImages.length)
+			setIndex((index + 1) % effectsImages.length)
 		}, 5000)
 	}, [index])
 
-	const images = [
+	// Guitars image src's
+	const guitarsImages = [
+		{
+			id: '1',
+			image: prsFull,
+		},
+		{
+			id: '2',
+			image: explorerFull,
+		},
+		{
+			id: '3',
+			image: schecterFull,
+		},
+	]
+	// Amps image src's
+	const ampsImages = [
+		{
+			id: '1',
+			image: marshallFull,
+		},
+		{
+			id: '2',
+			image: orangeFull,
+		},
+		{
+			id: '3',
+			image: mesaFull,
+		},
+	]
+	// Effects image src's
+	const effectsImages = [
 		{
 			id: '1',
 			image: phase90Full,
@@ -138,13 +185,32 @@ export default function IndexPage({ products, guitars, amps }) {
 					</span>
 				</div>
 				<div className={homeStyles.guitarRightColumn}>
-					<Image
-						src={prsFull}
-						width={0}
-						height={0}
-						sizes='100vw'
-						style={{ width: '250px', height: 'auto' }}
-					/>
+					{guitarsImages.map((img, i) => {
+						const indexLeft = changeImageSrc(index - 1, guitarsImages.length)
+						const indexRight = changeImageSrc(index + 1, guitarsImages.length)
+
+						let className = 'image'
+
+						if (i === index) {
+							className = 'image image--active'
+						} else if (i === indexRight) {
+							className = 'image image--right'
+						} else if (i === indexLeft) {
+							className = 'image image--left'
+						} else className = 'image'
+
+						return (
+							<Image
+								key={img.id}
+								className={className}
+								src={img.image}
+								width={0}
+								height={0}
+								sizes='100vw'
+								style={{ width: '225px', height: 'auto' }}
+							/>
+						)
+					})}
 				</div>
 			</div>
 			{/* BANNER - AMP */}
@@ -152,13 +218,32 @@ export default function IndexPage({ products, guitars, amps }) {
 				ref={ampRef}
 				className={homeStyles.ampHero}>
 				<div className={homeStyles.ampLeftColumn}>
-					<Image
-						src={marshallFull}
-						width={0}
-						height={0}
-						sizes='100vw'
-						style={{ width: '450px', height: 'auto' }}
-					/>
+					{ampsImages.map((img, i) => {
+						const indexLeft = changeImageSrc(index - 1, ampsImages.length)
+						const indexRight = changeImageSrc(index + 1, ampsImages.length)
+
+						let className = 'image'
+
+						if (i === index) {
+							className = 'image image--active'
+						} else if (i === indexRight) {
+							className = 'image image--right'
+						} else if (i === indexLeft) {
+							className = 'image image--left'
+						} else className = 'image'
+
+						return (
+							<Image
+								key={img.id}
+								className={className}
+								src={img.image}
+								width={0}
+								height={0}
+								sizes='100vw'
+								style={{ width: '450px', height: 'auto' }}
+							/>
+						)
+					})}
 				</div>
 				<div className={homeStyles.ampRightColumn}>
 					{/* amps text */}
@@ -210,9 +295,9 @@ export default function IndexPage({ products, guitars, amps }) {
 					</span>
 				</div>
 				<div className={homeStyles.effectRightColumn}>
-					{images.map((img, i) => {
-						const indexLeft = changeEffectImg(index - 1, images.length)
-						const indexRight = changeEffectImg(index + 1, images.length)
+					{effectsImages.map((img, i) => {
+						const indexLeft = changeImageSrc(index - 1, effectsImages.length)
+						const indexRight = changeImageSrc(index + 1, effectsImages.length)
 
 						let className = 'image'
 

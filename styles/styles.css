@@ -74,8 +74,8 @@ styled from */
 	bottom: 0;
 	left: 0;
 	margin: auto;
-	width: 350px;
-	height: 525px;
+	/* width: 350px;
+	height: 525px; */
 	object-fit: cover;
 	cursor: pointer;
 	z-index: 3;
