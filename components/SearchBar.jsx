@@ -16,6 +16,7 @@ const SearchBar = ({ navbarStyles, products }) => {
 					router.push({ pathname: '/searchResults', query: query })
 				}}>
 				<input
+					className={navbarStyles.input}
 					type='text'
 					value={query}
 					onChange={e => {

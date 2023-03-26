@@ -47,7 +47,6 @@ const Navbar = ({ products, guitars, amps }) => {
 					</Link>
 				</div>
 				<div className={navbarStyles.searchElements}>
-					Search products:
 					<SearchBar
 						navbarStyles={navbarStyles}
 						products={products}
