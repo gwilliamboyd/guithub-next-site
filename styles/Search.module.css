@@ -21,9 +21,33 @@
 }
 .resultsContainer {
 	margin-bottom: 3rem;
-	width: 70%;
+	width: 80%;
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
 	justify-items: center;
 	/* gap: 2rem; */
+}
+@media (max-width: 1200px) {
+	.searchHeading {
+		font-size: 3.5rem;
+	}
+	.resultsContainer {
+		width: 95%;
+	}
+}
+@media (max-width: 900px) {
+	.searchHeading {
+		font-size: 3rem;
+	}
+	.resultsContainer {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+@media (max-width: 900px) {
+	.searchHeading {
+		font-size: 2.5rem;
+	}
+	.resultsContainer {
+		grid-template-columns: 1fr;
+	}
 }
