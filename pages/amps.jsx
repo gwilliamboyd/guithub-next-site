@@ -79,7 +79,7 @@ export default function Amps({ amps }) {
 					width={0}
 					height={0}
 					sizes='100vw'
-					style={{ width: '100%', height: 'auto', marginTop: '-4rem' }}
+					style={{ width: '100%', height: 'auto', marginTop: '-2rem' }}
 				/>
 				{/* <HeroCarousel categoryStyles={categoryStyles} /> */}
 				<ProductContainer
