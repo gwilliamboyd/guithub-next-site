@@ -40,6 +40,7 @@ import bigSkyImg from '@/public/images/banner-effect/banner-effect-bigsky.png'
 export default function IndexPage({ products, guitars, amps }) {
 	const [gtrs, setGtrs] = useState(guitars)
 	const [amplifiers, setAmplifiers] = useState(amps)
+	const [isMobile, setIsMobile] = useState(false)
 
 	const guitarRef = useRef()
 	const ampRef = useRef()
@@ -109,6 +110,28 @@ export default function IndexPage({ products, guitars, amps }) {
 			setIndex((index + 1) % effectsImages.length)
 		}, 5000)
 	}, [index])
+
+	// Detect whether site is being viewed on mobile
+	useEffect(() => {
+		console.log('mobile')
+		const contentWatcher = window.matchMedia('(max-width: 600px)')
+		setIsMobile(contentWatcher.matches)
+
+		function updateIsMobile(e) {
+			setIsMobile(e.matches)
+		}
+		if (contentWatcher.addEventListener) {
+			contentWatcher.addEventListener('change', updateIsMobile)
+			return function cleanup() {
+				contentWatcher.removeEventListener('change', updateIsMobile)
+			}
+		} else {
+			contentWatcher.addListener(updateIsMobile)
+			return function cleanup() {
+				contentWatcher.removeListener(updateIsMobile)
+			}
+		}
+	})
 
 	// Guitars image src's
 	const guitarsImages = [
@@ -207,7 +230,11 @@ export default function IndexPage({ products, guitars, amps }) {
 								width={0}
 								height={0}
 								sizes='100vw'
-								style={{ width: '225px', height: 'auto' }}
+								style={
+									isMobile
+										? { width: '200px', height: 'auto' }
+										: { width: '26%', height: 'auto' }
+								}
 							/>
 						)
 					})}
@@ -240,7 +267,11 @@ export default function IndexPage({ products, guitars, amps }) {
 								width={0}
 								height={0}
 								sizes='100vw'
-								style={{ width: '450px', height: 'auto' }}
+								style={
+									isMobile
+										? { width: '300px', height: 'auto' }
+										: { width: '60%', height: 'auto' }
+								}
 							/>
 						)
 					})}
@@ -317,117 +348,16 @@ export default function IndexPage({ products, guitars, amps }) {
 								width={0}
 								height={0}
 								sizes='100vw'
-								style={{ width: '250px', height: 'auto' }}
+								style={
+									isMobile
+										? { width: '235px', height: 'auto' }
+										: { width: '34%', height: 'auto' }
+								}
 							/>
 						)
 					})}
 				</div>
 			</div>
-			{/* BANNER - AMP
-			<div
-				ref={ampRef}
-				className={homeStyles.ampHero}>
-				<motion.span
-					className={homeStyles.ampsText}
-					initial={{ opacity: 0 }}
-					animate={{ opacity: 1 }}
-					transition={{ delay: 2, duration: 0.85 }}>
-					Amps
-				</motion.span>
-
-				<motion.span
-					className={homeStyles.browseButtonAmp}
-					initial={{ opacity: 0 }}
-					animate={{ opacity: 1 }}
-					transition={{ delay: 2, duration: 0.85 }}>
-					<Link
-						legacyBehavior
-						href={'/amps'}>
-						<a>Browse Here</a>
-					</Link>
-				</motion.span>
-				<motion.img
-					className={homeStyles.redAmpBgImg}
-					initial={{ y: 1200 }}
-					animate={{ y: 0 }}
-					transition={{ duration: 0.6 }}
-					src={ampRedFull.src}
-				/>
-				<motion.img
-					className={homeStyles.blackAmpBgImg}
-					initial={{ x: 1650 }}
-					animate={{ x: 0 }}
-					transition={{ delay: 0.15, duration: 0.6 }}
-					src={ampBlackFull.src}
-				/>
-				<motion.img
-					className={homeStyles.marshall}
-					initial={{ opacity: 0 }}
-					animate={{ opacity: 1 }}
-					transition={{ delay: 0.75, duration: 0.5 }}
-					src={ampImg.src}
-				/>
-			</div>
-			BANNER - EFFECT
-			<div
-				ref={effectRef}
-				className={homeStyles.effectHero}>
-				<motion.img
-					className={homeStyles.redEffectBgImg}
-					initial={{ y: 600 }}
-					animate={{ y: 0 }}
-					transition={{ duration: 0.6 }}
-					src={redEffectBgImg.src}
-				/>
-				<motion.img
-					className={homeStyles.blackEffectBgImg}
-					initial={{ x: -1650 }}
-					animate={{ x: 0 }}
-					transition={{ delay: 0.15, duration: 0.6 }}
-					src={blackEffectBgImg.src}
-				/>
-				<motion.span
-					className={homeStyles.effectText}
-					initial={{ opacity: 0 }}
-					animate={{ opacity: 1 }}
-					transition={{ delay: 2, duration: 0.85 }}>
-					Effects
-				</motion.span>
-
-				<motion.span
-					className={homeStyles.browseButtonEffect}
-					initial={{ opacity: 0 }}
-					animate={{ opacity: 1 }}
-					transition={{ delay: 2, duration: 0.85 }}>
-					<Link
-						legacyBehavior
-						href={'/amps'}>
-						<a>Browse Here</a>
-					</Link>
-				</motion.span>
-
-				<motion.img
-					className={homeStyles.afterneathImg}
-					initial={{ opacity: 0 }}
-					animate={{ opacity: 1 }}
-					transition={{ delay: 0.6, duration: 0.85 }}
-					src={afterneathImg.src}
-				/>
-				<motion.img
-					className={homeStyles.bigSkyImg}
-					initial={{ opacity: 0 }}
-					animate={{ opacity: 1 }}
-					transition={{ delay: 0.6, duration: 0.85 }}
-					src={bigSkyImg.src}
-				/>
-				<motion.img
-					className={homeStyles.phase90Img}
-					initial={{ opacity: 0 }}
-					animate={{ opacity: 1 }}
-					transition={{ delay: 0.6, duration: 0.85 }}
-					src={phase90Img.src}
-				/>
-			</div> */}
 		</div>
 	)
 }

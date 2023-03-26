@@ -33,6 +33,7 @@ export default function Guitars({ guitars }) {
 		)
 	}, [guitars, query])
 
+	// Detect whether site is being viewed on mobile
 	useEffect(() => console.log(query), [query])
 
 	const lastIndex = currentPage * guitPerPage
