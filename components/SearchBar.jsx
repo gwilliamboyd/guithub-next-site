@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useStateContext } from '@/context/StateContext'
 import { useRouter } from 'next/router'
+import SearchIcon from './svgs/SearchIcon'
 
 const SearchBar = ({ navbarStyles, products }) => {
 	const router = useRouter()
@@ -22,6 +23,13 @@ const SearchBar = ({ navbarStyles, products }) => {
 					}}
 				/>
 			</form>
+			<span
+				onClick={() => {
+					handleSearch(query, products)
+					router.push({ pathname: '/searchResults', query: query })
+				}}>
+				<SearchIcon />
+			</span>
 		</div>
 	)
 }

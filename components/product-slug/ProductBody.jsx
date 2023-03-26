@@ -78,6 +78,18 @@ const ProductBody = ({ product, productStyles }) => {
 		closeImage()
 	}, [])
 
+	let iconsArray = []
+	const numberOfIcons = rating => {
+		for (let i = 0; i < rating; i++) {
+			iconsArray.push(i)
+		}
+		console.log(iconsArray)
+		return iconsArray
+	}
+	useEffect(() => {
+		numberOfIcons(product.rating)
+	}, [])
+
 	return (
 		<>
 			{imageOpen && (
@@ -219,12 +231,14 @@ const ProductBody = ({ product, productStyles }) => {
 					<div className={productStyles.bodyRowTwo}>
 						<span className={productStyles.ourRating}>Rating:</span>
 						<span className={productStyles.rating}>
-							{`${product.rating}/5`} {/* Icons to show star rating out of 5 */}
+							{`${product.rating}/5`}
+							{/* Icons to show star rating out of 5 */}
+							<p>{iconsArray.forEach(item => console.log(item))}</p>
+							{/* <RatingIcon />
 							<RatingIcon />
 							<RatingIcon />
 							<RatingIcon />
-							<RatingIcon />
-							<RatingIcon />
+							<RatingIcon /> */}
 						</span>
 					</div>
 					<div className={productStyles.bodyRowThree}>
@@ -238,7 +252,7 @@ const ProductBody = ({ product, productStyles }) => {
 						<div className={productStyles.shippingInfo}>
 							<div className={productStyles.shippingCost}>
 								Shipping:{' '}
-								<span className={productStyles.shippingPrice}>$229.99</span>
+								<span className={productStyles.shippingPrice}>FREE!</span>
 							</div>
 							<div className={productStyles.usaCanada}>
 								1-2 Weeks (USA and Canada)
