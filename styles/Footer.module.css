@@ -50,3 +50,25 @@
 	justify-self: flex-end;
 	align-self: flex-end;
 }
+@media (max-width: 1200px) {
+	.footerMaster {
+		padding: 3rem 6rem;
+	}
+	.footerContainer {
+		grid-template-columns: 35% 15% 50%;
+	}
+}
+@media (max-width: 900px) {
+	.footerMaster {
+		padding: 2rem 4rem;
+	}
+}
+@media (max-width: 900px) {
+	.footerMaster {
+		padding: 1.5rem;
+		font-size: 0.8rem;
+	}
+	.footerContainer {
+		grid-template-columns: 35% 15% 50%;
+	}
+}

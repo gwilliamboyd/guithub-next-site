@@ -269,3 +269,136 @@
 .techSpecRow:nth-child(2n) {
 	background-color: darkgray;
 }
+
+@media (max-width: 1200px) {
+	.productBody {
+		margin-top: 2rem;
+		width: 85%;
+	}
+	.productHeading {
+		font-size: 2.5rem;
+	}
+	.prodDescText {
+		width: 85%;
+	}
+	.techSpecs {
+		margin: 1rem 0 2rem;
+	}
+	.techSpecsHeading {
+		font-size: 3rem;
+	}
+	.techSpecsBody {
+		width: 80%;
+	}
+	.techSpecRow {
+		font-size: 1.2rem;
+	}
+}
+@media (max-width: 900px) {
+	.productBody {
+		width: 90%;
+	}
+	.productHeading {
+		margin: 1rem 0 0;
+		font-size: 2rem;
+	}
+	.bodyText {
+		grid-template-rows: 1fr;
+	}
+	.bodyRowOne,
+	.bodyRowTwo,
+	.bodyRowThree,
+	.bodyRowFour {
+		column-gap: 1.5rem;
+		height: fit-content;
+	}
+	.ourPrice,
+	.ourRating {
+		font-size: 2rem;
+	}
+	.price,
+	.rating {
+		font-size: 2.5rem;
+	}
+	.addToCart {
+		width: 150px;
+		border: 0;
+		border-radius: 4px;
+		background-color: var(--main-red-color);
+		color: var(--light-font-color);
+		font-family: inherit;
+		font-weight: 500;
+		font-size: 1.1rem;
+		padding: 0.5rem 1rem;
+	}
+	.shippingInfo {
+		row-gap: 0.1rem;
+		font-weight: 600;
+		font-size: 0.9rem;
+	}
+	.shippingCost {
+		font-size: 1.2rem;
+	}
+	.quickSpecs {
+		font-size: 1.5rem;
+		font-weight: 600;
+	}
+	.quickSpecsList {
+		font-size: 1rem;
+	}
+	.prodDescHeading {
+		font-size: 2.5rem;
+	}
+	.prodDescTextHeading {
+		font-size: 1.3rem;
+	}
+	.prodDescText {
+		width: 85%;
+		font-size: 1rem;
+	}
+	.techSpecsBody {
+		width: 90%;
+	}
+}
+@media (max-width: 600px) {
+	.productHeading {
+		width: 90%;
+		font-size: 1.8rem;
+	}
+	.productBody {
+		width: 95%;
+		flex-direction: column;
+	}
+	.bodyText {
+		margin-top: 2rem;
+		row-gap: 1.5rem;
+	}
+	.ourPrice,
+	.ourRating {
+		font-size: 2rem;
+	}
+	.addToCart {
+		width: 200px;
+		padding: 0.8rem 1.6rem;
+	}
+	.prodDescHeading {
+		font-size: 2rem;
+	}
+	.prodDescTextHeading {
+		font-size: 1.1rem;
+	}
+	.prodDescText {
+		width: 85%;
+		font-size: 0.9rem;
+	}
+	.techSpecsHeading {
+		font-size: 2.5rem;
+	}
+	.techSpecRow {
+		padding: 1.2rem 1rem;
+		font-size: 1rem;
+	}
+	.techSpecsBody {
+		width: 90%;
+	}
+}
