@@ -4,6 +4,7 @@ import { useState, useMemo, useEffect } from 'react'
 // Styles
 import categoryStyles from '../styles/Category.module.css'
 import effectBanner from '@/public/images/effect-category-banner.png'
+import effectBannerMobile from '@/public/images/effect-category-banner-mobile.png'
 // Components
 import HeroCarousel from '@/components/HeroCarousel'
 import ProductContainer from '@/components/ProductContainer'
@@ -14,6 +15,7 @@ import { useStateContext } from '@/context/StateContext'
 export default function Effects({ effects }) {
 	const { incQty, decQty } = useStateContext()
 	const [query, setQuery] = useState('')
+	const [isMobile, setIsMobile] = useState(false)
 
 	// Pagination
 	const [currentPage, setCurrentPage] = useState(1)
@@ -56,6 +58,26 @@ export default function Effects({ effects }) {
 	const currentEffects = filteredProducts.slice(firstIndex, lastIndex)
 	const paginate = pageNumber => setCurrentPage(pageNumber)
 
+	useEffect(() => {
+		const contentWatcher = window.matchMedia('(max-width: 600px)')
+		setIsMobile(contentWatcher.matches)
+
+		function updateIsMobile(e) {
+			setIsMobile(e.matches)
+		}
+		if (contentWatcher.addEventListener) {
+			contentWatcher.addEventListener('change', updateIsMobile)
+			return function cleanup() {
+				contentWatcher.removeEventListener('change', updateIsMobile)
+			}
+		} else {
+			contentWatcher.addListener(updateIsMobile)
+			return function cleanup() {
+				contentWatcher.removeListener(updateIsMobile)
+			}
+		}
+	})
+
 	return (
 		<>
 			<main className={categoryStyles.mainContainer}>
@@ -71,7 +93,7 @@ export default function Effects({ effects }) {
 					Effects Pedals
 				</h1>
 				<Image
-					src={effectBanner}
+					src={isMobile ? effectBannerMobile : effectBanner}
 					width={0}
 					height={0}
 					sizes='100vw'

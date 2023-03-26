@@ -7,6 +7,7 @@ import { useState, useMemo, useEffect } from 'react'
 import categoryStyles from '../styles/Category.module.css'
 // Images
 import guitarBanner from '@/public/images/guitar-category-banner.png'
+import guitarBannerMobile from '@/public/images/guitar-category-banner-mobile.png'
 // Components
 import HeroCarousel from '@/components/HeroCarousel'
 import ProductContainer from '@/components/ProductContainer'
@@ -17,6 +18,7 @@ import { useStateContext } from '@/context/StateContext'
 export default function Guitars({ guitars }) {
 	const { incQty, decQty } = useStateContext()
 	const [query, setQuery] = useState('')
+	const [isMobile, setIsMobile] = useState(false)
 
 	// Pagination
 	const [currentPage, setCurrentPage] = useState(1)
@@ -38,6 +40,26 @@ export default function Guitars({ guitars }) {
 	const currentGuitars = filteredProducts.slice(firstIndex, lastIndex)
 	const paginate = pageNumber => setCurrentPage(pageNumber)
 
+	useEffect(() => {
+		const contentWatcher = window.matchMedia('(max-width: 600px)')
+		setIsMobile(contentWatcher.matches)
+
+		function updateIsMobile(e) {
+			setIsMobile(e.matches)
+		}
+		if (contentWatcher.addEventListener) {
+			contentWatcher.addEventListener('change', updateIsMobile)
+			return function cleanup() {
+				contentWatcher.removeEventListener('change', updateIsMobile)
+			}
+		} else {
+			contentWatcher.addListener(updateIsMobile)
+			return function cleanup() {
+				contentWatcher.removeListener(updateIsMobile)
+			}
+		}
+	})
+
 	return (
 		<>
 			<main className={categoryStyles.mainContainer}>
@@ -53,7 +75,7 @@ export default function Guitars({ guitars }) {
 					Electric Guitars
 				</h1>
 				<Image
-					src={guitarBanner}
+					src={isMobile ? guitarBannerMobile : guitarBanner}
 					width={0}
 					height={0}
 					sizes='100vw'

@@ -2,7 +2,8 @@
 import Link from 'next/link'
 import Image from 'next/image'
 //React utilities
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { motion } from 'framer-motion'
 // Components
 import NavbarLink from './NavbarLink'
 import SocialIcon from './SocialIcon'
@@ -17,6 +18,7 @@ import youtubeIcon from '@/public/images/youtube-icon-white.svg'
 import reverbIcon from '@/public/images/reverb-icon-white.svg'
 // import shoppingCartIcon from '@/public/images/shopping-cart.svg'
 import ShoppingCartIcon from './svgs/ShoppingCartIcon'
+import BarsSolid from './svgs/BarsSolid'
 import SearchBar from './SearchBar'
 import Cart from './Cart'
 import { useStateContext } from '@/context/StateContext'
@@ -25,9 +27,31 @@ const Navbar = ({ products, guitars, amps }) => {
 	const { cartOpen, setCartOpen } = useStateContext()
 
 	//State
+	const [isMobile, setIsMobile] = useState(false)
+	const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 	const [currentColor, setCurrentColor] = useState('var(--light-font-color)')
 	const [width, setWidth] = useState(30)
 	const [height, setHeight] = useState(30)
+
+	useEffect(() => {
+		const contentWatcher = window.matchMedia('(max-width: 600px)')
+		setIsMobile(contentWatcher.matches)
+
+		function updateIsMobile(e) {
+			setIsMobile(e.matches)
+		}
+		if (contentWatcher.addEventListener) {
+			contentWatcher.addEventListener('change', updateIsMobile)
+			return function cleanup() {
+				contentWatcher.removeEventListener('change', updateIsMobile)
+			}
+		} else {
+			contentWatcher.addListener(updateIsMobile)
+			return function cleanup() {
+				contentWatcher.removeListener(updateIsMobile)
+			}
+		}
+	})
 
 	return (
 		<header className={navbarStyles.header}>
@@ -39,8 +63,8 @@ const Navbar = ({ products, guitars, amps }) => {
 						<a>
 							<Image
 								src={guithubLogo}
-								width={150}
-								height={33}
+								width={isMobile ? 100 : 150}
+								height={isMobile ? 22 : 33}
 								alt='GuitHub'
 							/>
 						</a>
@@ -103,6 +127,39 @@ const Navbar = ({ products, guitars, amps }) => {
 						</a>
 					</Link>
 					{cartOpen && <Cart cartStyles={cartStyles} />}
+					{isMobile && (
+						<span onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
+							<BarsSolid />
+						</span>
+					)}
+					{mobileMenuOpen && (
+						<motion.div
+							className={navbarStyles.mobileMenuMaster}
+							initial={{ width: 0, height: 0 }}
+							animate={{ width: 'auto', height: 'auto' }}>
+							<span className={navbarStyles.mobileMenuRow}>
+								<Link
+									legacyBehavior
+									href={'/guitars'}>
+									<a>Guitars</a>
+								</Link>
+							</span>
+							<span className={navbarStyles.mobileMenuRow}>
+								<Link
+									legacyBehavior
+									href={'/amps'}>
+									<a>Amps</a>
+								</Link>
+							</span>
+							<span className={navbarStyles.mobileMenuRow}>
+								<Link
+									legacyBehavior
+									href={'/effects'}>
+									<a>Effects</a>
+								</Link>
+							</span>
+						</motion.div>
+					)}
 				</div>
 			</nav>
 		</header>
