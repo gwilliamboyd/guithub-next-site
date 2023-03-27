@@ -26,7 +26,7 @@ export default function ProductContainer({
 		return firstIndex, lastIndex
 	}
 	const nextPage = () => {
-		if (lastIndex > products.length) {
+		if (lastIndex > products.length - 1) {
 			return null
 		}
 		setCurrentPage(currentPage + 1)
