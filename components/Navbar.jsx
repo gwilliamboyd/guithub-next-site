@@ -54,115 +54,118 @@ const Navbar = ({ products, guitars, amps }) => {
 	})
 
 	return (
-		<header className={navbarStyles.header}>
-			<nav className={navbarStyles.nav}>
-				<div className={navbarStyles.storeLogo}>
-					<Link
-						legacyBehavior
-						href='/'>
-						<a>
-							<Image
-								src={guithubLogo}
-								width={isMobile ? 100 : 150}
-								height={isMobile ? 22 : 33}
-								alt='GuitHub'
+		<>
+			<header className={navbarStyles.header}>
+				<nav className={navbarStyles.nav}>
+					<div className={navbarStyles.storeLogo}>
+						<Link
+							legacyBehavior
+							href='/'>
+							<a>
+								<Image
+									src={guithubLogo}
+									width={isMobile ? 100 : 150}
+									height={isMobile ? 22 : 33}
+									alt='GuitHub'
+								/>
+							</a>
+						</Link>
+					</div>
+					<div className={navbarStyles.searchElements}>
+						<SearchBar
+							navbarStyles={navbarStyles}
+							products={products}
+							// amps={amps}
+						/>
+					</div>
+					<div className={navbarStyles.rightLinks}>
+						<ul className={navbarStyles.productLinks}>
+							<NavbarLink
+								navbarStyles={navbarStyles}
+								name='Guitars'
+								destination='/guitars'
 							/>
-						</a>
-					</Link>
-				</div>
-				<div className={navbarStyles.searchElements}>
-					<SearchBar
-						navbarStyles={navbarStyles}
-						products={products}
-						// amps={amps}
-					/>
-				</div>
-				<div className={navbarStyles.rightLinks}>
-					<ul className={navbarStyles.productLinks}>
-						<NavbarLink
-							navbarStyles={navbarStyles}
-							name='Guitars'
-							destination='/guitars'
-						/>
-						<NavbarLink
-							navbarStyles={navbarStyles}
-							name='Amps'
-							destination='/amps'
-						/>
-						<NavbarLink
-							navbarStyles={navbarStyles}
-							name='Effects'
-							destination='/effects'
-						/>
-						{/* <NavbarLink
+							<NavbarLink
+								navbarStyles={navbarStyles}
+								name='Amps'
+								destination='/amps'
+							/>
+							<NavbarLink
+								navbarStyles={navbarStyles}
+								name='Effects'
+								destination='/effects'
+							/>
+							{/* <NavbarLink
 							navbarStyles={navbarStyles}
 							name='Accessories'
 							destination='/accessories'
 						/> */}
-					</ul>
-					{/* <ul className={navbarStyles.socialsLinks}>
+						</ul>
+						{/* <ul className={navbarStyles.socialsLinks}>
 						<SocialIcon iconUrl={instagramIcon} />
 						<SocialIcon iconUrl={youtubeIcon} />
 						<SocialIcon iconUrl={reverbIcon} />
 					</ul> */}
-					<Link
-						legacyBehavior
-						href='#'>
-						<a
-							className={navbarStyles.cartIcon}
-							onClick={() => {
-								setCartOpen(!cartOpen)
-							}}>
-							{/* <Image
+						<Link
+							legacyBehavior
+							href='#'>
+							<a
+								className={navbarStyles.cartIcon}
+								onClick={() => {
+									setCartOpen(!cartOpen)
+								}}>
+								{/* <Image
 								src={ShoppingCartIcon}
 								width={35}
 								height={35}
 								alt='View your cart'
 							/> */}
-							<ShoppingCartIcon
-								currentColor={currentColor}
-								width={width}
-								height={height}
-							/>
-						</a>
-					</Link>
-					{cartOpen && <Cart cartStyles={cartStyles} />}
-					{isMobile && (
-						<span onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
-							<BarsSolid />
-						</span>
-					)}
-					{mobileMenuOpen && (
-						<motion.div
-							className={navbarStyles.mobileMenuMaster}
-							initial={{ width: 0, height: 0 }}
-							animate={{ width: 'auto', height: 'auto' }}>
-							<span className={navbarStyles.mobileMenuRow}>
-								<Link
-									legacyBehavior
-									href={'/guitars'}>
-									<a>Guitars</a>
-								</Link>
+								<ShoppingCartIcon
+									currentColor={currentColor}
+									width={width}
+									height={height}
+								/>
+							</a>
+						</Link>
+
+						{isMobile && (
+							<span onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
+								<BarsSolid />
 							</span>
-							<span className={navbarStyles.mobileMenuRow}>
-								<Link
-									legacyBehavior
-									href={'/amps'}>
-									<a>Amps</a>
-								</Link>
-							</span>
-							<span className={navbarStyles.mobileMenuRow}>
-								<Link
-									legacyBehavior
-									href={'/effects'}>
-									<a>Effects</a>
-								</Link>
-							</span>
-						</motion.div>
-					)}
-				</div>
-			</nav>
-		</header>
+						)}
+						{mobileMenuOpen && (
+							<motion.div
+								className={navbarStyles.mobileMenuMaster}
+								initial={{ width: 0, height: 0 }}
+								animate={{ width: 'auto', height: 'auto' }}>
+								<span className={navbarStyles.mobileMenuRow}>
+									<Link
+										legacyBehavior
+										href={'/guitars'}>
+										<a>Guitars</a>
+									</Link>
+								</span>
+								<span className={navbarStyles.mobileMenuRow}>
+									<Link
+										legacyBehavior
+										href={'/amps'}>
+										<a>Amps</a>
+									</Link>
+								</span>
+								<span className={navbarStyles.mobileMenuRow}>
+									<Link
+										legacyBehavior
+										href={'/effects'}>
+										<a>Effects</a>
+									</Link>
+								</span>
+							</motion.div>
+						)}
+					</div>
+				</nav>
+			</header>
+			{cartOpen && <Cart cartStyles={cartStyles} />}
+		</>
 	)
 }
 

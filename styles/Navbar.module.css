@@ -3,11 +3,12 @@
 	color: var(--light-font-color);
 	padding: 0;
 	margin: 0;
-	position: sticky;
+	/* position: sticky; */
 	z-index: 10;
 	border-bottom: 3px solid var(--light-font-color);
 }
 .nav {
+	position: relative;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -40,6 +41,7 @@
 	gap: 0.5rem;
 }
 .rightLinks {
+	/* overflow: hidden; */
 	position: relative;
 	display: flex;
 	align-items: stretch;
@@ -71,7 +73,6 @@
 .cartIcon {
 	display: flex;
 	align-items: center;
-	/* filter: invert(); */
 }
 .mobileMenuMaster {
 	position: absolute;

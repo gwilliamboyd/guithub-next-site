@@ -74,62 +74,60 @@ const Cart = () => {
 	}
 
 	return (
-		<>
-			<div className={cartStyles.cartMaster}>
-				<div className={cartStyles.cartContainer}>
-					<b>Shopping Cart</b>
-					<div className={cartStyles.cartBody}>
-						{cartItems.map(item => (
-							<div
-								key={item._id}
-								className={cartStyles.cartEntry}>
-								<Image
-									src={urlFor(item.image[0]).url()}
-									width={0}
-									height={0}
-									sizes='100vw'
-									style={{
-										maxWidth: '71px',
-										width: 'auto',
-										height: 'auto',
-									}}
-									alt={`${item.name}`}
-									className={cartStyles.cartEntryImage}
-								/>
-								<div className={cartStyles.cartEntryBody}>
-									<span className={cartStyles.cartEntryName}>{item.name}</span>
-									<div className={cartStyles.cartEntryInfo}>
-										<span className={cartStyles.cartEntryPrice}>
-											{`$${item.price}`}
-										</span>
-										<span
-											className={
-												cartStyles.itemQuantity
-											}>{`Qty: ${item.quantity}`}</span>
-									</div>
+		<div className={cartStyles.cartMaster}>
+			<div className={cartStyles.cartContainer}>
+				<b>Shopping Cart</b>
+				<div className={cartStyles.cartBody}>
+					{cartItems.map(item => (
+						<div
+							key={item._id}
+							className={cartStyles.cartEntry}>
+							<Image
+								src={urlFor(item.image[0]).url()}
+								width={0}
+								height={0}
+								sizes='100vw'
+								style={{
+									maxWidth: '71px',
+									width: 'auto',
+									height: 'auto',
+								}}
+								alt={`${item.name}`}
+								className={cartStyles.cartEntryImage}
+							/>
+							<div className={cartStyles.cartEntryBody}>
+								<span className={cartStyles.cartEntryName}>{item.name}</span>
+								<div className={cartStyles.cartEntryInfo}>
+									<span className={cartStyles.cartEntryPrice}>
+										{`$${item.price}`}
+									</span>
+									<span
+										className={
+											cartStyles.itemQuantity
+										}>{`Qty: ${item.quantity}`}</span>
 								</div>
-								<button
-									className={cartStyles.removeButton}
-									onClick={() => onRemove(item)}>
-									X
-								</button>
 							</div>
-						))}
-					</div>
-					<div className={cartStyles.cartTotalPrice}>
-						Total:{' '}
-						<span className={cartStyles.cartTotalPriceNumber}>
-							{`$${totalPrice}`}
-						</span>
-					</div>
-					<button
-						className={cartStyles.checkoutButton}
-						onClick={handleCheckout}>
-						Checkout
-					</button>
+							<button
+								className={cartStyles.removeButton}
+								onClick={() => onRemove(item)}>
+								X
+							</button>
+						</div>
+					))}
 				</div>
+				<div className={cartStyles.cartTotalPrice}>
+					Total:{' '}
+					<span className={cartStyles.cartTotalPriceNumber}>
+						{`$${totalPrice}`}
+					</span>
+				</div>
+				<button
+					className={cartStyles.checkoutButton}
+					onClick={handleCheckout}>
+					Checkout
+				</button>
 			</div>
-		</>
+		</div>
 	)
 }
 
