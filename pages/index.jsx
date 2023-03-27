@@ -195,7 +195,7 @@ export default function IndexPage({ products, guitars, amps }) {
 						Guitars
 					</span>
 					{/* Guitars button */}
-					<span
+					<button
 						className={homeStyles.browseButton}
 						initial={{ opacity: 0 }}
 						animate={{ opacity: 1 }}
@@ -205,7 +205,7 @@ export default function IndexPage({ products, guitars, amps }) {
 							href={'/guitars'}>
 							<a>Plug In!</a>
 						</Link>
-					</span>
+					</button>
 				</div>
 				<div className={homeStyles.guitarRightColumn}>
 					{guitarsImages.map((img, i) => {
@@ -233,7 +233,7 @@ export default function IndexPage({ products, guitars, amps }) {
 								style={
 									isMobile
 										? { width: '200px', height: 'auto' }
-										: { width: '26%', height: 'auto' }
+										: { width: '23%', height: 'auto' }
 								}
 							/>
 						)
@@ -286,7 +286,7 @@ export default function IndexPage({ products, guitars, amps }) {
 						Amplifiers
 					</span>
 					{/* amps button */}
-					<span
+					<button
 						className={homeStyles.browseButtonAmp}
 						initial={{ opacity: 0 }}
 						animate={{ opacity: 1 }}
@@ -296,7 +296,7 @@ export default function IndexPage({ products, guitars, amps }) {
 							href={'/amps'}>
 							<a>Crank It Up!</a>
 						</Link>
-					</span>
+					</button>
 				</div>
 			</div>
 			{/* BANNER - EFFECT */}
@@ -313,7 +313,7 @@ export default function IndexPage({ products, guitars, amps }) {
 						Effects Pedals
 					</span>
 					{/* effects button */}
-					<span
+					<button
 						className={homeStyles.browseButtonEffect}
 						initial={{ opacity: 0 }}
 						animate={{ opacity: 1 }}
@@ -323,7 +323,7 @@ export default function IndexPage({ products, guitars, amps }) {
 							href={'/effects'}>
 							<a>Browse Here</a>
 						</Link>
-					</span>
+					</button>
 				</div>
 				<div className={homeStyles.effectRightColumn}>
 					{effectsImages.map((img, i) => {
