@@ -64,7 +64,6 @@ export default function Guitars({ guitars }) {
 	return (
 		<>
 			<title>GuitHub | Guitars</title>
-
 			<main className={categoryStyles.mainContainer}>
 				{/* <FilterMenu
 					guitars={guitars}
