@@ -72,8 +72,10 @@ const Effect = ({ effect }) => {
 	}, []) */
 
 	return (
-		<div className={productStyles.productMaster}>
-			{/* {imageOpen && (
+		<>
+			<title>{`GuitHub | ${effect.name}`}</title>
+			<div className={productStyles.productMaster}>
+				{/* {imageOpen && (
 				<ImageModal
 					imageRef={imageRef}
 					scrollRef={scrollRef}
@@ -85,20 +87,21 @@ const Effect = ({ effect }) => {
 					scrollNext={scrollNext}
 				/>
 			)} */}
-			<p className={productStyles.productHeading}>{effect.name}</p>
-			<ProductBody
-				product={effect}
-				productStyles={productStyles}
-			/>
-			<ProductDescription
-				product={effect}
-				productStyles={productStyles}
-			/>
-			<TechSpecs
-				product={effect}
-				productStyles={productStyles}
-			/>
-		</div>
+				<p className={productStyles.productHeading}>{effect.name}</p>
+				<ProductBody
+					product={effect}
+					productStyles={productStyles}
+				/>
+				<ProductDescription
+					product={effect}
+					productStyles={productStyles}
+				/>
+				<TechSpecs
+					product={effect}
+					productStyles={productStyles}
+				/>
+			</div>
+		</>
 	)
 }
 

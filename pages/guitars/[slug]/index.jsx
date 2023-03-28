@@ -72,34 +72,37 @@ const Guitar = ({ guitar }) => {
 	}, [])
 
 	return (
-		<div className={productStyles.productMaster}>
-			{imageOpen && (
-				<ImageModal
-					imageRef={imageRef}
-					scrollRef={scrollRef}
+		<>
+			<title>{`GuitHub | ${guitar.name}`}</title>
+			<div className={productStyles.productMaster}>
+				{imageOpen && (
+					<ImageModal
+						imageRef={imageRef}
+						scrollRef={scrollRef}
+						product={guitar}
+						productStyles={productStyles}
+						imageIndex={imageIndex}
+						enchanceImage={enchanceImage}
+						scrollPrevious={scrollPrevious}
+						scrollNext={scrollNext}
+					/>
+				)}
+				<p className={productStyles.productHeading}>{guitar.name}</p>
+				<ProductBody
 					product={guitar}
 					productStyles={productStyles}
-					imageIndex={imageIndex}
 					enchanceImage={enchanceImage}
-					scrollPrevious={scrollPrevious}
-					scrollNext={scrollNext}
 				/>
-			)}
-			<p className={productStyles.productHeading}>{guitar.name}</p>
-			<ProductBody
-				product={guitar}
-				productStyles={productStyles}
-				enchanceImage={enchanceImage}
-			/>
-			<ProductDescription
-				product={guitar}
-				productStyles={productStyles}
-			/>
-			<TechSpecs
-				product={guitar}
-				productStyles={productStyles}
-			/>
-		</div>
+				<ProductDescription
+					product={guitar}
+					productStyles={productStyles}
+				/>
+				<TechSpecs
+					product={guitar}
+					productStyles={productStyles}
+				/>
+			</div>
+		</>
 	)
 }
 

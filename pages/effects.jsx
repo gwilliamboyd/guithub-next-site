@@ -80,6 +80,7 @@ export default function Effects({ effects }) {
 
 	return (
 		<>
+			<title>GuitHub | Effects</title>
 			<main className={categoryStyles.mainContainer}>
 				{/* <FilterMenu
 					effects={effects}

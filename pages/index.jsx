@@ -180,185 +180,188 @@ export default function IndexPage({ products, guitars, amps }) {
 	]
 
 	return (
-		<div className={homeStyles.homeMaster}>
-			{/* BANNER - GUITAR */}
-			<div
-				ref={guitarRef}
-				className={homeStyles.guitarHero}>
-				<div className={homeStyles.guitarLeftColumn}>
-					{/* Guitars text */}
-					<span
-						className={homeStyles.guitarsText}
-						initial={{ opacity: 0 }}
-						animate={{ opacity: 1 }}
-						transition={{ delay: 2, duration: 0.85 }}>
-						Guitars
-					</span>
-					{/* Guitars button */}
-					<button
-						className={homeStyles.browseButton}
-						initial={{ opacity: 0 }}
-						animate={{ opacity: 1 }}
-						transition={{ delay: 2, duration: 0.85 }}>
-						<Link
-							legacyBehavior
-							href={'/guitars'}>
-							<a>Plug In!</a>
-						</Link>
-					</button>
+		<>
+			<title>GuitHub | Home | Committed to Excellence!</title>
+			<div className={homeStyles.homeMaster}>
+				{/* BANNER - GUITAR */}
+				<div
+					ref={guitarRef}
+					className={homeStyles.guitarHero}>
+					<div className={homeStyles.guitarLeftColumn}>
+						{/* Guitars text */}
+						<span
+							className={homeStyles.guitarsText}
+							initial={{ opacity: 0 }}
+							animate={{ opacity: 1 }}
+							transition={{ delay: 2, duration: 0.85 }}>
+							Guitars
+						</span>
+						{/* Guitars button */}
+						<button
+							className={homeStyles.browseButton}
+							initial={{ opacity: 0 }}
+							animate={{ opacity: 1 }}
+							transition={{ delay: 2, duration: 0.85 }}>
+							<Link
+								legacyBehavior
+								href={'/guitars'}>
+								<a>Plug In!</a>
+							</Link>
+						</button>
+					</div>
+					<div className={homeStyles.guitarRightColumn}>
+						{guitarsImages.map((img, i) => {
+							const indexLeft = changeImageSrc(index - 1, guitarsImages.length)
+							const indexRight = changeImageSrc(index + 1, guitarsImages.length)
+
+							let className = 'image'
+
+							if (i === index) {
+								className = 'image image--active'
+							} else if (i === indexRight) {
+								className = 'image image--right'
+							} else if (i === indexLeft) {
+								className = 'image image--left'
+							} else className = 'image'
+
+							return (
+								<Image
+									key={img.id}
+									className={className}
+									src={img.image}
+									width={0}
+									height={0}
+									sizes='100vw'
+									style={
+										isMobile
+											? { width: '200px', height: 'auto' }
+											: { width: '23%', height: 'auto' }
+									}
+								/>
+							)
+						})}
+					</div>
 				</div>
-				<div className={homeStyles.guitarRightColumn}>
-					{guitarsImages.map((img, i) => {
-						const indexLeft = changeImageSrc(index - 1, guitarsImages.length)
-						const indexRight = changeImageSrc(index + 1, guitarsImages.length)
+				{/* BANNER - AMP */}
+				<div
+					ref={ampRef}
+					className={homeStyles.ampHero}>
+					<div className={homeStyles.ampLeftColumn}>
+						{ampsImages.map((img, i) => {
+							const indexLeft = changeImageSrc(index - 1, ampsImages.length)
+							const indexRight = changeImageSrc(index + 1, ampsImages.length)
 
-						let className = 'image'
+							let className = 'image'
 
-						if (i === index) {
-							className = 'image image--active'
-						} else if (i === indexRight) {
-							className = 'image image--right'
-						} else if (i === indexLeft) {
-							className = 'image image--left'
-						} else className = 'image'
+							if (i === index) {
+								className = 'image image--active'
+							} else if (i === indexRight) {
+								className = 'image image--right'
+							} else if (i === indexLeft) {
+								className = 'image image--left'
+							} else className = 'image'
 
-						return (
-							<Image
-								key={img.id}
-								className={className}
-								src={img.image}
-								width={0}
-								height={0}
-								sizes='100vw'
-								style={
-									isMobile
-										? { width: '200px', height: 'auto' }
-										: { width: '23%', height: 'auto' }
-								}
-							/>
-						)
-					})}
+							return (
+								<Image
+									key={img.id}
+									className={className}
+									src={img.image}
+									width={0}
+									height={0}
+									sizes='100vw'
+									style={
+										isMobile
+											? { width: '300px', height: 'auto' }
+											: { width: '60%', height: 'auto' }
+									}
+								/>
+							)
+						})}
+					</div>
+					<div className={homeStyles.ampRightColumn}>
+						{/* amps text */}
+						<span
+							className={homeStyles.ampsText}
+							initial={{ opacity: 0 }}
+							animate={{ opacity: 1 }}
+							transition={{ delay: 2, duration: 0.85 }}>
+							Amplifiers
+						</span>
+						{/* amps button */}
+						<button
+							className={homeStyles.browseButtonAmp}
+							initial={{ opacity: 0 }}
+							animate={{ opacity: 1 }}
+							transition={{ delay: 2, duration: 0.85 }}>
+							<Link
+								legacyBehavior
+								href={'/amps'}>
+								<a>Crank It Up!</a>
+							</Link>
+						</button>
+					</div>
+				</div>
+				{/* BANNER - EFFECT */}
+				<div
+					ref={effectRef}
+					className={homeStyles.effectHero}>
+					<div className={homeStyles.effectLeftColumn}>
+						{/* effects text */}
+						<span
+							className={homeStyles.effectText}
+							initial={{ opacity: 0 }}
+							animate={{ opacity: 1 }}
+							transition={{ delay: 2, duration: 0.85 }}>
+							Effects Pedals
+						</span>
+						{/* effects button */}
+						<button
+							className={homeStyles.browseButtonEffect}
+							initial={{ opacity: 0 }}
+							animate={{ opacity: 1 }}
+							transition={{ delay: 2, duration: 0.85 }}>
+							<Link
+								legacyBehavior
+								href={'/effects'}>
+								<a>Browse Here</a>
+							</Link>
+						</button>
+					</div>
+					<div className={homeStyles.effectRightColumn}>
+						{effectsImages.map((img, i) => {
+							const indexLeft = changeImageSrc(index - 1, effectsImages.length)
+							const indexRight = changeImageSrc(index + 1, effectsImages.length)
+
+							let className = 'image'
+
+							if (i === index) {
+								className = 'image image--active'
+							} else if (i === indexRight) {
+								className = 'image image--right'
+							} else if (i === indexLeft) {
+								className = 'image image--left'
+							} else className = 'image'
+
+							return (
+								<Image
+									key={img.id}
+									className={className}
+									src={img.image}
+									width={0}
+									height={0}
+									sizes='100vw'
+									style={
+										isMobile
+											? { width: '235px', height: 'auto' }
+											: { width: '34%', height: 'auto' }
+									}
+								/>
+							)
+						})}
+					</div>
 				</div>
 			</div>
-			{/* BANNER - AMP */}
-			<div
-				ref={ampRef}
-				className={homeStyles.ampHero}>
-				<div className={homeStyles.ampLeftColumn}>
-					{ampsImages.map((img, i) => {
-						const indexLeft = changeImageSrc(index - 1, ampsImages.length)
-						const indexRight = changeImageSrc(index + 1, ampsImages.length)
-
-						let className = 'image'
-
-						if (i === index) {
-							className = 'image image--active'
-						} else if (i === indexRight) {
-							className = 'image image--right'
-						} else if (i === indexLeft) {
-							className = 'image image--left'
-						} else className = 'image'
-
-						return (
-							<Image
-								key={img.id}
-								className={className}
-								src={img.image}
-								width={0}
-								height={0}
-								sizes='100vw'
-								style={
-									isMobile
-										? { width: '300px', height: 'auto' }
-										: { width: '60%', height: 'auto' }
-								}
-							/>
-						)
-					})}
-				</div>
-				<div className={homeStyles.ampRightColumn}>
-					{/* amps text */}
-					<span
-						className={homeStyles.ampsText}
-						initial={{ opacity: 0 }}
-						animate={{ opacity: 1 }}
-						transition={{ delay: 2, duration: 0.85 }}>
-						Amplifiers
-					</span>
-					{/* amps button */}
-					<button
-						className={homeStyles.browseButtonAmp}
-						initial={{ opacity: 0 }}
-						animate={{ opacity: 1 }}
-						transition={{ delay: 2, duration: 0.85 }}>
-						<Link
-							legacyBehavior
-							href={'/amps'}>
-							<a>Crank It Up!</a>
-						</Link>
-					</button>
-				</div>
-			</div>
-			{/* BANNER - EFFECT */}
-			<div
-				ref={effectRef}
-				className={homeStyles.effectHero}>
-				<div className={homeStyles.effectLeftColumn}>
-					{/* effects text */}
-					<span
-						className={homeStyles.effectText}
-						initial={{ opacity: 0 }}
-						animate={{ opacity: 1 }}
-						transition={{ delay: 2, duration: 0.85 }}>
-						Effects Pedals
-					</span>
-					{/* effects button */}
-					<button
-						className={homeStyles.browseButtonEffect}
-						initial={{ opacity: 0 }}
-						animate={{ opacity: 1 }}
-						transition={{ delay: 2, duration: 0.85 }}>
-						<Link
-							legacyBehavior
-							href={'/effects'}>
-							<a>Browse Here</a>
-						</Link>
-					</button>
-				</div>
-				<div className={homeStyles.effectRightColumn}>
-					{effectsImages.map((img, i) => {
-						const indexLeft = changeImageSrc(index - 1, effectsImages.length)
-						const indexRight = changeImageSrc(index + 1, effectsImages.length)
-
-						let className = 'image'
-
-						if (i === index) {
-							className = 'image image--active'
-						} else if (i === indexRight) {
-							className = 'image image--right'
-						} else if (i === indexLeft) {
-							className = 'image image--left'
-						} else className = 'image'
-
-						return (
-							<Image
-								key={img.id}
-								className={className}
-								src={img.image}
-								width={0}
-								height={0}
-								sizes='100vw'
-								style={
-									isMobile
-										? { width: '235px', height: 'auto' }
-										: { width: '34%', height: 'auto' }
-								}
-							/>
-						)
-					})}
-				</div>
-			</div>
-		</div>
+		</>
 	)
 }
 

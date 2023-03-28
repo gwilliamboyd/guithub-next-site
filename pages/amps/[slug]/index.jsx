@@ -70,34 +70,37 @@ const Amp = ({ amp }) => {
 	}, [])
 
 	return (
-		<div className={productStyles.productMaster}>
-			{imageOpen && (
-				<ImageModal
-					imageRef={imageRef}
-					scrollRef={scrollRef}
+		<>
+			<title>{`GuitHub | ${amp.name}`}</title>
+			<div className={productStyles.productMaster}>
+				{imageOpen && (
+					<ImageModal
+						imageRef={imageRef}
+						scrollRef={scrollRef}
+						product={amp}
+						productStyles={productStyles}
+						imageIndex={imageIndex}
+						enchanceImage={enchanceImage}
+						scrollPrevious={scrollPrevious}
+						scrollNext={scrollNext}
+					/>
+				)}
+				<p className={productStyles.productHeading}>{amp.name}</p>
+				<ProductBody
 					product={amp}
 					productStyles={productStyles}
-					imageIndex={imageIndex}
 					enchanceImage={enchanceImage}
-					scrollPrevious={scrollPrevious}
-					scrollNext={scrollNext}
 				/>
-			)}
-			<p className={productStyles.productHeading}>{amp.name}</p>
-			<ProductBody
-				product={amp}
-				productStyles={productStyles}
-				enchanceImage={enchanceImage}
-			/>
-			<ProductDescription
-				product={amp}
-				productStyles={productStyles}
-			/>
-			<TechSpecs
-				product={amp}
-				productStyles={productStyles}
-			/>
-		</div>
+				<ProductDescription
+					product={amp}
+					productStyles={productStyles}
+				/>
+				<TechSpecs
+					product={amp}
+					productStyles={productStyles}
+				/>
+			</div>
+		</>
 	)
 }
 

@@ -18,6 +18,7 @@ const searchResults = ({ products }) => {
 	}, [products, query])
 	return (
 		<>
+			<title>GuitHub | Search Results</title>
 			<div className={searchStyles.searchMaster}>
 				<h1 className={searchStyles.searchHeading}>Search Results:</h1>
 				<div className={searchStyles.searchContainer}>

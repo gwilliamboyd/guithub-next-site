@@ -62,6 +62,7 @@ export default function Amps({ amps }) {
 
 	return (
 		<>
+			<title>GuitHub | Amps</title>
 			<main className={categoryStyles.mainContainer}>
 				{/* <FilterMenu
 					amps={amps}
