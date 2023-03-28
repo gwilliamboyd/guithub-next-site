@@ -90,8 +90,8 @@ styled from */
 	z-index: 4;
 }
 
-@media (pointer: none) {
+/* @media (pointer: none) {
 	:root {
 		--home-full-width: 100vw;
 	}
-}
+} */

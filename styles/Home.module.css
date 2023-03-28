@@ -228,6 +228,7 @@
 	.ampHero,
 	.effectHero {
 		min-height: 800px;
+		height: 100%;
 	}
 	.guitarHero {
 		grid-template-columns: 1fr;
