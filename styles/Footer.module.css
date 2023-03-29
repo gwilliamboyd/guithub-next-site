@@ -60,15 +60,37 @@
 }
 @media (max-width: 900px) {
 	.footerMaster {
-		padding: 2rem 4rem;
-	}
-}
-@media (max-width: 900px) {
-	.footerMaster {
 		padding: 1.5rem;
 		font-size: 0.8rem;
 	}
 	.footerContainer {
 		grid-template-columns: 35% 15% 50%;
+	}
+}
+@media (max-width: 600px) {
+	.footerMaster {
+		padding: 0.5rem;
+	}
+	.footerContainer {
+		grid-template-columns: 35% 20% 45%;
+		justify-content: center;
+	}
+	.logoSocials,
+	.siteMap {
+		justify-content: center;
+	}
+	.siteMap {
+		gap: 1rem;
+	}
+	.socials {
+		width: 80%;
+	}
+	.address {
+		font-size: 0.75rem;
+	}
+	.credits {
+		font-size: 0.75rem;
+		line-height: 1.2rem;
+		gap: 1rem;
 	}
 }

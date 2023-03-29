@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 import footerStyles from '@/styles/Footer.module.css'
 
@@ -15,9 +15,32 @@ import reverbIcon from '@/public/images/reverb-icon-white.svg'
 // SVG's
 import InstagramIcon from './svgs/InstagramIcon'
 import YouTubeIcon from './svgs/YouTubeIcon'
+import ReverbIcon from './svgs/ReverbIcon'
 
 const Footer = () => {
 	const [currentColor, setCurrentColor] = useState('var(--light-font-color)')
+	const [isMobile, setIsMobile] = useState(false)
+
+	// Detect if mobile version
+	useEffect(() => {
+		const contentWatcher = window.matchMedia('(max-width: 600px)')
+		setIsMobile(contentWatcher.matches)
+
+		function updateIsMobile(e) {
+			setIsMobile(e.matches)
+		}
+		if (contentWatcher.addEventListener) {
+			contentWatcher.addEventListener('change', updateIsMobile)
+			return function cleanup() {
+				contentWatcher.removeEventListener('change', updateIsMobile)
+			}
+		} else {
+			contentWatcher.addListener(updateIsMobile)
+			return function cleanup() {
+				contentWatcher.removeListener(updateIsMobile)
+			}
+		}
+	})
 
 	return (
 		<div className={footerStyles.footerMaster}>
@@ -25,16 +48,29 @@ const Footer = () => {
 				<div className={footerStyles.logoSocials}>
 					<Image
 						src={guithubLogo}
-						width={150}
-						height={33}
+						width={isMobile ? 100 : 150}
+						height={isMobile ? 22 : 33}
+						alt='GuitHub logo'
 					/>
 					<div className={footerStyles.socials}>
-						<InstagramIcon fill={currentColor} />
-						<YouTubeIcon fill={currentColor} />
+						<InstagramIcon
+							fill={currentColor}
+							width={isMobile ? 23 : 35}
+							height={isMobile ? 23 : 35}
+						/>
+						<YouTubeIcon
+							fill={currentColor}
+							width={isMobile ? 23 : 35}
+							height={isMobile ? 23 : 35}
+						/>
 
 						{/* <SocialIcon iconUrl={instagramIcon} /> */}
 						{/* <SocialIcon iconUrl={youtubeIcon} /> */}
-						<SocialIcon iconUrl={reverbIcon} />
+						<SocialIcon
+							iconUrl={reverbIcon}
+							width={isMobile ? 23 : 35}
+							height={isMobile ? 23 : 35}
+						/>
 					</div>
 					<div className={footerStyles.address}>
 						1234 Rockin' Road

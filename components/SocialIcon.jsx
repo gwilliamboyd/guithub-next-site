@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
-const SocialIcon = ({ iconUrl }) => {
+const SocialIcon = ({ iconUrl, width, height }) => {
 	return (
 		<>
 			<li>
@@ -11,8 +11,8 @@ const SocialIcon = ({ iconUrl }) => {
 						<Image
 							priority
 							src={iconUrl}
-							width={36}
-							height={36}
+							width={width}
+							height={height}
 							alt='Insta'
 						/>
 					</a>

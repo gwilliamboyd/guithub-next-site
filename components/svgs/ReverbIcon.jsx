@@ -1,7 +1,7 @@
 import React from 'react'
 
-const ReverbIcon = () => {
-	return <div>ReverbIcon</div>
+const ReverbIcon = ({ width, height }) => {
+	return <div></div>
 }
 
 export default ReverbIcon

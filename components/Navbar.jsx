@@ -33,6 +33,7 @@ const Navbar = ({ products, guitars, amps }) => {
 	const [width, setWidth] = useState(30)
 	const [height, setHeight] = useState(30)
 
+	// Detect if mobile version
 	useEffect(() => {
 		const contentWatcher = window.matchMedia('(max-width: 600px)')
 		setIsMobile(contentWatcher.matches)
