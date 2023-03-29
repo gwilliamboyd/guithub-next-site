@@ -30,19 +30,19 @@ const QuickSpecs = ({ product, productStyles }) => {
 			{/* GUITARS */}
 			{productType == 'guitar' && (
 				<div className={productStyles.quickSpecsList}>
-					<div>
+					<div className={productStyles.quickSpec}>
 						<span className={productStyles.emphasizedSpec}>
 							{product.techSpecs.bodyMaterial}
 						</span>{' '}
 						Body
 					</div>
-					<div>
+					<div className={productStyles.quickSpec}>
 						<span className={productStyles.emphasizedSpec}>
 							{product.techSpecs.neckMaterial}
 						</span>{' '}
 						Neck
 					</div>
-					<div>
+					<div className={productStyles.quickSpec}>
 						<span className={productStyles.emphasizedSpec}>
 							{product.techSpecs.pickupType == 'humbucker'
 								? 'Humbucking'
@@ -50,28 +50,30 @@ const QuickSpecs = ({ product, productStyles }) => {
 						</span>{' '}
 						{'Pickups'}
 					</div>
-					<div>{product.techSpecs.bridge}</div>
+					<div className={productStyles.quickSpec}>
+						{product.techSpecs.bridge}
+					</div>
 				</div>
 			)}
 			{/* AMPS */}
 			{productType == 'amp' && (
 				<div className={productStyles.quickSpecsList}>
-					<div>
+					<div className={productStyles.quickSpec}>
 						<span className={productStyles.emphasizedSpec}>
 							{product.techSpecs.power}W
 						</span>{' '}
 						Total Power
 					</div>
-					<div>
+					<div className={productStyles.quickSpec}>
 						<span className={productStyles.emphasizedSpec}>
 							{product.techSpecs.number_Of_Channels}
 						</span>{' '}
 						Channels
 					</div>
-					<div>
+					<div className={productStyles.quickSpec}>
 						<span>{product.techSpecs.speaker_Size}</span>
 					</div>
-					<div>
+					<div className={productStyles.quickSpec}>
 						<span>{product.techSpecs.eq}</span>
 					</div>
 				</div>
@@ -79,19 +81,19 @@ const QuickSpecs = ({ product, productStyles }) => {
 			{/* EFFECTS */}
 			{productType == 'effect' && (
 				<div className={productStyles.quickSpecsList}>
-					<div>
+					<div className={productStyles.quickSpec}>
 						<span className={productStyles.emphasizedSpec}>
 							{capitalizeValue(product.techSpecs.effectType)}
 						</span>{' '}
 						Effect
 					</div>
-					<div>
+					<div className={productStyles.quickSpec}>
 						<span className={productStyles.emphasizedSpec}>
 							{product.techSpecs.isAnalog == 'analog' ? 'Analog' : 'Digital'}
 						</span>{' '}
 						Effect
 					</div>
-					<div>
+					<div className={productStyles.quickSpec}>
 						<span className={productStyles.emphasizedSpec}>
 							{product.techSpecs.powerRequirements}
 						</span>{' '}

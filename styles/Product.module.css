@@ -366,20 +366,41 @@
 		font-size: 1.8rem;
 	}
 	.productBody {
-		width: 95%;
+		width: 100%;
 		flex-direction: column;
 	}
+	.bodyImages,
 	.bodyText {
+		padding: 0 1rem;
+	}
+	.bodyText {
+		width: 100%;
 		margin-top: 2rem;
 		row-gap: 1.5rem;
+	}
+	.bodyRowOne,
+	.bodyRowTwo,
+	.bodyRowThree,
+	.bodyRowFour {
+		width: 100%;
 	}
 	.ourPrice,
 	.ourRating {
 		font-size: 2rem;
 	}
+
+	.price {
+		font-size: 2.2rem;
+	}
+	.rating {
+		font-size: 1.8rem;
+	}
 	.addToCart {
 		width: 200px;
 		padding: 0.8rem 1.6rem;
+	}
+	.productDescription {
+		width: 100vw;
 	}
 	.prodDescHeading {
 		font-size: 2rem;
@@ -390,6 +411,10 @@
 	.prodDescText {
 		width: 85%;
 		font-size: 0.9rem;
+	}
+	.shippingInfo,
+	.quickSpecsList {
+		max-width: 90%;
 	}
 	.techSpecsHeading {
 		font-size: 2.5rem;
