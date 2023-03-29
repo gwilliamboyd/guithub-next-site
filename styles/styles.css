@@ -95,3 +95,9 @@ styled from */
 		--home-full-width: 100vw;
 	}
 } */
+/* @media (pointer: none) and (max-width: 600px) {
+	#__next {
+		overflow-x: hidden;
+	}
+}
+ */
