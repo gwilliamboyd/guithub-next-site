@@ -118,7 +118,7 @@ const Cart = () => {
 				<div className={cartStyles.cartTotalPrice}>
 					Total:{' '}
 					<span className={cartStyles.cartTotalPriceNumber}>
-						{`$${totalPrice}`}
+						{`$${totalPrice.toFixed(2)}`}
 					</span>
 				</div>
 				<button
