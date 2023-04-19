@@ -76,11 +76,12 @@
 }
 .mobileMenuMaster {
 	position: absolute;
-	z-index: 10;
-	top: 45px;
+	z-index: 100;
+	top: 50px;
 	right: 0;
 	background-color: var(--dark-font-color);
 	border: 3px solid var(--main-red-color);
+	color: var(--light-font-color);
 	font-size: 3rem;
 	display: flex;
 	flex-direction: column;

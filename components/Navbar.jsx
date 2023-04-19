@@ -130,9 +130,17 @@ const Navbar = ({ products, guitars, amps }) => {
 						</Link>
 
 						{isMobile && (
-							<span onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
-								<BarsSolid />
-							</span>
+							<Link
+								legacyBehavior
+								href='#'>
+								<a
+									onClick={() => {
+										console.log('mobile menu open')
+										setMobileMenuOpen(!mobileMenuOpen)
+									}}>
+									<BarsSolid />
+								</a>
+							</Link>
 						)}
 						{mobileMenuOpen && (
 							<motion.div
@@ -166,6 +174,34 @@ const Navbar = ({ products, guitars, amps }) => {
 				</nav>
 			</header>
 			{cartOpen && <Cart cartStyles={cartStyles} />}
+			{mobileMenuOpen && (
+				<motion.div
+					className={navbarStyles.mobileMenuMaster}
+					initial={{ width: 0, height: 0 }}
+					animate={{ width: 'auto', height: 'auto' }}>
+					<span className={navbarStyles.mobileMenuRow}>
+						<Link
+							legacyBehavior
+							href={'/guitars'}>
+							<a onClick={() => setMobileMenuOpen(false)}>Guitars</a>
+						</Link>
+					</span>
+					<span className={navbarStyles.mobileMenuRow}>
+						<Link
+							legacyBehavior
+							href={'/amps'}>
+							<a onClick={() => setMobileMenuOpen(false)}>Amps</a>
+						</Link>
+					</span>
+					<span className={navbarStyles.mobileMenuRow}>
+						<Link
+							legacyBehavior
+							href={'/effects'}>
+							<a onClick={() => setMobileMenuOpen(false)}>Effects</a>
+						</Link>
+					</span>
+				</motion.div>
+			)}
 		</>
 	)
 }
