@@ -9,20 +9,41 @@
 }
 
 /* Enhanced Image Modal */
-.imageModal {
+.imageModalMaster {
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: auto 1fr;
 	position: absolute;
 	top: 0;
 	background-color: rgba(0, 0, 0, 0.9);
-	padding: 6rem 0;
 	width: 70%;
 	height: 90vh;
+}
+.closeButton {
+	padding: 0.5rem 0.75rem;
+	justify-self: flex-end;
+	background-color: none;
+	font-weight: 900;
+	color: var(--light-font-color);
+	height: fit-content;
+}
+.closeButton:hover {
+	cursor: pointer;
+	background-color: var(--main-red-color);
+	color: var(--light-font-color);
+}
+.imageModal {
+	width: 100%;
+	/* padding: 6rem 0; */
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	gap: 1rem;
+	gap: 2rem;
+	overflow: hidden;
+	height: auto;
 }
 .scrollButton {
-	position: absolute;
+	/* position: absolute; */
 	margin-bottom: 1rem;
 	padding: 0.75rem 1.5rem;
 	font-size: 1.5rem;
@@ -34,6 +55,7 @@
 .scrollButton:hover {
 	background-color: var(--light-font-color);
 	color: var(--main-red-color);
+	cursor: pointer;
 }
 .previousButton,
 .nextButton {
@@ -76,6 +98,9 @@
 	text-align: center;
 	height: fit-content;
 }
+.mainImage:hover {
+	cursor: pointer;
+}
 .imageTiles {
 	height: fit-content;
 }
@@ -106,6 +131,7 @@
 	grid-template-rows: 1fr 1fr 1fr 2fr;
 	row-gap: 2rem;
 	align-self: center;
+	width: 100%;
 }
 .bodyRowOne,
 .bodyRowTwo,
@@ -114,10 +140,11 @@
 	display: grid;
 	grid-template-columns: 50% 50%;
 	grid-template-rows: 1fr;
-	column-gap: 3.5rem;
+	column-gap: 3rem;
 	align-items: baseline;
+	max-width: 100%;
 }
-.bodyRowOne {
+.bodyRowOne > * {
 	align-items: baseline;
 }
 .bodyRowThree {
@@ -135,6 +162,7 @@
 	font-weight: 900;
 	font-size: 3.5rem;
 	color: var(--main-red-color);
+	max-width: 100%;
 }
 .rating {
 	font-size: 2rem;
@@ -269,8 +297,15 @@
 .techSpecRow:nth-child(2n) {
 	background-color: darkgray;
 }
-
+@media (max-width: 1500px) {
+	.productBody {
+		width: 75%;
+	}
+}
 @media (max-width: 1200px) {
+	.imageModalMaster {
+		width: 96%;
+	}
 	.productBody {
 		margin-top: 2rem;
 		width: 90%;
@@ -280,6 +315,9 @@
 	}
 	.prodDescText {
 		width: 85%;
+	}
+	.price {
+		font-size: 3rem;
 	}
 	.techSpecs {
 		margin: 1rem 0 2rem;
@@ -295,8 +333,18 @@
 	}
 }
 @media (max-width: 900px) {
+	.imageModal {
+		gap: 1.5rem;
+	}
 	.productBody {
-		width: 90%;
+		width: 100%;
+		flex-direction: column;
+		align-items: center;
+		gap: 1rem;
+	}
+	.bodyImages,
+	.bodyText {
+		padding: 0 1rem;
 	}
 	.productHeading {
 		margin: 1rem 0 0;
@@ -368,10 +416,6 @@
 	.productBody {
 		width: 100%;
 		flex-direction: column;
-	}
-	.bodyImages,
-	.bodyText {
-		padding: 0 1rem;
 	}
 	.bodyText {
 		width: 100%;

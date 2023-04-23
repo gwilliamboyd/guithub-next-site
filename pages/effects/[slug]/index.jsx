@@ -70,23 +70,69 @@ const Effect = ({ effect }) => {
 	useEffect(() => {
 		closeImage()
 	}, []) */
+	// Refs
+	let imageRef = useRef(null)
+	let scrollRef = useRef(null)
+
+	// State
+	const [imageOpen, setImageOpen] = useState(false)
+	const [imageContent, setImageContent] = useState(null)
+	const [imageIndex, setImageIndex] = useState(0)
+
+	const enchanceImage = i => {
+		setImageOpen(true)
+		setImageContent(i)
+	}
+
+	const closeImage = () => {
+		document.addEventListener('mousedown', e => {
+			if (imageRef.current == null || scrollRef.current == null) {
+				return
+			}
+			if (!imageRef.current.contains(e.target)) {
+				setImageOpen(false)
+				setImageIndex(0)
+			}
+		})
+	}
+
+	const scrollPrevious = () => {
+		if (imageIndex == 0) {
+			return
+		} else {
+			setImageIndex(imageIndex - 1)
+		}
+	}
+	const scrollNext = () => {
+		if (imageIndex == 5) {
+			return
+		} else {
+			setImageIndex(imageIndex + 1)
+		}
+	}
+
+	useEffect(() => {
+		closeImage()
+	}, [])
 
 	return (
 		<>
 			<title>{`GuitHub | ${effect.name}`}</title>
 			<div className={productStyles.productMaster}>
-				{/* {imageOpen && (
-				<ImageModal
-					imageRef={imageRef}
-					scrollRef={scrollRef}
-					product={effect}
-					productStyles={productStyles}
-					imageIndex={imageIndex}
-					enchanceImage={enchanceImage}
-					scrollPrevious={scrollPrevious}
-					scrollNext={scrollNext}
-				/>
-			)} */}
+				{imageOpen && (
+					<ImageModal
+						imageOpen={imageOpen}
+						setImageOpen={setImageOpen}
+						imageRef={imageRef}
+						scrollRef={scrollRef}
+						product={effect}
+						productStyles={productStyles}
+						imageIndex={imageIndex}
+						enchanceImage={enchanceImage}
+						scrollPrevious={scrollPrevious}
+						scrollNext={scrollNext}
+					/>
+				)}
 				<p className={productStyles.productHeading}>{effect.name}</p>
 				<ProductBody
 					product={effect}

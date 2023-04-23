@@ -51,6 +51,7 @@ const ProductBody = ({ product, productStyles }) => {
 				return
 			}
 			if (!imageRef.current.contains(e.target)) {
+				console.log('modal close')
 				setImageOpen(false)
 				setImageIndex(0)
 			}
@@ -94,11 +95,14 @@ const ProductBody = ({ product, productStyles }) => {
 		<>
 			{imageOpen && (
 				<ImageModal
+					imageOpen={imageOpen}
+					setImageOpen={setImageOpen}
+					imageIndex={imageIndex}
+					setImageIndex={setImageIndex}
 					imageRef={imageRef}
 					scrollRef={scrollRef}
 					product={product}
 					productStyles={productStyles}
-					imageIndex={imageIndex}
 					enchanceImage={enchanceImage}
 					scrollPrevious={scrollPrevious}
 					scrollNext={scrollNext}
@@ -115,7 +119,7 @@ const ProductBody = ({ product, productStyles }) => {
 							height={0}
 							alt={product.name}
 							sizes='100vw'
-							style={{ width: '70%', height: 'auto' }}
+							style={{ width: '100%', height: 'auto' }}
 						/>
 					</div>
 					<div className={productStyles.imageTiles}>
@@ -233,8 +237,8 @@ const ProductBody = ({ product, productStyles }) => {
 						<span className={productStyles.rating}>
 							{`${product.rating}/5`}
 							{/* Icons to show star rating out of 5 */}
-							<p>{iconsArray.forEach(item => console.log(item))}</p>
-							{/* <RatingIcon />
+							{/*<p>{iconsArray.forEach(item => console.log(item))}</p>
+							 <RatingIcon />
 							<RatingIcon />
 							<RatingIcon />
 							<RatingIcon />
