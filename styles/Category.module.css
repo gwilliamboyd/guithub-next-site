@@ -95,12 +95,13 @@
 .productsContainer {
 	/* background-color: lightgray; */
 	width: 70%;
-	padding: 2rem 0 0;
+	padding: 2rem 0;
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
 	grid-template-rows: 1fr 1fr;
 	justify-items: center;
 	row-gap: 1rem;
+	overflow: hidden;
 }
 .productCard {
 	padding: 1rem;
@@ -110,8 +111,9 @@
 	align-items: center;
 	gap: 0;
 	max-width: 250px;
-	height: 480px;
+	height: 496px;
 	transition: 0.15s all ease-out;
+	overflow-y: hidden;
 }
 .productCard:hover {
 	box-shadow: 0px 0px 10px 10px lightgray;
