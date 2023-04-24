@@ -72,8 +72,8 @@ const ImageModal = ({
 
 	const imageSwipe = useSwipeable({
 		preventScrollOnSwipe: true,
-		onSwipedLeft: () => scrollPrevious(),
-		onSwipedRight: () => scrollNext(),
+		onSwipedLeft: () => scrollNext(),
+		onSwipedRight: () => scrollPrevious(),
 	})
 
 	const closeImageModal = () => {
@@ -119,8 +119,7 @@ const ImageModal = ({
 				<img
 					src={urlFor(product.image[imageIndex]).url()}
 					alt={product.name}
-					sizes='100vw'
-					className={isAmp ? 'ampImg' : 'modalImg'}
+					className={isAmp ? productStyles.ampImg : productStyles.modalImg}
 				/>
 				{/* Next Button */}
 				{/* <button

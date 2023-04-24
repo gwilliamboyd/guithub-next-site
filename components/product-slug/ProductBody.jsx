@@ -37,6 +37,28 @@ const ProductBody = ({ product, productStyles }) => {
 	const [imageOpen, setImageOpen] = useState(false)
 	const [imageContent, setImageContent] = useState(null)
 	const [imageIndex, setImageIndex] = useState(0)
+	const [isTablet, setIsTablet] = useState(false)
+
+	// Detect if tablet version
+	useEffect(() => {
+		const contentWatcher = window.matchMedia('(max-width: 900px)')
+		setIsTablet(contentWatcher.matches)
+
+		function updateIsTablet(e) {
+			setIsTablet(e.matches)
+		}
+		if (contentWatcher.addEventListener) {
+			contentWatcher.addEventListener('change', updateIsTablet)
+			return function cleanup() {
+				contentWatcher.removeEventListener('change', updateIsTablet)
+			}
+		} else {
+			contentWatcher.addListener(updateIsTablet)
+			return function cleanup() {
+				contentWatcher.removeListener(updateIsTablet)
+			}
+		}
+	})
 
 	const enchanceImage = i => {
 		setImageOpen(true)
@@ -119,7 +141,11 @@ const ProductBody = ({ product, productStyles }) => {
 							height={0}
 							alt={product.name}
 							sizes='100vw'
-							style={{ width: '100%', height: 'auto' }}
+							style={
+								isTablet
+									? { width: '80%', height: 'auto' }
+									: { width: '100%', height: 'auto' }
+							}
 						/>
 					</div>
 					<div className={productStyles.imageTiles}>

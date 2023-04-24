@@ -42,9 +42,6 @@
 	overflow: hidden;
 	height: auto;
 }
-.caret {
-	/* display: block; */
-}
 .modalImg {
 	width: min(100%, 500px);
 	height: auto;
@@ -355,6 +352,7 @@
 	}
 	.bodyImages,
 	.bodyText {
+		width: 80%;
 		padding: 0 1rem;
 	}
 	.productHeading {
@@ -420,6 +418,12 @@
 	}
 }
 @media (max-width: 600px) {
+	.modalImg {
+		width: 95%;
+	}
+	.ampImg {
+		width: 95%;
+	}
 	.productHeading {
 		width: 90%;
 		font-size: 1.8rem;

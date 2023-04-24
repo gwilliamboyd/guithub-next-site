@@ -64,7 +64,6 @@ styled from */
 	/* width: 350px;
 	height: 525px; */
 	object-fit: cover;
-	cursor: pointer;
 	z-index: 3;
 	opacity: 0;
 
