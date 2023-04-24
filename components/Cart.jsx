@@ -88,24 +88,20 @@ const Cart = () => {
 								height={0}
 								sizes='100vw'
 								style={{
-									maxWidth: '71px',
+									maxWidth: '78px',
 									width: 'auto',
 									height: 'auto',
 								}}
 								alt={`${item.name}`}
 								className={cartStyles.cartEntryImage}
 							/>
-							<div className={cartStyles.cartEntryBody}>
-								<span className={cartStyles.cartEntryName}>{item.name}</span>
-								<div className={cartStyles.cartEntryInfo}>
-									<span className={cartStyles.cartEntryPrice}>
-										{`$${item.price}`}
-									</span>
-									<span
-										className={
-											cartStyles.itemQuantity
-										}>{`Qty: ${item.quantity}`}</span>
-								</div>
+							<span className={cartStyles.cartEntryName}>{item.name}</span>
+							<div className={cartStyles.cartEntryInfo}>
+								<span className={cartStyles.itemQuantity}>
+									<span className={cartStyles.qtyLabel}>Qty:</span>{' '}
+									{item.quantity}
+								</span>
+								<span className={cartStyles.cartEntryPrice}>{item.price}</span>
 							</div>
 							<button
 								className={cartStyles.removeButton}
