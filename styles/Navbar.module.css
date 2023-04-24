@@ -85,9 +85,11 @@
 	font-size: 3rem;
 	display: flex;
 	flex-direction: column;
+	overflow: hidden;
 }
 .mobileMenuRow {
 	padding: 3rem;
+	overflow: hidden;
 }
 .mobileMenuRow:active {
 	background-color: var(--light-font-color);

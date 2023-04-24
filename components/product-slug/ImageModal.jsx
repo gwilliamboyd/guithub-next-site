@@ -3,7 +3,8 @@ import Image from 'next/image'
 import { useState, useEffect, useRef } from 'react'
 import CaretLeft from '../svgs/CaretLeft'
 import CaretRight from '../svgs/CaretRight'
-//hello
+import { useSwipeable } from 'react-swipeable'
+
 const ImageModal = ({
 	imageOpen,
 	setImageOpen,
@@ -20,12 +21,61 @@ const ImageModal = ({
 	console.log(product._type)
 
 	const [isAmp, setIsAmp] = useState(false)
+	const [isMobile, setIsMobile] = useState(false)
+	const [isTablet, setIsTablet] = useState(false)
 
 	const determineAmp = product => {
 		if (product._type === 'amp') {
 			setIsAmp(true)
 		}
 	}
+	// Detect if tablet version
+	useEffect(() => {
+		const contentWatcher = window.matchMedia('(max-width: 900px)')
+		setIsTablet(contentWatcher.matches)
+
+		function updateIsTablet(e) {
+			setIsTablet(e.matches)
+		}
+		if (contentWatcher.addEventListener) {
+			contentWatcher.addEventListener('change', updateIsTablet)
+			return function cleanup() {
+				contentWatcher.removeEventListener('change', updateIsTablet)
+			}
+		} else {
+			contentWatcher.addListener(updateIsTablet)
+			return function cleanup() {
+				contentWatcher.removeListener(updateIsTablet)
+			}
+		}
+	})
+	// Detect if mobile version
+	useEffect(() => {
+		const contentWatcher = window.matchMedia('(max-width: 600px)')
+		setIsMobile(contentWatcher.matches)
+
+		function updateIsMobile(e) {
+			setIsMobile(e.matches)
+		}
+		if (contentWatcher.addEventListener) {
+			contentWatcher.addEventListener('change', updateIsMobile)
+			return function cleanup() {
+				contentWatcher.removeEventListener('change', updateIsMobile)
+			}
+		} else {
+			contentWatcher.addListener(updateIsMobile)
+			return function cleanup() {
+				contentWatcher.removeListener(updateIsMobile)
+			}
+		}
+	})
+
+	const imageSwipe = useSwipeable({
+		preventScrollOnSwipe: true,
+		onSwipedLeft: () => scrollPrevious(),
+		onSwipedRight: () => scrollNext(),
+	})
+
 	const closeImageModal = () => {
 		setImageOpen(false)
 		setImageIndex(0)
@@ -44,7 +94,9 @@ const ImageModal = ({
 				onClick={closeImageModal}>
 				X
 			</span>
-			<div className={productStyles.imageModal}>
+			<div
+				className={productStyles.imageModal}
+				{...imageSwipe}>
 				{/* Prev Button */}
 				{/* <button
 					ref={scrollRef}
@@ -55,24 +107,20 @@ const ImageModal = ({
 					onClick={scrollPrevious}>
 					Prev
 				</button> */}
-				<CaretLeft
-					ref={scrollRef}
-					width={50}
-					height={50}
-					fill='white'
-					scrollPrevious={scrollPrevious}
-				/>
-				<Image
+				{!isMobile && (
+					<CaretLeft
+						ref={scrollRef}
+						width={isTablet ? 40 : 50}
+						height={isTablet ? 40 : 50}
+						fill='white'
+						scrollPrevious={scrollPrevious}
+					/>
+				)}
+				<img
 					src={urlFor(product.image[imageIndex]).url()}
-					width={0}
-					height={0}
 					alt={product.name}
 					sizes='100vw'
-					style={
-						isAmp
-							? { width: 'min(100%, 720px)', height: 'auto' }
-							: { width: 'min(100%, 500px)', height: 'auto' }
-					}
+					className={isAmp ? 'ampImg' : 'modalImg'}
 				/>
 				{/* Next Button */}
 				{/* <button
@@ -84,13 +132,15 @@ const ImageModal = ({
 					onClick={scrollNext}>
 					Next
 				</button> */}
-				<CaretRight
-					ref={scrollRef}
-					width={50}
-					height={50}
-					fill='white'
-					scrollNext={scrollNext}
-				/>
+				{!isMobile && (
+					<CaretRight
+						ref={scrollRef}
+						width={isTablet ? 40 : 50}
+						height={isTablet ? 40 : 50}
+						fill='white'
+						scrollNext={scrollNext}
+					/>
+				)}
 			</div>
 		</div>
 	)

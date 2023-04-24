@@ -16,7 +16,7 @@
 	position: absolute;
 	top: 0;
 	background-color: rgba(0, 0, 0, 0.9);
-	width: 70%;
+	width: 85%;
 	height: 90vh;
 }
 .closeButton {
@@ -38,8 +38,19 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	gap: 2rem;
+	gap: 1.5rem;
 	overflow: hidden;
+	height: auto;
+}
+.caret {
+	/* display: block; */
+}
+.modalImg {
+	width: min(100%, 500px);
+	height: auto;
+}
+.ampImg {
+	width: min(100%, 720px);
 	height: auto;
 }
 .scrollButton {
@@ -299,7 +310,7 @@
 }
 @media (max-width: 1500px) {
 	.productBody {
-		width: 75%;
+		width: 85%;
 	}
 }
 @media (max-width: 1200px) {
@@ -334,7 +345,7 @@
 }
 @media (max-width: 900px) {
 	.imageModal {
-		gap: 1.5rem;
+		gap: 1rem;
 	}
 	.productBody {
 		width: 100%;

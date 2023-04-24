@@ -142,34 +142,6 @@ const Navbar = ({ products, guitars, amps }) => {
 								</a>
 							</Link>
 						)}
-						{mobileMenuOpen && (
-							<motion.div
-								className={navbarStyles.mobileMenuMaster}
-								initial={{ width: 0, height: 0 }}
-								animate={{ width: 'auto', height: 'auto' }}>
-								<span className={navbarStyles.mobileMenuRow}>
-									<Link
-										legacyBehavior
-										href={'/guitars'}>
-										<a>Guitars</a>
-									</Link>
-								</span>
-								<span className={navbarStyles.mobileMenuRow}>
-									<Link
-										legacyBehavior
-										href={'/amps'}>
-										<a>Amps</a>
-									</Link>
-								</span>
-								<span className={navbarStyles.mobileMenuRow}>
-									<Link
-										legacyBehavior
-										href={'/effects'}>
-										<a>Effects</a>
-									</Link>
-								</span>
-							</motion.div>
-						)}
 					</div>
 				</nav>
 			</header>
