@@ -300,7 +300,7 @@ export default function IndexPage({ products, guitars, amps }) {
 									style={
 										isMobile
 											? { width: '235px', height: 'auto' }
-											: { width: '34%', height: 'auto' }
+											: { width: '31%', height: 'auto' }
 									}
 								/>
 							)
