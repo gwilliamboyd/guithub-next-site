@@ -10,8 +10,6 @@ import { motion, useScroll, MotionCofig, stagger } from 'framer-motion'
 import redBgImg from '@/public/images/banner-guitar-red-bg.png'
 import blackBgImg from '@/public/images/banner-guitar-black-bg.png'
 import prsImg from '@/public/images/banner-guitar-prs.png'
-// import explorerBgImg from '@/public/images/banner-guitar-explorer.png'
-// import schecterBgImg from '@/public/images/banner-guitar-syn.png'
 
 import prsFull from '@/public/images/prs-full.png'
 import explorerFull from '@/public/images/banner-guitar-explorer.png'
@@ -22,20 +20,6 @@ import mesaFull from '@/public/images/mesa-full.png'
 import phase90Full from '@/public/images/phase-90-full.png'
 import paulGilbertFull from '@/public/images/paul-gilbert-full.png'
 import afterneathFull from '@/public/images/afterneath-full.png'
-// Amps
-import redAmpBgImg from '@/public/images/banner-amp-red-bg.png'
-import blackAmpBgImg from '@/public/images/banner-amp-black-bg.png'
-import marshallAmpImg from '@/public/images/banner-amp-amp.png'
-
-import ampRedFull from '@/public/images/banner-amp/banner-amp-red-bg.png'
-import ampBlackFull from '@/public/images/banner-amp/banner-amp-black-bg.png'
-import ampImg from '@/public/images/banner-amp/banner-amp-amp.png'
-// Effects
-import redEffectBgImg from '@/public/images/banner-effect/banner-effect-red-bg.png'
-import blackEffectBgImg from '@/public/images/banner-effect/banner-effect-black-bg.png'
-import afterneathImg from '@/public/images/banner-effect/banner-effect-afterneath.png'
-import phase90Img from '@/public/images/banner-effect/banner-effect-phase-90.png'
-import bigSkyImg from '@/public/images/banner-effect/banner-effect-bigsky.png'
 
 export default function IndexPage({ products, guitars, amps }) {
 	const [gtrs, setGtrs] = useState(guitars)
@@ -45,43 +29,6 @@ export default function IndexPage({ products, guitars, amps }) {
 	const guitarRef = useRef()
 	const ampRef = useRef()
 	const effectRef = useRef()
-
-	// Stepped scrolling
-
-	/* 	let prevScroll = 0
-
-	const steppedScrolling = () => {
-		document.addEventListener('scroll', () => {
-			let currentScroll = window.scrollY
-			console.log(window.scrollY)
-			console.log(`Prev: ${prevScroll}`)
-			console.log(`Current: ${currentScroll}`)
-
-			// On scroll down, scroll to amp
-			if (currentScroll > prevScroll && currentScroll < 916) {
-				ampRef.current.scrollIntoView({ behavior: 'smooth' })
-				prevScroll = 916
-				// currentScroll = prevScroll
-			}
-			// On scroll down, scroll to effects
-			else if (currentScroll > prevScroll && currentScroll < 1669) {
-				effectRef.current.scrollIntoView({ behavior: 'smooth' })
-				prevScroll = 1669
-				// currentScroll = prevScroll
-			}
-		})
-	}
-
-	useEffect(() => {
-		steppedScrolling()
-	}) */
-
-	/* 	const motionContainer = {
-		on: { transition: { staggerChildren: 5, repeat: Infinity } },
-	}
-	const motionItem = {
-		on: { opacity: 1 },
-	} */
 
 	// Rotating carousel - vanilla React solution
 
