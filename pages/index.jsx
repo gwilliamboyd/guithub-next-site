@@ -3,14 +3,8 @@ import homeStyles from '../styles/Home.module.css'
 import { useEffect, useState, useRef } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import Navbar from '@/components/Navbar'
-import { motion, useScroll, MotionCofig, stagger } from 'framer-motion'
+// import Navbar from '@/components/Navbar'
 // Hero Banner Imports
-// Guitars
-import redBgImg from '@/public/images/banner-guitar-red-bg.png'
-import blackBgImg from '@/public/images/banner-guitar-black-bg.png'
-import prsImg from '@/public/images/banner-guitar-prs.png'
-
 import prsFull from '@/public/images/prs-full.png'
 import explorerFull from '@/public/images/banner-guitar-explorer.png'
 import schecterFull from '@/public/images/banner-guitar-syn.png'
@@ -21,7 +15,7 @@ import phase90Full from '@/public/images/phase-90-full.png'
 import paulGilbertFull from '@/public/images/paul-gilbert-full.png'
 import afterneathFull from '@/public/images/afterneath-full.png'
 
-export default function IndexPage({ products, guitars, amps }) {
+export default function IndexPage({ guitars, amps }) {
 	const [gtrs, setGtrs] = useState(guitars)
 	const [amplifiers, setAmplifiers] = useState(amps)
 	const [isMobile, setIsMobile] = useState(false)

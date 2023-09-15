@@ -115,8 +115,9 @@
 	transition: 0.15s all ease-out;
 }
 .browseButtonAmp:hover {
-	background-color: var(--main-red-color);
+	background-color: var(--light-font-color);
 	border: 3px solid var(--dark-font-color);
+	color: var(--dark-font-color);
 }
 
 /* EFFECTS */
@@ -161,7 +162,7 @@
 }
 .browseButtonEffect:hover {
 	background-color: rgba(var(--light-font-color) 0.5);
-	color: var(--main-red-color);
+	color: var(--dark-font-color);
 	border: 3px solid var(--dark-font-color);
 }
 @media (max-width: 1200px) {
