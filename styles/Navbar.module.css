@@ -114,6 +114,9 @@
 		font-size: 1rem;
 		font-weight: 600;
 	}
+	.storeLogo {
+		gap: 1rem;
+	}
 	.input {
 		padding: 0.5rem 1rem;
 		width: 170px;
@@ -127,7 +130,7 @@
 	}
 	.input {
 		padding: 0.5rem 1rem;
-		width: 140px;
+		width: 120px;
 	}
 	.rightLinks {
 		gap: 1rem;

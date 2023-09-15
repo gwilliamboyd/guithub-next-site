@@ -28,6 +28,7 @@ const Navbar = ({ products, guitars, amps }) => {
 
 	//State
 	const [isMobile, setIsMobile] = useState(false)
+	const [isTablet, setIsTablet] = useState(false)
 	const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 	const [currentColor, setCurrentColor] = useState('var(--light-font-color)')
 	const [width, setWidth] = useState(30)
@@ -52,7 +53,26 @@ const Navbar = ({ products, guitars, amps }) => {
 				contentWatcher.removeListener(updateIsMobile)
 			}
 		}
-	})
+	}, [])
+	useEffect(() => {
+		const contentWatcher = window.matchMedia('(max-width: 900px)')
+		setIsTablet(contentWatcher.matches)
+
+		function updateIsTablet(e) {
+			setIsTablet(e.matches)
+		}
+		if (contentWatcher.addEventListener) {
+			contentWatcher.addEventListener('change', updateIsTablet)
+			return function cleanup() {
+				contentWatcher.removeEventListener('change', updateIsTablet)
+			}
+		} else {
+			contentWatcher.addListener(updateIsTablet)
+			return function cleanup() {
+				contentWatcher.removeListener(updateIsTablet)
+			}
+		}
+	}, [])
 
 	return (
 		<>
@@ -71,9 +91,11 @@ const Navbar = ({ products, guitars, amps }) => {
 								/>
 							</a>
 						</Link>
-						<span className={navbarStyles.slogan}>
-							<i>'Committed'</i> to excellence since 2022!
-						</span>
+						{!isTablet && (
+							<span className={navbarStyles.slogan}>
+								<i>'Committed'</i> to excellence since 2022!
+							</span>
+						)}
 					</div>
 					<div className={navbarStyles.searchElements}>
 						<SearchBar

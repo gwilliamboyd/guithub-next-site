@@ -91,7 +91,10 @@ const Cart = () => {
 									<span className={cartStyles.qtyLabel}>Qty:</span>{' '}
 									{item.quantity}
 								</span>
-								<span className={cartStyles.cartEntryPrice}>{item.price}</span>
+								<span
+									className={
+										cartStyles.cartEntryPrice
+									}>{`$${item.price}`}</span>
 							</div>
 							<button
 								className={cartStyles.removeButton}
