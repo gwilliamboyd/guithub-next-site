@@ -71,6 +71,9 @@ const Navbar = ({ products, guitars, amps }) => {
 								/>
 							</a>
 						</Link>
+						<span className={navbarStyles.slogan}>
+							<i>'Committed'</i> to excellence since 2022!
+						</span>
 					</div>
 					<div className={navbarStyles.searchElements}>
 						<SearchBar
@@ -96,17 +99,7 @@ const Navbar = ({ products, guitars, amps }) => {
 								name='Effects'
 								destination='/effects'
 							/>
-							{/* <NavbarLink
-							navbarStyles={navbarStyles}
-							name='Accessories'
-							destination='/accessories'
-						/> */}
 						</ul>
-						{/* <ul className={navbarStyles.socialsLinks}>
-						<SocialIcon iconUrl={instagramIcon} />
-						<SocialIcon iconUrl={youtubeIcon} />
-						<SocialIcon iconUrl={reverbIcon} />
-					</ul> */}
 						<Link
 							legacyBehavior
 							href='#'>
@@ -115,12 +108,6 @@ const Navbar = ({ products, guitars, amps }) => {
 								onClick={() => {
 									setCartOpen(!cartOpen)
 								}}>
-								{/* <Image
-								src={ShoppingCartIcon}
-								width={35}
-								height={35}
-								alt='View your cart'
-							/> */}
 								<ShoppingCartIcon
 									currentColor={currentColor}
 									width={width}
