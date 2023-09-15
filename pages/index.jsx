@@ -60,7 +60,6 @@ export default function IndexPage({ products, guitars, amps }) {
 
 	// Detect whether site is being viewed on mobile
 	useEffect(() => {
-		console.log('mobile')
 		const contentWatcher = window.matchMedia('(max-width: 600px)')
 		setIsMobile(contentWatcher.matches)
 

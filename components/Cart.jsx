@@ -19,16 +19,8 @@ const Cart = () => {
 		toggleCartItemQuantity,
 	} = useStateContext()
 
-	useEffect(() => {
-		console.log(totalPrice)
-		console.log(totalQuantities)
-	}, [totalPrice, totalQuantities])
-	useEffect(() => {
-		console.log(cartItems)
-	}, [cartItems])
-
 	// Set total cart price from Local Storage cart items
-	/* 	const totalCartPriceLocal = cartFromLocalStorage => {
+	const totalCartPriceLocal = cartFromLocalStorage => {
 		const localCartPriceArray = cartFromLocalStorage.map(
 			x => x.price * x.quantity
 		)
@@ -37,8 +29,6 @@ const Cart = () => {
 		}, 0)
 		return localCartTotal
 	}
-
-	useEffect(() => console.log(cartItems))
 
 	// Get Local Storage cart items on each page load
 	useEffect(() => {
@@ -53,7 +43,7 @@ const Cart = () => {
 	// Put each item added to cart in Local Storage cart array
 	useEffect(() => {
 		localStorage.setItem('cart', JSON.stringify(cartItems))
-	}, [cartItems]) */
+	}, [cartItems])
 
 	const handleCheckout = async () => {
 		const stripe = await getStripe()

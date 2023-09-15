@@ -24,8 +24,6 @@ const Guitar = ({ guitar }) => {
 		toggleCartItemQuantity,
 	} = useStateContext()
 
-	useEffect(() => console.log(cartItems))
-
 	// Refs
 	let imageRef = useRef(null)
 	let scrollRef = useRef(null)
@@ -112,7 +110,6 @@ export const getStaticProps = async ({ params: { slug } }) => {
 
 	const guitar = await client.fetch(query)
 	const guitars = await client.fetch(guitarsQuery)
-	console.log(guitar)
 
 	return {
 		props: {
