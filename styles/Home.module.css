@@ -33,7 +33,7 @@
 	background-color: var(--main-red-color);
 }
 .effectHero {
-	background-color: var(--body-background-color);
+	background-color: #dcdcdc;
 	color: var(--main-red-color);
 }
 
@@ -63,6 +63,7 @@
 	font-size: 7rem;
 }
 .browseButton {
+	cursor: pointer;
 	background-color: var(--main-red-color);
 	color: var(--light-font-color);
 	padding: 0.9rem 1.8rem;
@@ -105,6 +106,7 @@
 	font-size: 10vmin;
 }
 .browseButtonAmp {
+	cursor: pointer;
 	max-width: fit-content;
 	background-color: var(--dark-font-color);
 	color: var(--light-font-color);
@@ -132,7 +134,7 @@
 	justify-content: center;
 	gap: 2rem;
 	border-right: 1px solid #1e1e1e;
-	background-color: var(--body-background-color);
+	/* background-color: var(--body-background-color); */
 }
 .effectRightColumn {
 	position: relative;
@@ -143,7 +145,7 @@
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	background-color: var(--body-background-color);
+	/* background-color: var(--body-background-color); */
 	overflow: hidden;
 }
 .effectText {
@@ -151,6 +153,7 @@
 	font-size: 5rem;
 }
 .browseButtonEffect {
+	cursor: pointer;
 	max-width: fit-content;
 	background-color: var(--dark-font-color);
 	color: var(--light-font-color);

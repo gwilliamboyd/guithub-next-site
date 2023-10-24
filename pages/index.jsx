@@ -137,17 +137,19 @@ export default function IndexPage({ guitars, amps }) {
 							Guitars
 						</span>
 						{/* Guitars button */}
-						<button
-							className={homeStyles.browseButton}
-							initial={{ opacity: 0 }}
-							animate={{ opacity: 1 }}
-							transition={{ delay: 2, duration: 0.85 }}>
-							<Link
-								legacyBehavior
-								href={'/guitars'}>
-								<a>Plug In!</a>
-							</Link>
-						</button>
+						<Link
+							legacyBehavior
+							href={'/guitars'}>
+							<a>
+								<button
+									className={homeStyles.browseButton}
+									initial={{ opacity: 0 }}
+									animate={{ opacity: 1 }}
+									transition={{ delay: 2, duration: 0.85 }}>
+									Plug In!
+								</button>
+							</a>
+						</Link>
 					</div>
 					<div className={homeStyles.guitarRightColumn}>
 						{guitarsImages.map((img, i) => {
@@ -228,17 +230,19 @@ export default function IndexPage({ guitars, amps }) {
 							Amplifiers
 						</span>
 						{/* amps button */}
-						<button
-							className={homeStyles.browseButtonAmp}
-							initial={{ opacity: 0 }}
-							animate={{ opacity: 1 }}
-							transition={{ delay: 2, duration: 0.85 }}>
-							<Link
-								legacyBehavior
-								href={'/amps'}>
-								<a>Crank It Up!</a>
-							</Link>
-						</button>
+						<Link
+							legacyBehavior
+							href={'/amps'}>
+							<a>
+								<button
+									className={homeStyles.browseButtonAmp}
+									initial={{ opacity: 0 }}
+									animate={{ opacity: 1 }}
+									transition={{ delay: 2, duration: 0.85 }}>
+									Crank It Up!
+								</button>
+							</a>
+						</Link>
 					</div>
 				</div>
 				{/* BANNER - EFFECT */}
@@ -255,17 +259,19 @@ export default function IndexPage({ guitars, amps }) {
 							Effects Pedals
 						</span>
 						{/* effects button */}
-						<button
-							className={homeStyles.browseButtonEffect}
-							initial={{ opacity: 0 }}
-							animate={{ opacity: 1 }}
-							transition={{ delay: 2, duration: 0.85 }}>
-							<Link
-								legacyBehavior
-								href={'/effects'}>
-								<a>Browse Here</a>
-							</Link>
-						</button>
+						<Link
+							legacyBehavior
+							href={'/effects'}>
+							<a>
+								<button
+									className={homeStyles.browseButtonEffect}
+									initial={{ opacity: 0 }}
+									animate={{ opacity: 1 }}
+									transition={{ delay: 2, duration: 0.85 }}>
+									Browse Here
+								</button>
+							</a>
+						</Link>
 					</div>
 					<div className={homeStyles.effectRightColumn}>
 						{effectsImages.map((img, i) => {

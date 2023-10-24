@@ -85,8 +85,8 @@ const Navbar = ({ products, guitars, amps }) => {
 							<a>
 								<Image
 									src={guithubLogo}
-									width={isMobile ? 100 : 150}
-									height={isMobile ? 22 : 33}
+									width={isTablet ? 100 : 150}
+									height={isTablet ? 22 : 33}
 									alt='GuitHub'
 								/>
 							</a>
