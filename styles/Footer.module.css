@@ -1,6 +1,6 @@
 .footerMaster {
 	width: 100%;
-	padding: 5rem 10rem;
+	padding: 5rem 18rem;
 	margin: 0;
 	border-top: 3px solid var(--light-font-color);
 	background-color: var(--main-red-color);
@@ -49,6 +49,11 @@
 	gap: 2rem;
 	justify-self: flex-end;
 	align-self: flex-end;
+}
+@media (max-width: 1350px) {
+	.footerMaster {
+		padding: 5rem 12rem;
+	}
 }
 @media (max-width: 1200px) {
 	.footerMaster {

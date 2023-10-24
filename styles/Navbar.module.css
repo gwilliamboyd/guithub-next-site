@@ -14,7 +14,7 @@
 	align-items: center;
 	padding: 0 2rem 0 7rem;
 	font-size: 1.1rem;
-	font-weight: 600;
+	font-weight: 400;
 }
 .storeLogo {
 	display: flex;
@@ -112,7 +112,7 @@
 	.nav {
 		padding: 0 1.5rem 0 3.5rem;
 		font-size: 1rem;
-		font-weight: 600;
+		font-weight: 500;
 	}
 	.storeLogo {
 		gap: 1rem;

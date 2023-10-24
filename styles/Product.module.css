@@ -212,7 +212,7 @@
 /* Quick Specs */
 .quickSpecs {
 	text-align: right;
-	color: var(--main-red-color);
+	color: var(--dark-font-color);
 	font-size: 1.8rem;
 	font-weight: 700;
 }

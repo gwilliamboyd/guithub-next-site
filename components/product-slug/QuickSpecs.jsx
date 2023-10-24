@@ -66,15 +66,21 @@ const QuickSpecs = ({ product, productStyles }) => {
 					</div>
 					<div className={productStyles.quickSpec}>
 						<span className={productStyles.emphasizedSpec}>
-							{product.techSpecs.number_Of_Channels}
+							{product.techSpecs.numberOfChannels}
 						</span>{' '}
 						Channels
 					</div>
 					<div className={productStyles.quickSpec}>
-						<span>{product.techSpecs.speaker_Size}</span>
+						<span className={productStyles.emphasizedSpec}>
+							{product.techSpecs.speakerSize}
+						</span>{' '}
+						Speakers
 					</div>
 					<div className={productStyles.quickSpec}>
-						<span>{product.techSpecs.eq}</span>
+						<span className={productStyles.emphasizedSpec}>
+							{product.techSpecs.eq}
+						</span>{' '}
+						EQ
 					</div>
 				</div>
 			)}
